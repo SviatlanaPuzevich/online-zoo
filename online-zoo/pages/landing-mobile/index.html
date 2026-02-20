@@ -13,18 +13,41 @@
 <header class="header">
     <div class="container header__inner">
         <img src="../../assets/icons/Logo.svg" alt="Logo" class="header__logo">
-        <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
-                  fill="black"/>
-        </svg>
+        <button id="openMenu" class="open-btn">
+            <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
+                      fill="black"/>
+            </svg>
+        </button>
     </div>
 </header>
+<!--slider-->
+<div class="side-menu" id="sideMenu">
+    <button class="close-btn" id="closeMenu">
+        <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
+                  fill="white"/>
+        </svg>
+    </button>
+
+    <nav class="side-nav">
+        <ul>
+            <li><a class="active" href="#">About</a></li>
+            <li><a href="#">Map</a></li>
+            <li><a href="#">Zoos</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Design</a></li>
+        </ul>
+    </nav>
+</div>
+<!--slider-->
 <main>
     <section class="intro">
         <div class="container">
             <h1 class="intro__title">watch your favourite animal online</h1>
-            <p class="intro__info">Explore the exciting and mysterious world of wild animals in a natural setting
+            <p class="intro__text">Explore the exciting and mysterious world of wild animals in a natural setting
                 without leaving your home.</p>
             <button class="button--primary button mobile-block">
                 View live cam
@@ -35,7 +58,7 @@
                           fill="currentColor"/>
                 </svg>
             </button>
-            <div class="image-wrapper">
+            <div class="image-wrapper mobile-only-img">
                 <img class="intro_image" src="../../assets/images/Panda1.png" alt="Panda">
             </div>
         </div>
@@ -46,7 +69,7 @@
                 <div class="image-wrapper">
                     <img class="" src="../../assets/images/Group%2011.png" alt="Welcome to Zoo">
                 </div>
-                <h2 class="info__title subheader">Welcome to the Online Zoo!</h2>
+                <h2 class="info__title">Welcome to the Online Zoo!</h2>
                 <p>
                     On our website, using live webcams, fans of all ages can observe various animals. Among them,
                     are Giant
@@ -63,7 +86,7 @@
                 <div class="image-wrapper">
                     <img class="" src="../../assets/images/Group%2012.png" alt="Eagles">
                 </div>
-                <h2 class="info__title subheader">How we work</h2>
+                <h2 class="info__title">How we work</h2>
                 <p>
                     Online Zoo is a nonprofit committed to inspiring awareness and preservation of nature and wild
                     animals
@@ -103,38 +126,75 @@
     </section>
     <section class="gallery">
         <div class="container">
-            <h2 class="subheader">meet some our Pets</h2>
-            <p>Do you have a special place in your heart for animals? Who are your favorites? Perhaps you'd like to
+            <h2>meet some our Pets</h2>
+            <p class="subheader">Do you have a special place in your heart for animals? Who are your favorites? Perhaps
+                you'd like to
                 donate to special ones or all our pets? We think it's important for you to choose how your donation
                 is used. </p>
         </div>
-        <div class="animal-card">
-            <div class="animal-card__image-wrapper">
-                <img src="../../assets/images/gallery/Australlian%20Koala.png" alt="Australian Koala"
-                     class="animal-card__image">
-                <span class="animal-card__badge subheader">Liz</span>
+        <div class="animals-grid">
+            <div class="animal-card">
+                <div class="animal-card__image-wrapper">
+                    <img src="../../assets/images/gallery/Australlian%20Koala.png" alt="Australian Koala"
+                         class="animal-card__image">
+                    <span class="animal-card__badge subheader">Liz</span>
+                </div>
+                <div class="animal-card__content">
+                    <h4 class="animal-card__title subheader">Australian Koala</h4>
+                    <p class="animal-card__text">
+                        The elevated walkways bring you to eye level with
+                        the koalas as they perch in their forest.
+                    </p>
+                    <button class="button--orange button">VIEW LIVE CAM
+                        <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="animal-card__content">
-                <h4 class="animal-card__title subheader">Australian Koala</h4>
-                <p class="animal-card__text">
-                    The elevated walkways bring you to eye level with
-                    the koalas as they perch in their forest.
-                </p>
-                <button class="button--orange button">VIEW LIVE CAM
-                    <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
-                              fill="currentColor"/>
-                    </svg>
-                </button>
+
+            <div class="animal-card">
+                <div class="animal-card__image-wrapper">
+                    <img src="../../assets/images/gallery/African%20Lion.png" alt="African Lion"
+                         class="animal-card__image">
+                    <span class="animal-card__badge subheader">Shake</span>
+                </div>
+                <div class="animal-card__content">
+                    <h4 class="animal-card__title subheader">African Lion</h4>
+                    <p class="animal-card__text">
+                        Lions roam the savannas and grasslands of Africa, hunting and raising cubs in the pride.
+                    </p>
+                    <button class="button--orange button">VIEW LIVE CAM
+                        <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
+
+        </div>
+
+        <div class="mobile-invisible">
+            <button class="button--dark button mobile-block">Choose Your Favourite
+                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                          fill="currentColor"/>
+                </svg>
+            </button>
         </div>
 
     </section>
     <section class="feed">
         <div class="container">
-            <h2 class="feed__title subheader">pay and feed</h2>
+            <h2 class="feed__title">pay and feed</h2>
             <div class="item-divider">
                 <span class="item-divider__number subheader">01</span>
                 <span class="item-divider__line"></span>
@@ -260,7 +320,7 @@
         <div class="container">
             <div class="reviews__header">
                 <h2 class="reviews__title">what our users think</h2>
-                <p>
+                <p class="subheader">
                     We are continuously striving to improve the experiences of our future guests. Below you can leave
                     your
                     own feedback, or simply view feedback from past clients.
@@ -288,6 +348,23 @@
                             <div class="reviews__item__author">Karen Maithlan
                             </div>
                         </div>
+
+                        <div class="reviews__item">
+                            <div class="reviews__item__image">
+                                <svg width="59" height="45" viewBox="0 0 59 45" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.2798 19.5591C22.5198 20.5991 24.2398 22.1591 25.4398 24.2391C26.7198 26.2391 27.3598 28.5991 27.3598 31.3191C27.3598 35.3191 26.0798 38.5591 23.5198 41.0391C20.9598 43.5191 17.6798 44.7591 13.6798 44.7591C9.67977 44.7591 6.39977 43.5191 3.83977 41.0391C1.27977 38.5591 -0.000234291 35.3191 -0.000234291 31.3191C-0.000234291 29.4791 0.239766 27.6391 0.719766 25.7991C1.19977 23.9591 2.27977 21.2391 3.95977 17.6391L11.6398 -0.000942707H25.9198L20.2798 19.5591ZM51.7198 19.5591C53.9598 20.5991 55.6798 22.1591 56.8798 24.2391C58.1598 26.2391 58.7998 28.5991 58.7998 31.3191C58.7998 35.3191 57.5198 38.5591 54.9598 41.0391C52.3998 43.5191 49.1198 44.7591 45.1198 44.7591C41.1198 44.7591 37.8398 43.5191 35.2798 41.0391C32.7198 38.5591 31.4398 35.3191 31.4398 31.3191C31.4398 29.4791 31.6798 27.6391 32.1598 25.7991C32.6398 23.9591 33.7198 21.2391 35.3998 17.6391L43.0798 -0.000942707H57.3598L51.7198 19.5591Z"
+                                          fill="#00A092"/>
+                                </svg>
+                            </div>
+                            <div class="reviews__item__title subheader">Toronto, November 2020</div>
+                            <div class="reviews__item__text">We so enjoy the ever-evolving selection of animals from
+                                around the globe. THANK YOU for sharing these fascinating animal friends with us so that
+                                we may learn and increase our understanding of the animal kingdom.
+                            </div>
+                            <div class="reviews__item__author">Carol Larsen
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="slider__dots">
@@ -310,8 +387,8 @@
     </section>
     <section class="care">
         <div class="container">
-            <h2 class="subheader">care for the animals you love</h2>
-            <p>You can help to look after the animals you love with your gift today
+            <h2>care for the animals you love</h2>
+            <p class="subheader">You can help to look after the animals you love with your gift today
             </p>
             <div class="slider">
                 <div class="slider__wrapper">
@@ -369,33 +446,34 @@
 </main>
 <footer class="footer">
     <div class="container">
-        <div class="footer__logos">
-            <div class="logo__wrapper">
-                <img src="../../assets/icons/Logo-white.svg" alt="Logo" class="footer__logo">
+        <div class="footer__top">
+            <div class="footer__logos">
+                <div class="logo__wrapper">
+                    <img src="../../assets/icons/Logo-white.svg" alt="Logo" class="footer__logo">
+                </div>
+                <div class="logo__wrapper">
+                    <img src="../../assets/icons/Yem%20Digital.svg" alt="yem logo" class="footer__logo">
+                </div>
+                <div class="logo__wrapper">
+                    <img src="../../assets/icons/rs_school_js%20logo.svg" alt="RSSchool logo" class="footer__logo">
+                </div>
             </div>
-            <div class="logo__wrapper">
-                <img src="../../assets/icons/Yem%20Digital.svg" alt="yem logo" class="footer__logo">
-            </div>
-            <div class="logo__wrapper">
-                <img src="../../assets/icons/rs_school_js%20logo.svg" alt="RSSchool logo" class="footer__logo">
-            </div>
-        </div>
-        <nav class="footer__nav">
-
+            <nav class="footer__nav">
                 <div><a class="nav__link" href="#">About</a></div>
                 <div><a class="nav__link" href="#">Map</a></div>
                 <div><a class="nav__link" href="#">Zoos</a></div>
                 <div><a class="nav__link" href="#">Contact Us</a></div>
-
-        </nav>
-        <button class="button--white button mobile-block">donate for volunteers
-            <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
-                      fill="currentColor"/>
-            </svg>
-        </button>
+            </nav>
+            <button class="button--white button mobile-block">donate for volunteers
+                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                          fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
+        <div class="footer__divider"></div>
         <div class="footer__social"><a href="#" class="social__link"><img class="social__icon"
                                                                           src="../../assets/icons/YouTube.svg"
                                                                           alt="Youtube"></a>
@@ -403,7 +481,7 @@
                                                   alt="Instagram"></a>
             <a href="#" class="social__link"><img class="social__icon" src="../../assets/icons/Facebook.svg"
                                                   alt="Facebook"></a></div>
-        <div class="footer__divider"></div>
+        <div class="footer__divider mobile-only"></div>
         <div class="footer__copyright">
             <div>© 2021 DinaK</div>
             <div>© Yem Digital</div>
@@ -413,6 +491,7 @@
 </footer>
 </body>
 <script>
+    // slider
     const slider = document.querySelector('.slider__wrapper');
     const dots = document.querySelectorAll('.dot');
     let currentIndex = 0;
@@ -429,6 +508,23 @@
             currentIndex = index;
             updateSlider();
         });
+    });
+
+
+    // side menu
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    const menu = document.getElementById('sideMenu');
+
+    openBtn.addEventListener('click', () => {
+        menu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+
+    closeBtn.addEventListener('click', () => {
+        menu.classList.remove('active');
+        document.body.style.overflow = '';
     });
 </script>
 
