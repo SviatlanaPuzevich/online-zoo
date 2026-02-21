@@ -86,6 +86,7 @@ h1, h2 {
 
 h1 {
     font-weight: 800;
+    font-size: 40px;
 }
 
 
@@ -100,25 +101,7 @@ h3 {
     font-size: 26px;
 }
 
-@media (min-width: 640px) {
-    h1, h2, h3 {
-        line-height: 100%;
-    }
 
-    h1 {
-        font-size: 72px;
-    }
-
-    h2 {
-        font-size: 54px;
-        font-weight: 600;
-    }
-
-    h3 {
-        font-size: 42px;
-    }
-
-}
 
 .image-wrapper {
     margin: 0 -10px;
@@ -139,6 +122,39 @@ h3 {
     font-size: 26px;
     font-weight: 500;
     line-height: 130%;
+}
+
+.subheader2 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+@media (min-width: 640px) {
+    h1, h2, h3 {
+        line-height: 100%;
+    }
+
+    h1 {
+        font-size: 72px;
+    }
+
+    h2 {
+        font-size: 54px;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 42px;
+    }
+
+    .subheader2 {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 130%;
+
+    }
+
 }
 
 /*--------------Header---------------------------*/
@@ -193,6 +209,7 @@ h3 {
 /*---------------Buttons-----------------*/
 .button {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
     color: var(--white);
@@ -201,6 +218,7 @@ h3 {
     padding: 25px 30px;
     border-radius: 5px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 @media (max-width: 320px) {
@@ -294,7 +312,6 @@ h3 {
     min-height: 45px;
     min-width: 45px;
     border-radius: 5px;
-    /*height: 74px;*/
     background: var(--orange);
     display: flex;
     margin-left: auto;
@@ -386,8 +403,7 @@ h3 {
     }
 
 
-
-    .footer__top{
+    .footer__top {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -409,27 +425,50 @@ h3 {
 
 /*-------------Footer----End------------------------*/
 
-/*----------------Intro Section---------------------*/
+/*----------------Hero Section---------------------*/
 
-
-.intro__title {
-    font-size: 40px;
-    text-align: left;
+.hero__container {
+    display: flex;
+    flex-direction: column;
 }
+
+.hero__image {
+    height: 300px;
+    background-size: 150%;
+    background-position: 100% center;
+    background-image: url("../../assets/images/Panda1Background.png");
+    background-repeat: no-repeat;
+}
+
 
 @media (min-width: 640px) {
-    .intro {
-        background-image: url('../../assets/images/Panda1Background.png');
-
+    .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 600px;
     }
 
-    .intro__text {
+    .hero__content {
+        z-index: 1;
+    }
+
+    .hero__text {
         max-width: 339px;
     }
+
+    .hero__image {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 0;
+        background-size: 100%;
+        height: 70%;
+    }
+
 }
 
-
-/*----------------Intro Section--END----------------*/
+/*----------------Hero Section--END----------------*/
 
 /*-------------Info section-------------------------*/
 .info {
@@ -505,13 +544,20 @@ h3 {
 }
 
 .animal-card__image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
     position: relative;
+
 }
 
 .animal-card__image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .animal-card__badge {
@@ -541,15 +587,6 @@ h3 {
     margin-bottom: 28px;
 }
 
-@media (min-width: 640px) {
-
-    .animals-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-    }
-
-}
 
 /*--------------Gallery Section ----END-------------*/
 
@@ -647,7 +684,7 @@ section {
 }
 
 @media (min-width: 640px) {
-    .reviews__header{
+    .reviews__header {
         text-align: left;
     }
 
@@ -674,15 +711,25 @@ section {
     padding-top: 50px;
 }
 
+.donate-slider {
+    overflow: hidden;
+}
+
+.donate-slider__track {
+    display: flex;
+}
+
 
 .donate-card {
+    display: flex;
+    flex-direction: column;
     min-width: 100%;
     border-radius: 5px;
     overflow: hidden;
 }
 
 
-.donate-card__image {
+.donate-card__image img {
     width: 100%;
     height: auto;
     display: block;
@@ -702,18 +749,23 @@ section {
     margin-bottom: 24px;
 }
 
-.slider {
-    width: 100%;
-    overflow: hidden;
-    padding-bottom: 20px;
+@media (min-width: 640px) {
+
+    .donate-card {
+        flex-direction: row;
+    }
+
+    .donate-card__image,
+    .donate-card__content {
+        width: 50%;
+    }
+
+    .donate-card__image img {
+        height: 100%;
+        object-fit: cover;
+    }
+
 }
-
-
-.slider__wrapper {
-    display: flex;
-    transition: transform 0.3s ease;
-}
-
 
 .slider__dots {
     display: flex;
@@ -736,9 +788,44 @@ section {
 
 .farewell-image {
     margin: 50px 0;
+
 }
 
+/*.farewell-image img {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    object-fit: cover;*/
+/*    object-position: center;*/
+/*    transform: scale(1.2);*/
+/*}*/
+
 /*--------------Care Section----END---------------*/
+
+/*---------------Animal Slider-------------------*/
+.animal-slider {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    overflow-x: auto;
+}
+
+
+.animal-slider__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+
+.animal-slider__dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/*---------------Animal Slider----END-------------*/
 
 
 /*----------------Side Menu----------------------*/
@@ -751,7 +838,7 @@ section {
     background-color: var(--navy);
     color: var(--white);
     z-index: 1000;
-    transition: top 0.4s ease-in-out;
+    transition: left 0.4s ease-in-out;
     display: flex;
     flex-direction: column;
 }
@@ -804,3 +891,51 @@ section {
         display: none;
     }
 }
+
+
+/*-----------------POPUP---------------------------*/
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1000;
+}
+
+.popup.is-active {
+    display: flex;
+}
+
+.popup__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 40px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+/*-----------------POPUP---END--------------------*/
