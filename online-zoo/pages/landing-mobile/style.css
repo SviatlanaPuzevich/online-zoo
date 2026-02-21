@@ -155,6 +155,14 @@ h3 {
 
     }
 
+    .container {
+        padding: 0 20px;
+    }
+
+    .image-wrapper {
+        margin: 0 -20px;
+    }
+
 }
 
 /*--------------Header---------------------------*/
@@ -289,6 +297,7 @@ h3 {
 }
 
 .donate-button {
+    max-width: 350px;
     display: flex;
     padding: 0;
     cursor: pointer;
@@ -319,9 +328,15 @@ h3 {
     justify-content: center;
 }
 
-.btn:hover .btn__icon,
-.btn:active .btn__icon {
+.donate-button:hover .donate-button__icon,
+.donate-button:active .donate-button__icon {
     background: var(--dark-orange);
+}
+
+@media (min-width: 640px) {
+    .donate-button__text {
+        padding: 20px;
+    }
 }
 
 /*-----------------Buttons End-----------------------*/
@@ -333,6 +348,13 @@ h3 {
     background: var(--navy);
     color: var(--white);
     padding: 50px 0;
+    text-align: center;
+}
+
+.footer__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -384,10 +406,6 @@ h3 {
 }
 
 @media (min-width: 640px) {
-    .footer {
-        text-align: center;
-        padding: 50px 0;
-    }
 
 
     .footer__logos {
@@ -518,6 +536,7 @@ h3 {
 .quick-donate {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
@@ -537,7 +556,19 @@ h3 {
     text-align: center;
 }
 
+.animal-slider {
+    overflow: hidden;
+    padding: 0  ;
+}
+
+.animal-slider__track {
+    display: flex;
+    gap: 20px;
+}
+
 .animal-card {
+    max-width: 300px;;
+    flex: 0 0 100%;
     border-radius: 5px;
     overflow: hidden;
     background: var(--navy);
@@ -545,30 +576,28 @@ h3 {
 
 .animal-card__image-wrapper {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
+    aspect-ratio: 3 / 4;
     position: relative;
-
+    overflow: hidden;
 }
 
 .animal-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: 100%;
     display: block;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
 
 .animal-card__badge {
     position: absolute;
     top: 0;
     left: 0;
-
     background: var(--navy);
     color: var(--white);
-
     padding: 8px 16px;
+    z-index: 10;
 
 }
 
@@ -587,6 +616,35 @@ h3 {
     margin-bottom: 28px;
 }
 
+.animal-card__image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    pointer-events: none;
+}
+
+@media (min-width: 640px) {
+
+    .animal-slider__track {
+        padding: 0 20px;
+    }
+
+    .animal-card {
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    .animal-card__image-wrapper {
+        aspect-ratio: 3 / 4;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .animal-card__image-wrapper::after {
+        display: none;
+    }
+}
 
 /*--------------Gallery Section ----END-------------*/
 
@@ -638,6 +696,17 @@ h3 {
 
 section {
     display: flow-root;
+}
+
+@media (min-width: 640px) {
+
+    .item-divider {
+        margin: 35px 0 35px 0;
+    }
+
+    .feed__button {
+        text-align: center;
+    }
 }
 
 /*-----------Pay And Feed Section----END-------------------*/
@@ -791,14 +860,6 @@ section {
 
 }
 
-/*.farewell-image img {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    object-fit: cover;*/
-/*    object-position: center;*/
-/*    transform: scale(1.2);*/
-/*}*/
-
 /*--------------Care Section----END---------------*/
 
 /*---------------Animal Slider-------------------*/
@@ -889,6 +950,17 @@ section {
 @media (min-width: 640px) {
     .mobile-only {
         display: none;
+    }
+
+}
+
+.tablet-only {
+    display: none;
+}
+
+@media (min-width: 640px) and (max-width: 1200px) {
+    .tablet-only {
+        display: block;
     }
 }
 
