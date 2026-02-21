@@ -171,10 +171,6 @@ h3 {
     }
 
 
-    h3 {
-        font-size: 42px;
-    }
-
     .subheader2 {
         font-weight: 500;
         font-size: 26px;
@@ -187,7 +183,12 @@ h3 {
     }
 
     .image-wrapper {
-        margin: 0 -40px;
+        margin: 0;
+    }
+
+    .image-wrapper img {
+        width: auto;
+        max-width: 100%;
     }
 
 }
@@ -455,6 +456,10 @@ h3 {
     margin: 30px 0;
 }
 
+.tablet-devider {
+    display: none;
+}
+
 @media (min-width: 640px) {
 
 
@@ -489,6 +494,39 @@ h3 {
         gap: 50px;
     }
 
+    .tablet-devider {
+        display: block;
+        margin: 0 -40px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .hide-on-desktop {
+        display: none;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+    .footer__top {
+        flex-direction: row;
+        padding-bottom: 20px;
+    }
+
+    .footer__bottom--desktop {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+
+
+    .footer__bottom--desktop > :last-child {
+        margin-right: auto;
+    }
+
+/*1920 -60 = 1860*/
 }
 
 /*-------------Footer----End------------------------*/
@@ -590,7 +628,7 @@ h3 {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin:0 60px 100px 60px;
+        margin: 0 60px 100px 60px;
     }
 
     .info__text {
@@ -602,7 +640,7 @@ h3 {
         margin: 0;
     }
 
-    .info__container{
+    .info__container {
         display: flex;
         flex-direction: column;
     }
@@ -638,7 +676,7 @@ h3 {
 
 @media (min-width: 1200px) {
 
-    .donation__container{
+    .donation__container {
         display: flex;
         gap: 100px;
     }
@@ -653,7 +691,7 @@ h3 {
     }
 
     .left-title {
-        margin: 50px  0;
+        margin: 50px 0;
     }
 
     .right-title {
@@ -840,6 +878,20 @@ section {
         margin: 35px 0 35px 0;
     }
 
+}
+
+@media (min-width: 1200px) {
+    .feed-item {
+        display: flex;
+    }
+
+    .feed-item__content {
+        flex: 1;
+    }
+
+    .feed-item__img {
+        flex: 1;
+    }
 }
 
 /*-----------Pay And Feed Section----END-------------------*/
@@ -1098,22 +1150,6 @@ section {
         display: none;
     }
 
-}
-
-.tablet-only {
-    display: none;
-}
-
-@media (min-width: 640px) and (max-width: 1200px) {
-    .tablet-only {
-        display: block;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hide-on-desktop {
-        display: none;
-    }
 }
 
 
