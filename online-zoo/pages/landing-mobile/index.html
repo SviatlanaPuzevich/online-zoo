@@ -13,13 +13,32 @@
 <header class="header">
     <div class="container header__inner">
         <img src="../../assets/icons/Logo.svg" alt="Logo" class="header__logo">
-        <button id="openMenu" class="open-btn">
+        <button id="openMenu" class="open-btn hide-on-desktop">
             <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
                       fill="black"/>
             </svg>
         </button>
+        <div class="header__right-panel">
+            <nav class="header__nav">
+                <div><a class="nav__link nav__link--active" href="#">About</a></div>
+                <div><a class="nav__link" href="#">Map</a></div>
+                <div><a class="nav__link" href="#">Zoos</a></div>
+                <div><a class="nav__link" href="#">Contact Us</a></div>
+            </nav>
+            <div class="header__social"><a href="https://www.youtube.com/" class="social__link"><img
+                    class="social__icon"
+                    src="../../assets/icons/YouTube.svg"
+                    alt="YouTube"></a>
+                <a href="https://www.instagram.com/" class="social__link"><img class="social__icon"
+                                                                               src="../../assets/icons/Instagram.svg"
+                                                                               alt="Instagram"></a>
+                <a href="https://www.facebook.com/" class="social__link"><img class="social__icon"
+                                                                              src="../../assets/icons/Facebook.svg"
+                                                                              alt="Facebook"></a></div>
+            <div class="footer__divider mobile-only"></div>
+        </div>
     </div>
 </header>
 <!--slider-->
@@ -65,62 +84,67 @@
         </div>
     </section>
     <section class="info">
-        <div class="container">
-            <div>
-                <div class="image-wrapper">
+        <div class="container info__container">
+            <div class="info__item">
+                <div class="image-wrapper info__image-wrapper">
                     <img class="" src="../../assets/images/Group%2011.png" alt="Welcome to Zoo">
                 </div>
-                <h2 class="info__title">Welcome to the Online Zoo!</h2>
-                <p>
-                    On our website, using live webcams, fans of all ages can observe various animals. Among them,
-                    are Giant
-                    pandas, eagles, alligators, forest gorillas, African lions, and others. It is the whole natural
-                    world in
-                    real-time in front of our cameras. We hope you will enjoy watching closely and explore animals’
-                    behavior
-                    and habitats! Note: animals are not always on view on cameras, so please check back if you don't
-                    see
-                    anything.
-                </p>
+                <div class="info__text">
+                    <h2 class="info__title">Welcome to the Online Zoo!</h2>
+                    <p class="info__text">
+                        On our website, using live webcams, fans of all ages can observe various animals. Among them,
+                        are Giant
+                        pandas, eagles, alligators, forest gorillas, African lions, and others. It is the whole natural
+                        world in
+                        real-time in front of our cameras. We hope you will enjoy watching closely and explore animals’
+                        behavior
+                        and habitats! Note: animals are not always on view on cameras, so please check back if you don't
+                        see
+                        anything.
+                    </p>
+                </div>
             </div>
-            <div>
-                <div class="image-wrapper">
+            <div class="info__item info__item--reverse">
+                <div class="image-wrapper info__image-wrapper">
                     <img class="" src="../../assets/images/Group%2012.png" alt="Eagles">
                 </div>
-                <h2 class="info__title">How we work</h2>
-                <p>
-                    Online Zoo is a nonprofit committed to inspiring awareness and preservation of nature and wild
-                    animals
-                    in our zoo and worldwide. Every day, our experts work to safeguard the health and wellness of
-                    the
-                    animals. To continue these efforts, we need your help. We're so grateful to our numerous
-                    supporters. All
-                    donations, large and small, go a long way to the conservation efforts of our pets.
-                </p>
+                <div class="info__text">
+                    <h2 class="info__title">How we work</h2>
+                    <p>
+                        Online Zoo is a nonprofit committed to inspiring awareness and preservation of nature and wild
+                        animals
+                        in our zoo and worldwide. Every day, our experts work to safeguard the health and wellness of
+                        the
+                        animals. To continue these efforts, we need your help. We're so grateful to our numerous
+                        supporters. All
+                        donations, large and small, go a long way to the conservation efforts of our pets.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
     <section class="donation">
-        <div class="container">
-            <h3>Your donation makes a difference!</h3>
-            <p>The Online Zoo's animal webcams are some of the most famous on the internet. Tune in to watch
-                your
-                favourite animals — live, 24/7!</p>
-            <div class="quick-donate">
-                <p class="subheader">Quick Donate</p>
+        <div class="container donation__container">
+            <div class="donation__left">
+                <h3 class="left-title">Your donation makes a difference!</h3>
+                <p>The Online Zoo's animal webcams are some of the most famous on the internet. Tune in to watch
+                    your
+                    favourite animals — live, 24/7!</p>
+            </div>
+            <div class="donation__right">
+                <p class="right-title subheader">Quick Donate</p>
                 <button class="donate-button mobile-block">
-                <span class="donate-button__text">
-                $ Donation Amount
-                </span>
+                    <span class="donate-button__text">
+                        $ Donation Amount
+                    </span>
                     <span class="donate-button__icon">
                                     <svg width="25" height="22" viewBox="0 0 25 22" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
-                          fill="currentColor"/>
-                </svg>
-                </span>
-
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                              fill="currentColor"/>
+                        </svg>
+                    </span>
                 </button>
             </div>
         </div>
@@ -180,6 +204,97 @@
                             </button>
                         </div>
                     </div>
+
+
+                    <div class="animal-card">
+                        <div class="animal-card__image-wrapper">
+                            <img src="../../assets/images/gallery/GiantPanda.png" alt="Giant Panda"
+                                 class="animal-card__image">
+                            <span class="animal-card__badge subheader">Lucas</span>
+                        </div>
+                        <div class="animal-card__content">
+                            <h4 class="animal-card__title subheader">Giant Panda</h4>
+                            <p class="animal-card__text">
+                                Native to central China, giant pandas have come to symbolize vulnerable species.
+                            </p>
+                            <button class="button--orange button">VIEW LIVE CAM
+                                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                          fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="animal-card">
+                        <div class="animal-card__image-wrapper">
+                            <img src="../../assets/images/gallery/Madagascarian%20Lemur.png" alt="Madagascarian Lemur"
+                                 class="animal-card__image">
+                            <span class="animal-card__badge subheader">Andy</span>
+                        </div>
+                        <div class="animal-card__content">
+                            <h4 class="animal-card__title subheader">Madagascarian Lemur</h4>
+                            <p class="animal-card__text">
+                                Lemurs are considered the world’s most endangered group of mammals.
+                            </p>
+                            <button class="button--orange button">VIEW LIVE CAM
+                                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                          fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="animal-card">
+                        <div class="animal-card__image-wrapper">
+                            <img src="../../assets/images/gallery/KongoGorilla.jpg" alt="Gorilla in Congo "
+                                 class="animal-card__image">
+                            <span class="animal-card__badge subheader">Glen</span>
+                        </div>
+                        <div class="animal-card__content">
+                            <h4 class="animal-card__title subheader">Gorilla in Congo</h4>
+                            <p class="animal-card__text">
+                                Variety of snacks very important for the healthy life of gorillas and his plenty of babies.
+                            </p>
+                            <button class="button--orange button">VIEW LIVE CAM
+                                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                          fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="animal-card">
+                        <div class="animal-card__image-wrapper">
+                            <img src="../../assets/images/gallery/WestEagels.png" alt="West End Bald Eagles"
+                                 class="animal-card__image">
+                            <span class="animal-card__badge subheader">Sam & Lora</span>
+                        </div>
+                        <div class="animal-card__content">
+                            <h4 class="animal-card__title subheader">West End Bald Eagles</h4>
+                            <p class="animal-card__text">
+                                Pair of eagle parents lay and protect eggs, feed their chicks and teach them to hunt and fly.
+                            </p>
+                            <button class="button--orange button">VIEW LIVE CAM
+                                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                          fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -481,13 +596,15 @@
             </div>
         </div>
         <div class="footer__divider tablet-only"></div>
-        <div class="footer__social"><a href="#" class="social__link"><img class="social__icon"
-                                                                          src="../../assets/icons/YouTube.svg"
-                                                                          alt="Youtube"></a>
-            <a href="#" class="social__link"><img class="social__icon" src="../../assets/icons/Instagram.svg"
-                                                  alt="Instagram"></a>
-            <a href="#" class="social__link"><img class="social__icon" src="../../assets/icons/Facebook.svg"
-                                                  alt="Facebook"></a></div>
+        <div class="footer__social"><a href="https://www.youtube.com/" class="social__link"><img class="social__icon"
+                                                                                                 src="../../assets/icons/YouTube.svg"
+                                                                                                 alt="Youtube"></a>
+            <a href="https://www.instagram.com/" class="social__link"><img class="social__icon"
+                                                                           src="../../assets/icons/Instagram.svg"
+                                                                           alt="Instagram"></a>
+            <a href="https://www.facebook.com/" class="social__link"><img class="social__icon"
+                                                                          src="../../assets/icons/Facebook.svg"
+                                                                          alt="Facebook"></a></div>
         <div class="footer__divider mobile-only"></div>
         <div class="footer__copyright">
             <div>© 2021 DinaK</div>
