@@ -14,7 +14,7 @@
 <header class="header">
     <div class="container header__inner">
         <img src="../../assets/icons/Logo.svg" alt="Logo" class="header__logo">
-        <button id="openMenu" class="open-btn hide-on-desktop">
+        <button id="openMenu" popovertarget="side-menu" class="open-btn hide-on-desktop">
             <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
@@ -23,10 +23,10 @@
         </button>
         <div class="header__right-panel">
             <nav class="header__nav">
-                <div><a class="nav__link" href="#">About</a></div>
+                <div><a class="nav__link nav__link--active" href="#">About</a></div>
                 <div><a class="nav__link" href="#">Map</a></div>
-                <div><a class="nav__link nav__link--active" href="#">Zoos</a></div>
-                <div><a class="nav__link " href="#">Contact Us</a></div>
+                <div><a class="nav__link" href="#">Zoos</a></div>
+                <div><a class="nav__link" href="#">Contact Us</a></div>
             </nav>
             <div class="header__social"><a href="https://www.youtube.com/" class="social__link"><img
                     class="social__icon"
@@ -43,24 +43,26 @@
     </div>
 </header>
 <!--slider-->
-<div class="side-menu" id="sideMenu">
-    <button class="close-btn" id="closeMenu">
-        <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
-                  fill="white"/>
-        </svg>
-    </button>
+<div class="side-menu" id="side-menu" popover>
+    <div class="side-menu__container">
+        <button class="close-btn" popovertarget="side-menu" popovertargetaction="hide">
+            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
+                      fill="white"/>
+            </svg>
+        </button>
 
-    <nav class="side-nav">
-        <ul>
-            <li><a  href="#">About</a></li>
-            <li><a href="#">Map</a></li>
-            <li><a class="active" href="#">Zoos</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Design</a></li>
-        </ul>
-    </nav>
+        <nav class="side-nav">
+            <ul>
+                <li><a class="active" href="#">About</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Zoos</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Design</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 <!--slider-->
 <main>

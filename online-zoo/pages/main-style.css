@@ -13,6 +13,11 @@ html, body {
     margin: 0;
 }
 
+.scroll-disabled {
+    overflow: hidden;
+}
+
+
 /* Regular */
 @font-face {
     font-family: 'Montserrat';
@@ -527,81 +532,17 @@ h3 {
 /*-------------Footer----End------------------------*/
 
 
-
-/*-------------Donation section---------------------*/
-.donation {
-    text-align: center;
-    background-color: var(--navy);
-    color: var(--white);
-    padding: 30px 0;
-}
-
-.donation__right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.right-title {
-    margin: 2px 0;
-}
-
-@media (min-width: 1200px) {
-
-    .donation__container {
-        display: flex;
-        gap: 100px;
-    }
-
-    .donation__left {
-        text-align: left;
-        flex: 7;
-    }
-
-    .donation__right {
-        flex: 3;
-        min-width: 300px;
-        align-items: flex-start;
-    }
-
-    .left-title {
-        margin: 50px 0;
-    }
-
-    .right-title {
-        margin: 50px 2px 0;
-    }
-}
-
-@media (min-width: 1920px) {
-
-    .donation__text {
-        max-width: 610px;
-    }
-}
-
-/*---------Donation section---End-------------------*/
-
-
-
 /*----------------Side Menu----------------------*/
 .side-menu {
-    position: fixed;
-    top: -100%;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: var(--navy);
     color: var(--white);
-    z-index: 1000;
-    transition: left 0.4s ease-in-out;
+}
+.side-menu__container {
     display: flex;
     flex-direction: column;
-}
-
-.side-menu.active {
-    top: 0;
 }
 
 .close-btn {
@@ -650,6 +591,23 @@ h3 {
 
 }
 
+.tablet-only {
+    display: none;
+}
+
+@media (min-width: 640px) and (max-width: 1200px) {
+    .tablet-only {
+        display: block;
+    }
+}
+@media (min-width: 1200px) {
+    .desktop-only {
+        display: block;
+    }
+}
+
+
+/*-----------------POPUP---------------------------*/
 .popup {
     padding: 0;
 }
@@ -666,3 +624,120 @@ body:has([popover]:popover-open) {
 .popup.is-active {
     display: flex;
 }
+
+.donation-header {
+    height: 167px;
+    background-size: 150%;
+    background-position: 100% center;
+    background-image: url("../assets/images/popupHeader.jpg");
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+}
+.popup__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    max-width: 640px;
+    margin: auto;
+    /* padding: 40px 20px; */
+    overflow-y: auto;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+@media (min-width: 320px) {
+    .popup__content {
+        height: auto;
+        max-height: 100%;
+    }
+}
+
+.popup__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.popup__title {
+    font-size: 26px;
+    text-align: center;
+}
+.popup__buttons {
+    max-width: 320px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    justify-content: space-between;
+    gap: 30px 0;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 640px) {
+    .popup__buttons {
+        max-width: 445px;
+        grid-template-columns: repeat(3, 135px);
+    }
+}
+.popup__buttons > button {
+    flex-basis: 130px;
+    /* margin: auto; */
+}
+.popup__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.text-center {
+    text-align: center;
+}
+.popup-title--accent {
+    color: #F58021;
+}
+.popup-header--accent {
+    background-color: #F58021;
+    color: white;
+    text-align: center;
+}
+.popup-header--accent .popup__title {
+    color: white;
+    max-width: 200px;
+    margin: 30px auto;
+}
+.donation-info {
+    padding: 0;
+    border-bottom: 1px solid #A4A8AE;
+}
+.donation-btns {
+    display: flex;
+    gap: 30px 0;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.donation-item {
+    width: 50%;
+    flex: 1;
+    /* flex-basis: 130px; */
+    margin: auto;
+}
+.other-amount {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+.other-amount-item {
+    flex: 1;
+    margin: auto;
+}
+.other-amount-item > input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+/*-----------------POPUP---END--------------------*/
