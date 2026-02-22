@@ -13,7 +13,7 @@
 <header class="header">
     <div class="container header__inner">
         <img src="../../assets/icons/Logo.svg" alt="Logo" class="header__logo">
-        <button id="openMenu" class="open-btn hide-on-desktop">
+        <button id="openMenu" popovertarget="side-menu" class="open-btn hide-on-desktop">
             <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
@@ -42,24 +42,26 @@
     </div>
 </header>
 <!--slider-->
-<div class="side-menu" id="sideMenu">
-    <button class="close-btn" id="closeMenu">
-        <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
-                  fill="white"/>
-        </svg>
-    </button>
+<div class="side-menu" id="side-menu" popover>
+    <div class="side-menu__container">
+        <button class="close-btn" popovertarget="side-menu" popovertargetaction="hide">
+            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
+                      fill="white"/>
+            </svg>
+        </button>
 
-    <nav class="side-nav">
-        <ul>
-            <li><a class="active" href="#">About</a></li>
-            <li><a href="#">Map</a></li>
-            <li><a href="#">Zoos</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Design</a></li>
-        </ul>
-    </nav>
+        <nav class="side-nav">
+            <ul>
+                <li><a class="active" href="#">About</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Zoos</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Design</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 <!--slider-->
 <main>
@@ -437,8 +439,8 @@
             <div class="feed-item">
                 <div class="feed-item__img"></div>
                 <div class="feed-item__content ">
-
-                    <button class="button--primary button mobile-block feed__button">donate now
+                    <button id="donate-now-btn" popovertarget="feed-popup"
+                            class="button--primary button mobile-block feed__button">donate now
                         <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -452,70 +454,133 @@
         </div>
     </section>
     <section class="reviews">
-        <div class="container">
+        <div class="container reviews__container">
             <div class="reviews__header">
                 <h2 class="reviews__title">what our users think</h2>
-                <p class="subheader2">
-                    We are continuously striving to improve the experiences of our future guests. Below you can leave
+                <p class="subheader2 reviews__subtitle">
+                    We are continuously striving to impbackground-size: cover;rove the experiences of our future guests.
+                    Below you can leave
                     your
                     own feedback, or simply view feedback from past clients.
                 </p>
             </div>
+            hero
             <div class="slider">
-                <div class="slider__wrapper">
+                <input type="radio" class="slider__state" name="slide" id="s1" checked hidden>
+                <input type="radio" class="slider__state" name="slide" id="s2" hidden>
+                <input type="radio" class="slider__state" name="slide" id="s3" hidden>
+                <input type="radio" class="slider__state" name="slide" id="s4" hidden>
 
-                    <div class="reviews__list">
-                        <div class="reviews__item">
-                            <div class="reviews__item__image">
+                <div class="slider__container">
+                    <div class="slider__wrapper">
+
+                        <div id="reviews-0" class="reviews-item">
+                            <div class="reviews-item__image">
                                 <svg width="59" height="45" viewBox="0 0 59 45" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path d="M20.2798 19.5591C22.5198 20.5991 24.2398 22.1591 25.4398 24.2391C26.7198 26.2391 27.3598 28.5991 27.3598 31.3191C27.3598 35.3191 26.0798 38.5591 23.5198 41.0391C20.9598 43.5191 17.6798 44.7591 13.6798 44.7591C9.67977 44.7591 6.39977 43.5191 3.83977 41.0391C1.27977 38.5591 -0.000234291 35.3191 -0.000234291 31.3191C-0.000234291 29.4791 0.239766 27.6391 0.719766 25.7991C1.19977 23.9591 2.27977 21.2391 3.95977 17.6391L11.6398 -0.000942707H25.9198L20.2798 19.5591ZM51.7198 19.5591C53.9598 20.5991 55.6798 22.1591 56.8798 24.2391C58.1598 26.2391 58.7998 28.5991 58.7998 31.3191C58.7998 35.3191 57.5198 38.5591 54.9598 41.0391C52.3998 43.5191 49.1198 44.7591 45.1198 44.7591C41.1198 44.7591 37.8398 43.5191 35.2798 41.0391C32.7198 38.5591 31.4398 35.3191 31.4398 31.3191C31.4398 29.4791 31.6798 27.6391 32.1598 25.7991C32.6398 23.9591 33.7198 21.2391 35.3998 17.6391L43.0798 -0.000942707H57.3598L51.7198 19.5591Z"
                                           fill="#00A092"/>
                                 </svg>
                             </div>
-                            <div class="reviews__item__title subheader">New Jersey, November 2020</div>
-                            <div class="reviews__item__text">I am writing to thank you for your mission is to bring
-                                people
-                                closer to nature! Like myself, children were very impressed by the opportunity to
-                                explore the
-                                life of incredible animals in real-time.
+                            <div class="reviews-item__title subheader">New Jersey, November 2020</div>
+                            <div class="reviews-item__text">I am writing to thank you for your mission is to bring
+                                people closer to nature! Like myself, children were very impressed by the opportunity to
+                                explore the life of incredible animals in real-time.
                             </div>
-                            <div class="reviews__item__author">Karen Maithlan
-                            </div>
+                            <div class="reviews-item__author">Karen Maithlan</div>
                         </div>
 
-                        <div class="reviews__item">
-                            <div class="reviews__item__image">
+                        <div id="reviews-1" class="reviews-item">
+                            <div class="reviews-item__image">
                                 <svg width="59" height="45" viewBox="0 0 59 45" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path d="M20.2798 19.5591C22.5198 20.5991 24.2398 22.1591 25.4398 24.2391C26.7198 26.2391 27.3598 28.5991 27.3598 31.3191C27.3598 35.3191 26.0798 38.5591 23.5198 41.0391C20.9598 43.5191 17.6798 44.7591 13.6798 44.7591C9.67977 44.7591 6.39977 43.5191 3.83977 41.0391C1.27977 38.5591 -0.000234291 35.3191 -0.000234291 31.3191C-0.000234291 29.4791 0.239766 27.6391 0.719766 25.7991C1.19977 23.9591 2.27977 21.2391 3.95977 17.6391L11.6398 -0.000942707H25.9198L20.2798 19.5591ZM51.7198 19.5591C53.9598 20.5991 55.6798 22.1591 56.8798 24.2391C58.1598 26.2391 58.7998 28.5991 58.7998 31.3191C58.7998 35.3191 57.5198 38.5591 54.9598 41.0391C52.3998 43.5191 49.1198 44.7591 45.1198 44.7591C41.1198 44.7591 37.8398 43.5191 35.2798 41.0391C32.7198 38.5591 31.4398 35.3191 31.4398 31.3191C31.4398 29.4791 31.6798 27.6391 32.1598 25.7991C32.6398 23.9591 33.7198 21.2391 35.3998 17.6391L43.0798 -0.000942707H57.3598L51.7198 19.5591Z"
                                           fill="#00A092"/>
                                 </svg>
                             </div>
-                            <div class="reviews__item__title subheader">Toronto, November 2020</div>
-                            <div class="reviews__item__text">We so enjoy the ever-evolving selection of animals from
+                            <div class="reviews-item__title subheader">Toronto, November 2020</div>
+                            <div class="reviews-item__text">We so enjoy the ever-evolving selection of animals from
                                 around the globe. THANK YOU for sharing these fascinating animal friends with us so that
                                 we may learn and increase our understanding of the animal kingdom.
                             </div>
-                            <div class="reviews__item__author">Carol Larsen
+                            <div class="reviews-item__author">Carol Larsen
                             </div>
                         </div>
+
+                        <div id="reviews-2" class="reviews-item">
+                            <div class="reviews-item__image">
+                                <svg width="59" height="45" viewBox="0 0 59 45" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.2798 19.5591C22.5198 20.5991 24.2398 22.1591 25.4398 24.2391C26.7198 26.2391 27.3598 28.5991 27.3598 31.3191C27.3598 35.3191 26.0798 38.5591 23.5198 41.0391C20.9598 43.5191 17.6798 44.7591 13.6798 44.7591C9.67977 44.7591 6.39977 43.5191 3.83977 41.0391C1.27977 38.5591 -0.000234291 35.3191 -0.000234291 31.3191C-0.000234291 29.4791 0.239766 27.6391 0.719766 25.7991C1.19977 23.9591 2.27977 21.2391 3.95977 17.6391L11.6398 -0.000942707H25.9198L20.2798 19.5591ZM51.7198 19.5591C53.9598 20.5991 55.6798 22.1591 56.8798 24.2391C58.1598 26.2391 58.7998 28.5991 58.7998 31.3191C58.7998 35.3191 57.5198 38.5591 54.9598 41.0391C52.3998 43.5191 49.1198 44.7591 45.1198 44.7591C41.1198 44.7591 37.8398 43.5191 35.2798 41.0391C32.7198 38.5591 31.4398 35.3191 31.4398 31.3191C31.4398 29.4791 31.6798 27.6391 32.1598 25.7991C32.6398 23.9591 33.7198 21.2391 35.3998 17.6391L43.0798 -0.000942707H57.3598L51.7198 19.5591Z"
+                                          fill="#00A092"/>
+                                </svg>
+                            </div>
+                            <div class="reviews-item__title subheader">London, February 2020</div>
+                            <div class="reviews-item__text">A fantastic experience for kids and adults alike! If anyone
+                                is looking for an attraction that educates people on wild animals –
+                                it's for you! I highly recommend seeing for yourself the variety of animals on your
+                                screen.
+                            </div>
+                            <div class="reviews-item__author">C. Stockman</div>
+                        </div>
+
+                        <div id="reviews-3" class="reviews-item">
+                            <div class="reviews-item__image">
+                                <svg width="59" height="45" viewBox="0 0 59 45" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.2798 19.5591C22.5198 20.5991 24.2398 22.1591 25.4398 24.2391C26.7198 26.2391 27.3598 28.5991 27.3598 31.3191C27.3598 35.3191 26.0798 38.5591 23.5198 41.0391C20.9598 43.5191 17.6798 44.7591 13.6798 44.7591C9.67977 44.7591 6.39977 43.5191 3.83977 41.0391C1.27977 38.5591 -0.000234291 35.3191 -0.000234291 31.3191C-0.000234291 29.4791 0.239766 27.6391 0.719766 25.7991C1.19977 23.9591 2.27977 21.2391 3.95977 17.6391L11.6398 -0.000942707H25.9198L20.2798 19.5591ZM51.7198 19.5591C53.9598 20.5991 55.6798 22.1591 56.8798 24.2391C58.1598 26.2391 58.7998 28.5991 58.7998 31.3191C58.7998 35.3191 57.5198 38.5591 54.9598 41.0391C52.3998 43.5191 49.1198 44.7591 45.1198 44.7591C41.1198 44.7591 37.8398 43.5191 35.2798 41.0391C32.7198 38.5591 31.4398 35.3191 31.4398 31.3191C31.4398 29.4791 31.6798 27.6391 32.1598 25.7991C32.6398 23.9591 33.7198 21.2391 35.3998 17.6391L43.0798 -0.000942707H57.3598L51.7198 19.5591Z"
+                                          fill="#00A092"/>
+                                </svg>
+                            </div>
+                            <div class="reviews-item__title subheader">Amsterdam, June 2020</div>
+                            <div class="reviews-item__text">I want to thank you for the amazing sites you find to put
+                                your cameras to let each of us see things that we would probably never see on our own.
+                                There are so many positives on Zoo Online and I'm grateful for it. Thank you so much!
+                            </div>
+                            <div class="reviews-item__author">Tomas Ray</div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="slider__dots">
-                    <span class="dot dot--active"></span>
-                    <span class="dot"></span>
+
+                <div class="slider__dots mobile-only">
+                    <label for="s1" class="dot"></label>
+                    <label for="s2" class="dot"></label>
+                    <label for="s3" class="dot"></label>
+                    <label for="s4" class="dot"></label>
+                </div>
+                <div class="slider__buttons">
+                    <button class="button slider-btn button--white slider-btn-prev">
+                        <svg class="button__icon" style="transform: rotate(180deg)" width="25" height="22"
+                             viewBox="0 0 25 22" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <button class="button slider-btn button--white slider-btn-next">
+                        <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
-            <button class="button--white button mobile-block">LEAVE FEEDBACK
-                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
-                          fill="currentColor"/>
-                </svg>
-            </button>
-            <div class="image-wrapper">
+
+            <div class="button__feedback">
+                <button class="button--white button mobile-block">LEAVE FEEDBACK
+                    <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                              fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="reviews__image image-wrapper">
                 <img src="../../assets/images/panda%20Background%202.png" alt="Bamboo panda"/>
             </div>
         </div>
@@ -631,71 +696,91 @@
         </div>
     </div>
 </footer>
-<div class="popup" id="popup">
-    <div class="popup__overlay"></div>
+<div class="popup" id="feed-popup" popover>
+    <!-- <div class="popup__overlay"></div> -->
     <div class="popup__content">
-        <div class="popup__header">
-            <button class="popup__close" id="popup-close">
+        <div class="popup__header donation-header">
+            <button class="popup__close" popovertarget="feed-popup" popovertargetaction="hide" id="popup-close">
                 <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
+
                           fill="white"/>
                 </svg>
             </button>
         </div>
 
         <div class="popup__body">
-            <div class="popup__text">
-                <h2 class="popup__title">together we care, save and protect!</h2>
-                <p>Your most generous gift not only cares for countless animals, but it also offers hope and a vital
-                    lifeline to the world’s most endangered wildlife relying on us to survive..</p>
+            <div class="popup__text container">
+                <h3 class="popup__title popup-title--accent">Together we care, save and protect!</h3>
+                <p class="text-center">Your most generous gift not only cares for countless animals, but it also offers
+                    hope and a vital
+                    lifeline to the world’s most endangered wildlife relying on us to survive.</p>
+
             </div>
-            <div class="popup__buttons">
-                <button class="button--secondary button">
-                    Other amount
-                </button>
+            <div class="container">
+                <div class="popup__buttons">
+
+                    <button class="button--secondary button">
+                        $20
+                    </button>
+                    <button class="button--secondary button">
+                        $30
+                    </button>
+                    <button class="button--secondary button">
+                        $50
+                    </button>
+                    <button class="button--secondary button">
+                        $80
+                    </button>
+                    <button class="button--secondary button">
+                        $100
+                    </button>
+                    <button class="button--secondary button">
+                        Other
+                    </button>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup" style="display: none" id="popup">
+    <div class="popup__content">
+        <div class="popup__body popup__layout text-center">
+            <div class="popup-header--accent">
+                <h2 class="popup__title">Make your donation</h2>
+            </div>
+            <div class="donation-info popup__text">
+                Donation information:
+            </div>
+            <div>
+                <p><span style="color: #00A09280">*</span>&nbsp;Choose your donation amount:
+                </p>
+                <div class="donation-btns">
+                    <button class="button button--secondary donation-item">$10</button>
+                    <button class="button button--secondary donation-item">$20</button>
+                    <button class="button button--secondary donation-item">$50</button>
+                    <button class="button button--secondary donation-item">$30</button>
+                    <button class="button button--secondary donation-item">$80</button>
+                    <button class="button button--secondary donation-item">$100</button>
+                </div>
+                <div class="other-amount">
+                    <button class="button button--secondary other-amount-item">other</button>
+                    <div class="other-amount-item"><label>
+                        <input type="text">
+                    </label></div>
+                </div>
+            </div>
+            <div>Make this a monthly recurring gift</div>
+            <div>
+                <button>Next</button>
+            </div>
+            <div>...</div>
 
         </div>
     </div>
 </div>
 </body>
-<script>
-    // slider
-    const slider = document.querySelector('.slider__wrapper');
-    const dots = document.querySelectorAll('.dot');
-    let currentIndex = 0;
-
-    function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-        dots.forEach(dot => dot.classList.remove('dot--active'));
-        dots[currentIndex].classList.add('dot--active');
-    }
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateSlider();
-        });
-    });
-
-
-    // side menu
-    const openBtn = document.getElementById('openMenu');
-    const closeBtn = document.getElementById('closeMenu');
-    const menu = document.getElementById('sideMenu');
-
-    openBtn.addEventListener('click', () => {
-        menu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-
-
-    closeBtn.addEventListener('click', () => {
-        menu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-</script>
 
 </html>
