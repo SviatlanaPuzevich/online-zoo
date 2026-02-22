@@ -31,15 +31,6 @@ html, body {
     font-style: normal;
 }
 
-/*!* Bold *!*/
-/*@font-face {*/
-/*    font-family: 'Montserrat';*/
-/*    src: url('../../assets/fonts/Montserrat-Black.woff2') format('woff2'),*/
-/*    url('../../assets/fonts/Montserrat-Black.woff') format('woff');*/
-/*    font-weight: 800;*/
-/*    font-style: normal;*/
-/*}*/
-
 
 /* SemiBold */
 @font-face {
@@ -147,13 +138,6 @@ h3 {
         font-size: 42px;
     }
 
-    .subheader2 {
-        font-weight: 500;
-        font-size: 26px;
-        line-height: 130%;
-
-    }
-
     .container {
         padding: 0 20px;
     }
@@ -189,6 +173,16 @@ h3 {
     .image-wrapper img {
         width: auto;
         max-width: 100%;
+    }
+
+}
+
+@media (min-width: 1920px) {
+
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 0;
     }
 
 }
@@ -456,7 +450,7 @@ h3 {
     margin: 30px 0;
 }
 
-.tablet-devider {
+.tablet-divider {
     display: none;
 }
 
@@ -494,7 +488,7 @@ h3 {
         gap: 50px;
     }
 
-    .tablet-devider {
+    .tablet-divider {
         display: block;
         margin: 0 -40px;
     }
@@ -512,7 +506,8 @@ h3 {
 
     .footer__top {
         flex-direction: row;
-        padding-bottom: 20px;
+        padding-bottom: 40px;
+        justify-content: space-between;
     }
 
     .footer__bottom--desktop {
@@ -520,13 +515,13 @@ h3 {
         flex-direction: row-reverse;
     }
 
-
-
     .footer__bottom--desktop > :last-child {
         margin-right: auto;
     }
 
-/*1920 -60 = 1860*/
+    .footer__social {
+        margin: 0;
+    }
 }
 
 /*-------------Footer----End------------------------*/
@@ -647,7 +642,21 @@ h3 {
 
     .info__item--reverse {
         align-self: flex-end;
-        /*flex-direction: row-reverse;*/
+    }
+
+}
+
+
+@media (min-width: 1920px) {
+
+    .info__item {
+        flex-direction: row;
+        gap: 70px;
+        margin: 60px 0;
+    }
+
+    .info__item--reverse-large {
+        flex-direction: row-reverse;
     }
 
 }
@@ -683,11 +692,13 @@ h3 {
 
     .donation__left {
         text-align: left;
-        flex: 6;
+        flex: 7;
     }
 
     .donation__right {
-        flex: 4;
+        flex: 3;
+        min-width: 300px;
+        align-items: flex-start;
     }
 
     .left-title {
@@ -696,6 +707,13 @@ h3 {
 
     .right-title {
         margin: 50px 2px 0;
+    }
+}
+
+@media (min-width: 1920px) {
+
+    .donation__text {
+        max-width: 610px;
     }
 }
 
@@ -816,6 +834,18 @@ h3 {
     }
 }
 
+@media (min-width: 1920px) {
+
+    .animal-card {
+        max-width: 440px;
+    }
+
+    .gallery__subheader {
+        margin: 0 auto;
+        max-width: 920px;
+    }
+}
+
 /*--------------Gallery Section ----END-------------*/
 
 /*-----------Pay And Feed Section-----------------------*/
@@ -868,9 +898,6 @@ section {
     display: flow-root;
 }
 
-.feed__button {
-    text-align: center;
-}
 
 @media (min-width: 640px) {
 
@@ -891,6 +918,23 @@ section {
 
     .feed-item__img {
         flex: 1;
+    }
+
+    .feed__title {
+        text-align: left;
+        padding: 50px 0;
+    }
+
+    .feed__button {
+        align-self: flex-start;
+        margin: 50px 0;
+    }
+}
+
+@media (min-width: 1920px) {
+
+    .feed-item__content {
+        text-align: left;
     }
 }
 
@@ -1055,6 +1099,17 @@ section {
 
     .farewell-image {
         margin: 50px -40px;
+    }
+}
+
+@media (min-width: 1920px) {
+
+    .farewell-image {
+        margin: 130px 0;
+    }
+
+    .farewell-image img {
+        width: 100%
     }
 }
 
