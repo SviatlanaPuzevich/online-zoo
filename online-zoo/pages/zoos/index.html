@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online-zoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../assets/icons/Favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../../assets/icons/Favicon@2x.png" type="image/png">
+    <link rel="stylesheet" href="../../normalize.css">
+    <link rel="stylesheet" href="../main-style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container header__inner">
+        <img src="../../assets/icons/Logo.svg" alt="Logo" class="header__logo">
+        <button id="openMenu" class="open-btn hide-on-desktop">
+            <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
+                      fill="black"/>
+            </svg>
+        </button>
+        <div class="header__right-panel">
+            <nav class="header__nav">
+                <div><a class="nav__link" href="#">About</a></div>
+                <div><a class="nav__link" href="#">Map</a></div>
+                <div><a class="nav__link nav__link--active" href="#">Zoos</a></div>
+                <div><a class="nav__link " href="#">Contact Us</a></div>
+            </nav>
+            <div class="header__social"><a href="https://www.youtube.com/" class="social__link"><img
+                    class="social__icon"
+                    src="../../assets/icons/YouTube.svg"
+                    alt="YouTube"></a>
+                <a href="https://www.instagram.com/" class="social__link"><img class="social__icon"
+                                                                               src="../../assets/icons/Instagram.svg"
+                                                                               alt="Instagram"></a>
+                <a href="https://www.facebook.com/" class="social__link"><img class="social__icon"
+                                                                              src="../../assets/icons/Facebook.svg"
+                                                                              alt="Facebook"></a></div>
+            <div class="footer__divider mobile-only"></div>
+        </div>
+    </div>
+</header>
+<!--slider-->
+<div class="side-menu" id="sideMenu">
+    <button class="close-btn" id="closeMenu">
+        <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
+                  fill="white"/>
+        </svg>
+    </button>
+
+    <nav class="side-nav">
+        <ul>
+            <li><a  href="#">About</a></li>
+            <li><a href="#">Map</a></li>
+            <li><a class="active" href="#">Zoos</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Design</a></li>
+        </ul>
+    </nav>
+</div>
+<!--slider-->
+<main>
+
+        <!-- LIVE SECTION -->
+        <section class="live">
+            <div class="container live__container">
+
+                <div class="live__header">
+                    <h2>LIVE PANDA CAMS</h2>
+                </div>
+
+                <div class="live__video">
+                    <img src="../../assets/images/zoos/panda/Youtube%20player.png" alt="Panda cam">
+                </div>
+
+                <h2 class="live__subtitle"><b>MORE LIVE VIEWS</b></h2>
+
+                <div class="live__cams">
+                    <div class="live__cam live__cam--active">
+                        <img src="../../assets/images/zoos/panda/Panda%20additional%20cam%20card1.png" alt="">
+                        <span class="live__cam-label">CAM 1</span>
+                    </div>
+
+                    <div class="live__cam">
+                        <img src="../../assets/images/zoos/panda/Panda%20additional%20cam%20card%202.png" alt="">
+                        <span class="live__cam-label">CAM 2</span>
+                    </div>
+
+                    <div class="live__cam">
+                        <img src="../../assets/images/zoos/panda/Panda%20additional%20cam%20card%203.png" alt="">
+                        <span class="live__cam-label">CAM 3</span>
+                    </div>
+                </div>
+
+                <button id="donate-now-btn"  class="button--primary button mobile-block feed__button">donate now
+                    <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                              fill="currentColor"/>
+                    </svg>
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- DONATION -->
+        <section class="donation">
+            <div class="container donation__container">
+                <div class="donation__left">
+                    <h3 class="left-title">make the Bamboo Donation!</h3>
+                    <p class="donation__text">Our process for bamboo donations first starts with a site evaluation. It
+                        is important that our team sees where the bamboo is growing, then determining if the bamboo is a
+                        species that our animals are currently eating. Thank you for your interest in donating bamboo
+                        for our pandas.</p>
+                </div>
+                <div class="donation__right">
+                    <p class="right-title subheader">Quick Donate</p>
+                    <button class="donate-button mobile-block">
+                    <span class="donate-button__text">
+                        $ Donation Amount
+                    </span>
+                        <span class="donate-button__icon">
+                                    <svg width="25" height="22" viewBox="0 0 25 22" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                              fill="currentColor"/>
+                        </svg>
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FACT CARD -->
+        <section class="fact">
+            <div class="container">
+                <div class="fact__card">
+                    <h3 class="fact__title">DID YOU KNOW?</h3>
+                    <p class="fact__text">
+                        Pandas are often seen eating in a relaxed sitting posture, with their hind legs stretched out
+                        before them. They may appear sedentary, but they are skilled tree-climbers and efficient
+                        swimmers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ANIMAL INFO -->
+        <section class="animal-info">
+            <div class="container animal-info__container">
+
+                <div class="animal-info__image">
+                    <img src="../../assets/images/zoos/panda/babyPanda.png" alt="Baby panda">
+                </div>
+
+                <div class="animal-info__content">
+                    <ul class="animal-info__list">
+                        <li><strong>Common name:</strong> Giant Panda</li>
+                        <li><strong>Scientific name:</strong> Ailuropoda melanoleuca</li>
+                        <li><strong>Type:</strong> Herbivore</li>
+                        <li><strong>Size:</strong> 4 to 5 feet</li>
+                        <li><strong>Diet:</strong> Omnivore</li>
+                        <li><strong>Habitat:</strong> Forests</li>
+                        <li>
+                            <strong>Range:</strong> Eastern Asia
+                        </li>
+                    </ul>
+
+                    <button class="button--orange button mobile-block">
+                        VIEW MAP
+                        <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </button>
+
+                    <p class="animal-info__description">
+                        Giant pandas are very unusual animals that eat almost exclusively bamboo, which is very low in
+                        nutrients. Because of this, they have many unique adaptations for their low-energy lifestyle.
+                        Giant pandas are solitary. They have a highly developed sense of smell that males use to avoid
+                        each other and to find females for mating in the spring. After a five-month pregnancy, females
+                        give birth to a cub or two, though they cannot care for both twins. The blind infants weigh only
+                        5 ounces at birth and cannot crawl until they reach three months of age. They are born white,
+                        and develop their much loved coloring later. Habitat loss is the primary threat to this species.
+                        Its popularity around the world has helped the giant panda become the focus of successful
+                        conservation programs.
+                    </p>
+                </div>
+
+
+
+            </div>
+        </section>
+
+
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div class="footer__logos">
+                <div class="logo__wrapper">
+                    <img src="../../assets/icons/Logo-white.svg" alt="Logo" class="footer__logo">
+                </div>
+                <div class="logo__wrapper">
+                    <img src="../../assets/icons/Yem%20Digital.svg" alt="yem logo" class="footer__logo">
+                </div>
+                <div class="logo__wrapper">
+                    <img src="../../assets/icons/rs_school_js%20logo.svg" alt="RSSchool logo" class="footer__logo">
+                </div>
+            </div>
+            <nav class="footer__nav">
+                <div><a class="nav__link" href="#">About</a></div>
+                <div><a class="nav__link" href="#">Map</a></div>
+                <div><a class="nav__link" href="#">Zoos</a></div>
+                <div><a class="nav__link" href="#">Contact Us</a></div>
+            </nav>
+            <div class="footer__button">
+                <button class="button--white button mobile-block">donate for volunteers
+                    <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                              fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="footer__divider tablet-divider"></div>
+        <div class="footer__bottom--desktop">
+            <div class="footer__social"><a href="https://www.youtube.com/" class="social__link"><img
+                    class="social__icon"
+                    src="../../assets/icons/YouTube.svg"
+                    alt="Youtube"></a>
+                <a href="https://www.instagram.com/" class="social__link"><img class="social__icon"
+                                                                               src="../../assets/icons/Instagram.svg"
+                                                                               alt="Instagram"></a>
+                <a href="https://www.facebook.com/" class="social__link"><img class="social__icon"
+                                                                              src="../../assets/icons/Facebook.svg"
+                                                                              alt="Facebook"></a></div>
+            <div class="footer__divider mobile-only"></div>
+            <div class="footer__copyright">
+                <div>© 2021 DinaK</div>
+                <div>© Yem Digital</div>
+                <div>© RSSchool</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+
+</html>
