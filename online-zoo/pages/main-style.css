@@ -287,11 +287,6 @@ h3 {
 
 }
 
-.button__icon {
-    width: 16px;
-    height: 16px;
-}
-
 
 .button--primary {
     background-color: var(--orange);
@@ -495,7 +490,7 @@ h3 {
 
     .tablet-divider {
         display: block;
-        margin: 0 -40px;
+        margin: 50px -40px;
     }
 
 }
