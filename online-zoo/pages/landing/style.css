@@ -138,15 +138,17 @@
 
 /*-------------Info section---End-------------------*/
 
-/*-------------Donation section---------------------*/
+/* ================= QUICK DONATION ================= */
 .donation {
     text-align: center;
     background-color: var(--navy);
     color: var(--white);
-    padding: 30px 0;
+    padding: 20px 0;
+    margin: 50px 0;
 }
 
-.donation__right {
+.donation__quick {
+    margin: 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -157,40 +159,55 @@
     margin: 2px 0;
 }
 
+@media (min-width: 640px) {
+
+    .donation {
+        padding: 50px 0;
+        margin: 80px 0;
+    }
+}
+
 @media (min-width: 1200px) {
+
+    .donation {
+        padding: 30px 0;
+        margin: 100px 0;
+    }
 
     .donation__container {
         display: flex;
-        gap: 100px;
+        justify-content: space-between;
     }
 
-    .donation__left {
+    .donation__info {
         text-align: left;
         flex: 7;
     }
 
-    .donation__right {
-        flex: 3;
-        min-width: 300px;
+    .donation__empty {
+        flex: 1;
+    }
+
+    .donation__quick {
+        flex: 2;
         align-items: flex-start;
+        margin: 0;
     }
 
-    .left-title {
-        margin: 50px 0;
+    .donation__title {
+        margin: 0 0 20px;
     }
 
-    .right-title {
-        margin: 50px 2px 0;
-    }
 }
 
 @media (min-width: 1920px) {
 
-    .donation__text {
-        max-width: 610px;
+    .donation {
+        padding: 50px 0;
+        margin: 150px 0;
     }
-}
 
+}
 /*---------Donation section---End-------------------*/
 
 /*--------------Gallery Section --------------------*/

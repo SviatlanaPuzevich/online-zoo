@@ -342,7 +342,7 @@ h3 {
 }
 
 .donate-button {
-    max-width: 350px;
+    min-width: 300px;
     display: flex;
     padding: 0;
     cursor: pointer;
@@ -381,6 +381,17 @@ h3 {
 @media (min-width: 640px) {
     .donate-button__text {
         padding: 20px;
+    }
+
+    .donate-button__icon {
+        min-height: 74px;
+        min-width: 74px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .donate-button {
+        min-width: 320px;
     }
 }
 
