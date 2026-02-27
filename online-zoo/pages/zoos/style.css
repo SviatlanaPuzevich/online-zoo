@@ -353,6 +353,10 @@
     text-align: center;
 }
 
+.live__nav {
+    display: none;
+}
+
 @media (min-width: 640px) {
 
     .live__header {
@@ -391,7 +395,6 @@
     }
 
     .live__cams {
-        /*justify-content: flex-end;*/
         padding-left: 175px;
     }
 
@@ -444,6 +447,8 @@
     }
 
     .live__badge {
+        width: auto;
+        padding: 10px;
         font-weight: 500;
         font-size: 26px;
         line-height: 100%;
@@ -453,6 +458,120 @@
         width: 20px;
         height: 20px;
     }
+
+    .live__nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .live__nav svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .live__cam img {
+        width: 265px;
+    }
+
+    .live__cams {
+        padding: 0;
+        margin: 0 0 0 135px;
+
+    }
+
+}
+
+
+@media (min-width: 1200px) {
+
+    .live__header {
+        font-weight: 600;
+        font-size: 54px;
+        margin: 10px 0;
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .live__donate--down {
+        display: none;
+    }
+
+    .live__top {
+        display: flex;
+        padding: 26px 0;
+    }
+
+    .live__donate--up {
+        display: block;
+        margin-left: auto;
+    }
+
+
+    .live__video {
+        margin: 0 0 0 135px;
+    }
+
+    .live__subtitle {
+        font-size: 42px;
+        line-height: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .live__badge {
+        width: auto;
+        padding: 10px;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 100%;
+    }
+
+    .live__badge svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .live__nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .live__nav svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .live__cam img {
+        width: 265px;
+    }
+
+    .live__cams {
+        padding: 0;
+        margin: 0 0 0 135px;
+
+    }
+
+}
+
+@media (min-width: 1920px) {
+
+
+    .live__nav svg {
+        width: 80px;
+        height: 74px;
+    }
+
+    .live__cam img {
+        width: 309px;
+    }
+
+    .live__cams {
+        margin: 0 ;
+
+    }
+
 }
 
 /* ================= FACT ================= */
@@ -562,7 +681,7 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        margin-bottom: -20px;
+        transform: translate(50%, 50%);
     }
 
     .animal-info__description {
