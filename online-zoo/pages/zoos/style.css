@@ -230,21 +230,16 @@
 
 /* ================= LIVE ================= */
 
-.live {
-    padding: 30px 0;
-}
-
 .live__inner {
     display: grid;
-    gap: 16px;
     grid-template-columns: 1fr;
 }
 
 .live__header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-left: 50px;
+    margin: 20px 0 20px 50px;
 
     color: var(--turquose);
     text-align: center;
@@ -252,6 +247,13 @@
     font-weight: 500;
     font-size: 26px;
     line-height: 100%;
+
+}
+
+
+.live__donate--up {
+    display: none;
+    align-self: center;
 }
 
 .live__video {
@@ -281,17 +283,18 @@
 
     text-align: center;
     margin: 20px 0;
-
 }
+
 
 .live__cams {
     padding: 30px 0;
-    display: grid;
-    grid-template-columns: repeat(3, 47%);
-    column-gap: 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-
 }
 
 .live__cams::-webkit-scrollbar {
@@ -299,15 +302,13 @@
 }
 
 .live__cam {
+    flex-shrink: 0;
     position: relative;
-    display: inline-flex;
     line-height: 0;
-    max-width: 140px;
     cursor: pointer;
 }
 
 .live__badge {
-
     position: absolute;
     top: 0;
     left: 0;
@@ -338,11 +339,12 @@
 }
 
 .live__cam img {
-    width: 140px;
+    object-fit: cover;
     border-radius: 5px;
+    width: 140px;
 }
 
-.live__cam--active {
+.live__cam--active img {
     border: 2px solid var(--orange);
     border-radius: 5px;
 }
@@ -352,6 +354,10 @@
 }
 
 @media (min-width: 640px) {
+
+    .live__header {
+        margin: 26px 0;
+    }
 
     .live__video {
         margin: 0 -20px;
@@ -366,11 +372,86 @@
         font-weight: 500;
         font-size: 26px;
         line-height: 130%;
+
+        padding-left: 175px;
+        text-align: left;
+    }
+
+    .live__subtitle {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 130%;
+
+        padding-left: 175px;
+        text-align: left;
     }
 
     .live__header {
         font-size: 42px;
-        margin-left: 78px;
+    }
+
+    .live__cams {
+        /*justify-content: flex-end;*/
+        padding-left: 175px;
+    }
+
+    .live__cam img {
+        width: 135px;
+    }
+
+    .live__badge svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .live__header {
+        font-weight: 600;
+        font-size: 54px;
+        margin: 10px 0;
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .live__donate--down {
+        display: none;
+    }
+
+    .live__top{
+        display: flex;
+        padding: 26px 0;
+    }
+
+    .live__donate--up {
+        display: block;
+        margin-left: auto;
+    }
+
+
+    .live__video {
+        margin: 0 0 0 135px;
+    }
+
+    .live__subtitle {
+        font-size: 42px;
+        line-height: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .live__badge {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 100%;
+    }
+
+    .live__badge svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -407,6 +488,18 @@
         font-weight: 500;
         font-size: 26px;
         line-height: 130%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .fact__card {
+        margin: 100px 135px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .fact__card {
+        justify-content: flex-end;
     }
 }
 
@@ -458,9 +551,6 @@
         margin: 0;
     }
 
-    .animal-info__content {
-    }
-
 
     .animal-info__item {
         flex-direction: row;
@@ -472,11 +562,25 @@
         position: absolute;
         bottom: 0;
         right: 0;
+        margin-bottom: -20px;
     }
 
     .animal-info__description {
         margin: 50px 0;
     }
+}
+
+@media (min-width: 1200px) {
+    .animal-info__card {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 185px;
+    }
+
+    .animal-info__image img {
+        width: auto;
+    }
+
 }
 
 /* ================= QUICK DONATION ================= */
@@ -502,18 +606,16 @@
 
     .donation__container {
         display: flex;
-        gap: 100px;
+        gap: 60px;
     }
 
     .donation__left {
         text-align: left;
-        flex: 7;
     }
 
     .donation__right {
-        flex: 3;
-        min-width: 300px;
         align-items: flex-start;
+        min-width: 320px;
     }
 
     .left-title {
