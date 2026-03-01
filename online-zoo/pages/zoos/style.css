@@ -58,6 +58,7 @@
 }
 
 .drawer__text {
+    color: var(--white);
     font-weight: 400;
     font-size: 14px;
     line-height: 120%;
@@ -642,7 +643,6 @@
     position: relative;
     list-style: none;
     padding: 0;
-    gap: 10px;
 }
 
 .animal-info__item {
@@ -664,6 +664,11 @@
     text-align: center;
 }
 
+
+.map-link {
+    margin:  30px 0;
+}
+
 @media (min-width: 640px) {
 
     .animal-info__image {
@@ -675,6 +680,7 @@
         flex-direction: row;
         gap: 20px;
         align-items: flex-end;
+        margin-bottom: 25px;
     }
 
     .animal-info__map {
@@ -687,12 +693,25 @@
     .animal-info__description {
         margin: 50px 0;
     }
+
+    .animal-info__item--last {
+        align-items: baseline;
+    }
+
+    .animal-info__item--last     > * {
+        flex-shrink: 0;
+    }
+
+    .map-link {
+        margin:  0;
+    }
 }
 
 @media (min-width: 1200px) {
     .animal-info__card {
         display: flex;
         flex-direction: row-reverse;
+        justify-content: flex-end;
         gap: 185px;
     }
 

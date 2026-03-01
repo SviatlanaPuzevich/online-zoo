@@ -15,7 +15,7 @@
     <div class="container">
         <div class="header__inner">
             <img src="../../assets/icons/Logo.svg" alt="Logo" class="header__logo">
-            <button id="openMenu" class="open-btn hide-on-desktop">
+            <button id="openMenu"  popovertarget="side-menu" class="open-btn hide-on-desktop">
                 <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
@@ -97,7 +97,7 @@
             </li>
 
             <li class="drawer__item drawer__item--active">
-                <a class="drawer__link">
+                <a class="drawer__link" href="../zoos/index.html">
                     <div class="drawer__circle drawer__circle--collapsed">
                         <div class="drawer__icon-wrap drawer__icon-wrap--active drawer__icon-wrap--active--collapsed">
                             <svg class="drawer__icon" viewBox="0 0 80 60"
@@ -115,7 +115,7 @@
             </li>
 
             <li class="drawer__item">
-                <a class="drawer__link">
+                <a class="drawer__link" href="../zoos/lemur.html">
                     <div class="drawer__circle drawer__circle--collapsed">
                         <div class="drawer__icon-wrap drawer__icon-wrap--collapsed">
                             <svg class="drawer__icon" viewBox="0 0 36 60" fill="none"
@@ -132,7 +132,7 @@
 
 
             <li class="drawer__item">
-                <a class="drawer__link">
+                <a class="drawer__link" href="../zoos/gorilla.html">
                     <div class="drawer__circle drawer__circle--collapsed">
                         <div class="drawer__icon-wrap drawer__icon-wrap--collapsed">
                             <svg class="drawer__icon" viewBox="0 0 68 60" fill="none"
@@ -150,7 +150,7 @@
 
 
             <li class="drawer__item">
-                <a class="drawer__link">
+                <a class="drawer__link" href="../zoos/eagles.html">
                     <div class="drawer__circle drawer__circle--collapsed">
                         <div class="drawer__icon-wrap drawer__icon-wrap--collapsed">
                             <svg class="drawer__icon" viewBox="0 0 49 47" fill="none"
@@ -160,10 +160,8 @@
                             </svg>
                         </div>
                     </div>
-
                     <p class="drawer__text">The Bald Eagles Nest from West End cam</p>
                 </a>
-
             </li>
 
             <li class="drawer__footer drawer__down-button">
@@ -176,7 +174,6 @@
                     </div>
                 </a>
             </li>
-
 
         </ul>
     </aside>
@@ -191,7 +188,7 @@
                     <div class="live__top">
                         <h2 class="live__header">LIVE PANDA CAMS</h2>
                         <div class="live__donate live__donate--up">
-                            <button id="donate-now-btn-up" class="button--primary button mobile-block feed__button">
+                            <button id="donate-now-btn-up" popovertarget="feed-popup"  class="button--primary button mobile-block feed__button">
                                 donate now
                                 <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -270,7 +267,7 @@
                     </div>
 
                     <div class="live__donate live__donate--down">
-                        <button id="donate-now-btn" class="button--primary button mobile-block feed__button">donate now
+                        <button id="donate-now-btn" popovertarget="feed-popup"  class="button--primary button mobile-block feed__button">donate now
                             <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -373,21 +370,20 @@
                                 <span class="animal-info__label">Habitat:</span>
                                 Forests
                             </li>
-                            <li class="animal-info__item">
+                            <li class="animal-info__item animal-info__item--last">
                                 <span class="animal-info__label">Range:</span>
-                                Eastern Asia
-                            </li>
-
-                            <li class="animal-info__map">
-                                <button class="button--orange button mobile-block">
-                                    VIEW MAP
-                                    <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
-                                              fill="currentColor"/>
-                                    </svg>
-                                </button>
+                                <span>Eastern Asia</span>
+                                <a class="map-link" href="../map/index.html">
+                                    <button class="button--orange button mobile-block">
+                                        VIEW MAP
+                                        <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                  d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                                  fill="currentColor"/>
+                                        </svg>
+                                    </button>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -464,6 +460,53 @@
         </div>
     </div>
 </footer>
+<div class="popup" id="feed-popup" popover>
+    <div class="popup__content">
+        <div class="popup__header donation-header">
+            <button class="popup__close" popovertarget="feed-popup" popovertargetaction="hide" id="popup-close">
+                <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
+
+                          fill="white"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="popup__body">
+            <div class="popup__text container">
+                <h3 class="popup__title popup-title--accent">Together we care, save and protect!</h3>
+                <p class="text-center">Your most generous gift not only cares for countless animals, but it also offers
+                    hope and a vital
+                    lifeline to the world’s most endangered wildlife relying on us to survive.</p>
+
+            </div>
+            <div class="container">
+                <div class="popup__buttons">
+
+                    <button class="button--secondary button">
+                        $20
+                    </button>
+                    <button class="button--secondary button">
+                        $30
+                    </button>
+                    <button class="button--secondary button">
+                        $50
+                    </button>
+                    <button class="button--secondary button">
+                        $80
+                    </button>
+                    <button class="button--secondary button">
+                        $100
+                    </button>
+                    <button class="button--secondary button">
+                        Other
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     let collapseButton = document.getElementById('collapseBtn');
     let drawer = document.getElementById('drawer');
@@ -489,22 +532,6 @@
         })
     })
 
-
-    // side menu
-    const openBtn = document.getElementById('openMenu');
-    const closeBtn = document.getElementById('closeMenu');
-    const menu = document.getElementById('sideMenu');
-
-    openBtn.addEventListener('click', () => {
-        menu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-
-
-    closeBtn.addEventListener('click', () => {
-        menu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
 </script>
 
 </body>
