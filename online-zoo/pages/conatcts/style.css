@@ -42,9 +42,6 @@
 
 /* -------ERROR STATE ------ */
 
-.form-group--error input {
-
-}
 
 input:required:user-invalid,
 textarea:required:user-invalid {
