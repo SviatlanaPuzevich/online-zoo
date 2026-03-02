@@ -4,9 +4,9 @@
     --orange: #F58021;
     --dark-orange: #D26004;
     --navy: #20113D;
-    --turquose: #26bcad;
+    --turquose: #00A092;
     --dark-turquose: #05786E;
-    --turquose-disabled: rgba(0, 160, 146, 0.5);
+    --turquose-disabled: #80CFC8;;
 }
 
 html, body {
@@ -793,6 +793,7 @@ body:has([popover]:popover-open) {
 .donation-container {
     max-width: 680px;
 }
+
 .donation__monthly {
     margin: 30px 0;
 }
@@ -804,6 +805,7 @@ body:has([popover]:popover-open) {
 .donation__amount-btn {
     height: 65px;
 }
+
 .donation__input {
     width: 100%;
     box-sizing: border-box;
@@ -812,7 +814,7 @@ body:has([popover]:popover-open) {
 
 .donation__nav {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
 @media (min-width: 640px) {
@@ -825,13 +827,15 @@ body:has([popover]:popover-open) {
     .donation__buttons {
         grid-template-columns: repeat(3, 1fr);
     }
-    .donation__buttons  .donation-item {
+
+    .donation__buttons .donation-item {
         display: block;
         width: 100%;
         justify-self: stretch;
     }
-    .donation-item {
-        /*max-width: 135px;*/
+
+    .donation__nav {
+        flex-direction: row-reverse;
     }
 
     .donation__fav {
@@ -855,7 +859,6 @@ body:has([popover]:popover-open) {
     }
 
 
-
     .donation__fav {
         flex-direction: row;
     }
@@ -863,11 +866,11 @@ body:has([popover]:popover-open) {
     .donation__buttons--big {
         max-width: 200px;
     }
+
     .donation__other {
         grid-template-columns: repeat(2, 200px);
     }
 }
-
 
 
 /*-----------------POPUP---END--------------------*/
@@ -905,11 +908,12 @@ input:focus {
 
 
 .dropdown__trigger {
+    padding: 0;
     width: 100%;
 
     border: 1px solid #ccc;
     border-radius: 5px;
-        background: white;
+    background: white;
     cursor: pointer;
 
     display: flex;
@@ -978,7 +982,7 @@ input:focus {
 }
 
 .dropdown__menu::-webkit-scrollbar {
-    width: 6px;
+    width: 32px;
 }
 
 .dropdown__menu::-webkit-scrollbar-track {
@@ -991,7 +995,7 @@ input:focus {
 }
 
 @media (min-width: 640px) {
-    .dropdown{
+    .dropdown {
         width: 100%;
         max-width: 445px;
     }
@@ -1053,7 +1057,7 @@ input:focus {
 }
 
 @media (min-width: 640px) {
-    .custom-checkbox{
+    .custom-checkbox {
         flex-direction: row-reverse;
     }
 }
@@ -1076,7 +1080,7 @@ input:focus {
 input:required:user-invalid,
 textarea:required:user-invalid {
     border: 2px solid var(--orange);
-    background-color:  rgb(from var(--orange) r g b / 0.5);
+    background-color: rgb(from var(--orange) r g b / 0.5);
 }
 
 .form-error {
@@ -1103,12 +1107,61 @@ input:required:user-invalid + .form-error {
     box-shadow: 0 0 0 4px rgba(11, 179, 156, 0.15);
 }
 
-.popup__form {
+.popup-payment__form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    text-align: left;
+    padding: 16px;
 }
 
-.popup__input {
+.popup-payment__input {
     height: 65px;
 }
+
+.popup-payment__back {
+    display: inline-flex;
+    text-decoration: underline;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--turquose);
+    border: none;
+    text-transform: uppercase;
+    padding: 25px 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.popup-payment__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup__screen {
+    display: none;
+    transition: height 0.3s ease;
+}
+
+.popup__screen--active {
+    display: block;
+}
+
+@media (min-width: 640px) {
+    .donation__date {
+        display: flex;
+        gap: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .form-group__credit {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+    }
+}
+
+
