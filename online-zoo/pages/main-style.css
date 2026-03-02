@@ -1057,3 +1057,58 @@ input:focus {
         flex-direction: row-reverse;
     }
 }
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+/* Label */
+
+.required {
+    color: var(--turquose);
+    margin-right: 4px;
+}
+
+input:required:user-invalid,
+textarea:required:user-invalid {
+    border: 2px solid var(--orange);
+    background-color:  rgb(from var(--orange) r g b / 0.5);
+}
+
+.form-error {
+    display: none;
+    color: var(--orange);
+    margin-top: 5px;
+}
+
+input:required:user-invalid + .form-error {
+    display: block;
+}
+
+/* ===== SUCCESS / FOCUS STATE ===== */
+
+.form-group--success input {
+    border: 2px solid var(--turquose);
+    box-shadow: 0 0 0 4px rgba(11, 179, 156, 0.15);
+}
+
+/* ===== FOCUS ===== */
+
+.form-group input:focus {
+    border: 2px solid var(--turquose);
+    box-shadow: 0 0 0 4px rgba(11, 179, 156, 0.15);
+}
+
+.popup__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.popup__input {
+    height: 65px;
+}
