@@ -259,6 +259,10 @@
     display: block;
 }
 
+.animal-card__image--horizontal {
+    object-position: 20%;
+}
+
 
 .animal-card__badge {
     position: absolute;
