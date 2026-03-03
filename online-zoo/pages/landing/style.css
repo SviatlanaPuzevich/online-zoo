@@ -236,6 +236,7 @@
 }
 
 .animal-card {
+    cursor: pointer;
     width: 300px;
     flex: 0 0 100%;
     border-radius: 5px;
