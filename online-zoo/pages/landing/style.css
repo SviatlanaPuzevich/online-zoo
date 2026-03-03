@@ -48,8 +48,9 @@
         .hero {
             background-image: url("../../assets/images/Panda1Background.png");
             background-size: cover;
-            background-position: 0 50%;
+            background-position: center;
             background-repeat: no-repeat;
+            min-height: 725px;
         }
 
         .hero__title {
