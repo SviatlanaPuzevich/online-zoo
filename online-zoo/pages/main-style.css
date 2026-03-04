@@ -75,13 +75,24 @@ body {
 }
 
 
-h1, h2 {
+.header__title {
+    visibility: hidden;
+    margin:0;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.main__header, h2 {
     text-transform: uppercase;
     color: var(--turquose);
     line-height: 1;
 }
 
-h1 {
+.main__header {
     font-weight: 800;
     font-size: 40px;
 }
@@ -127,11 +138,11 @@ h3 {
 }
 
 @media (min-width: 640px) {
-    h1, h2, h3 {
+    .main__header, h2, h3 {
         line-height: 100%;
     }
 
-    h1 {
+    .main__header {
         font-size: 72px;
     }
 
@@ -156,7 +167,7 @@ h3 {
 
 @media (min-width: 1200px) {
 
-    h1 {
+    .main__header {
         font-size: 82px;
     }
 
@@ -244,7 +255,7 @@ h3 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 30px 100px;
+        padding: 30px 60px;
     }
 
     .header__social {
