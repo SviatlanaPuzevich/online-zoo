@@ -22,8 +22,8 @@ html, body {
 /* Regular */
 @font-face {
     font-family: 'Montserrat';
-    src: url('../assets/fonts/Montserrat-Regular.woff2') format('woff2'),
-    url('../assets/fonts/Montserrat-Regular.woff') format('woff');
+    src: url('../../assets/fonts/Montserrat-Regular.woff2') format('woff2'),
+    url('../../assets/fonts/Montserrat-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
@@ -31,8 +31,8 @@ html, body {
 /* Bold */
 @font-face {
     font-family: 'Montserrat';
-    src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2'),
-    url('../assets/fonts/Montserrat-Bold.woff') format('woff');
+    src: url('../../assets/fonts/Montserrat-Bold.woff2') format('woff2'),
+    url('../../assets/fonts/Montserrat-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }
@@ -41,8 +41,8 @@ html, body {
 /* SemiBold */
 @font-face {
     font-family: 'Montserrat';
-    src: url('../assets/fonts/Montserrat-SemiBold.woff2') format('woff2'),
-    url('../assets/fonts/Montserrat-SemiBold.woff') format('woff');
+    src: url('../../assets/fonts/Montserrat-SemiBold.woff2') format('woff2'),
+    url('../../assets/fonts/Montserrat-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
@@ -50,8 +50,8 @@ html, body {
 /* Italic */
 @font-face {
     font-family: 'Montserrat';
-    src: url('../assets/fonts/Montserrat-Italic.woff2') format('woff2'),
-    url('../assets/fonts/Montserrat-Italic.woff') format('woff');
+    src: url('../../assets/fonts/Montserrat-Italic.woff2') format('woff2'),
+    url('../../assets/fonts/Montserrat-Italic.woff') format('woff');
     font-weight: 400;
     font-style: italic;
 }
@@ -673,7 +673,7 @@ body:has([popover]:popover-open) {
 .donation-header {
     height: 167px;
     background-position: 100% center;
-    background-image: url("../assets/images/popupHeader.jpg");
+    background-image: url("../../assets/images/popupHeader.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1013,7 +1013,6 @@ input:focus {
 }
 
 @media (min-width: 1200px) {
-
 
     .dropdown {
         width: 440px;

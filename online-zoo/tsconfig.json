@@ -4,7 +4,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "CommonJS",
     "moduleResolution": "Node",
     "noUncheckedIndexedAccess": true,
