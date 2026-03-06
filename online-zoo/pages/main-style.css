@@ -653,6 +653,8 @@ h3 {
 /*-----------------POPUP---------------------------*/
 .popup {
     padding: 0;
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 body:has([popover]:popover-open) {
