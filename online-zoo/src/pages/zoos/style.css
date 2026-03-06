@@ -3,13 +3,16 @@
 }
 
 /* ================= DRAWER ================= */
-
-.drawer {
+.drawer__container {
     position: sticky;
     top: 0;
     left: 0;
     z-index: 100;
-    height: 0;
+}
+
+.drawer {
+
+    /*height: 0;*/
     pointer-events: none;
 }
 

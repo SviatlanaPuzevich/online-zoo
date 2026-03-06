@@ -58,7 +58,7 @@ function initAnimalSlider() {
   const slider = document.querySelector('.animal-slider');
   if (!slider) return;
 
-  const track = slider.querySelector('.animal-slider__track');
+  const track = slider.querySelector('.animal-carousel__track');
   const prevBtn = slider.querySelector('.slider-btn-prev');
   const nextBtn = slider.querySelector('.slider-btn-next');
 
