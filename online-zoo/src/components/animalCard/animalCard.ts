@@ -10,7 +10,7 @@ export class AnimalCard {
 
     el.innerHTML = `
                         <div class="animal-card__image-wrapper">
-                            <img src="assets/images/gallery/Australlian%20Koala.png" alt="Australian Koala"
+                            <img src="assets/images/gallery/${this.animal.id}.png" alt="${this.animal.commonName}"
                                  class="animal-card__image">
                             <span class="animal-card__badge subheader">${this.animal.name}</span>
                         </div>

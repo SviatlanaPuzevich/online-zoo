@@ -5,6 +5,7 @@ import { Loader } from '../../components/loader/loader';
 import { MenuItem } from '../../types/types';
 import { SideMenu } from '../../components/sideMenu/sideMenu';
 import { AnimalSlider } from '../../components/animalCard/animalSlider';
+import { ReviewSlider } from '../../components/reviewCard/reviewSlider';
 
 
 // ========== side menu ===================
@@ -48,10 +49,11 @@ async function initAnimalCards() {
   }
 }
 
-
+// =====================review slider==========================
 
 async function initReviewCards() {
-  const container = document.querySelector('#reviews-container') as HTMLElement;
+  const reviewSlider = document.querySelector('#reviews-slider') as HTMLElement;
+  const container = document.querySelector('#reviews-wrapper') as HTMLElement;
   const loader = new Loader().render();
   container.appendChild(loader);
   try {
@@ -59,6 +61,9 @@ async function initReviewCards() {
     loader.remove();
     const list = new ReviewCardList(container, reviews);
     list.render();
+
+    new ReviewSlider(reviewSlider);
+
   } catch (err) {
     loader.remove();
     alert(err);
