@@ -6,6 +6,7 @@ import { MenuItem } from '../../types/types';
 import { SideMenu } from '../../components/sideMenu/sideMenu';
 import { AnimalSlider } from '../../components/animalCard/animalSlider';
 import { ReviewSlider } from '../../components/reviewCard/reviewSlider';
+import { Alert } from '../../components/alert/alert';
 
 
 // ========== side menu ===================
@@ -45,7 +46,11 @@ async function initAnimalCards() {
 
   } catch (err) {
     loader.remove();
-    alert(err);
+
+    const alert = new Alert(
+      'Something went wrong. Please, refresh the page',
+    ).render();
+    animalSlider.prepend(alert);
   }
 }
 
@@ -66,7 +71,10 @@ async function initReviewCards() {
 
   } catch (err) {
     loader.remove();
-    alert(err);
+    const alert = new Alert(
+      'Something went wrong. Please, refresh the page',
+    ).render();
+    reviewSlider.prepend(alert);
   }
 }
 

@@ -1224,7 +1224,20 @@ input:required:user-invalid + .form-error {
 
 .loader__container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    gap: 20px;
+}
+
+.loader__text {
 }
 
 
+.alert {
+    padding: 12px;
+    background: #ffdddd;
+    border: 1px solid red;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}

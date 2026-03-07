@@ -1,10 +1,11 @@
 export class Loader {
   render(): HTMLElement {
-    const container = document.createElement('div');
-    container.className = 'loader__container';
-    const loader = document.createElement('div');
-    loader.className = 'loader';
-    container.appendChild(loader);
-    return container;
+    const el = document.createElement('div');
+    el.className = 'loader__container';
+    el.innerHTML = `
+<div class="loader__text">Loading...</div>
+    <div class="loader"></div>
+`;
+    return el;
   }
 }
