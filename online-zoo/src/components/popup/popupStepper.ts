@@ -43,6 +43,3 @@ export class PopupStepper {
     this.screens.item(to).classList.add('popup__screen--active');
   }
 }
-
-
-

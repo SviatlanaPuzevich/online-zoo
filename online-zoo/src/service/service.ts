@@ -9,7 +9,7 @@ export class ApiService {
     );
 
     if (!res.ok) {
-      throw new Error('reviews are not available.');
+      throw new Error('Something went wrong. Please, refresh the page');
     }
 
     const json = await res.json();
@@ -23,7 +23,7 @@ export class ApiService {
     );
 
     if (!res.ok) {
-      throw new Error('info about animal are not available.');
+      throw new Error('Something went wrong. Please, refresh the page');
     }
 
     const json = await res.json();

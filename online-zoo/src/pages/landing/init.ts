@@ -1,25 +1,57 @@
 import { ApiService } from '../../service/service';
 import { ReviewCardList } from '../../components/reviewCard/reviewCardList';
 import { AnimalCardList } from '../../components/animalCard/animalCardList';
+import { Loader } from '../../components/loader/loader';
+import { MenuItem } from '../../types/types';
+import { SideMenu } from '../../components/sideMenu/sideMenu';
+
+const menuItems: MenuItem[] = [
+  { label: 'About', href: 'index.html' },
+  { label: 'Map', href: 'src/pages/map/index.html' },
+  { label: 'Zoos', href: 'src/pages/zoos/index.html' },
+  { label: 'Contact Us', href: 'src/pages/contacts/index.html' },
+  {
+    label: 'Design',
+    href: 'figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1',
+  },
+];
+
+
+const sideMenuContainer = document.getElementById('side-menu') as HTMLElement;
+const menu = new SideMenu(sideMenuContainer, menuItems, 0);
+menu.render();
 
 async function initAnimalCards() {
-  const animals = await ApiService.getAnimals();
-  console.log(animals);
-
   const container = document.querySelector('#animal-cards') as HTMLElement;
+  const loader = new Loader().render();
+  container.appendChild(loader);
+  try {
+    const animals = await ApiService.getAnimals();
+    loader.remove();
 
-  const list = new AnimalCardList(container, animals);
-  list.render();
+    const list = new AnimalCardList(container, animals);
+    list.render();
+  } catch (err) {
+    loader.remove();
+    console.log('ERRRRRRRRRROr');
+    alert(err);
+  }
 }
 
-
 async function initReviewCards() {
-  const reviews = await ApiService.getReviews();
-
   const container = document.querySelector('#reviews-container') as HTMLElement;
-
-  const list = new ReviewCardList(container, reviews);
-  list.render();
+  const loader = new Loader().render();
+  container.appendChild(loader);
+  try {
+    const reviews = await ApiService.getReviews();
+    loader.remove();
+    const list = new ReviewCardList(container, reviews);
+    list.render();
+  } catch (err) {
+    loader.remove();
+    console.log("ERRRRRRRRRROr")
+    alert(err);
+  }
 }
 
 initAnimalCards();
