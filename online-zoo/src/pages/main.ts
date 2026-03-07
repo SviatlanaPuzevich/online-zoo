@@ -1,5 +1,5 @@
-import {Dropdown} from "./components/dropdown/dropdown";
-import { PopupStepper } from './components/popup/popupStepper';
+import {Dropdown} from "../components/dropdown/dropdown";
+import { PopupStepper } from '../components/popup/popupStepper';
 
 document.querySelectorAll<HTMLElement>('.dropdown')
     .forEach(el => new Dropdown(el))

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/icons/Favicon.svg" type="image/svg+xml">
     <link rel="icon" href="assets/icons/Favicon@2x.png" type="image/png">
-    <link rel="stylesheet" href="src/normalize.css">
+    <link rel="stylesheet" href="src/pages/normalize.css">
     <link rel="stylesheet" href="src/pages/main-style.css">
     <link rel="stylesheet" href="src/pages/landing/style.css">
 </head>
@@ -147,6 +147,8 @@
         </div>
     </section>
 
+<!--    ====================Gallery====================-->
+
     <section class="gallery">
         <div class="container">
             <h2>meet some our Pets</h2>
@@ -156,7 +158,7 @@
                 donate to special ones or all our pets? We think it's important for you to choose how your donation
                 is used. </p>
 
-            <div class="animal-slider">
+            <div class="animal-slider" id="animal-slider">
 
                 <div class="animal-slider__buttons">
                     <button class="button slider-btn button--dark slider-btn-prev">
@@ -178,8 +180,10 @@
                     </button>
                 </div>
 
-                <div id="animal-cards" class="animal-carousel__track">
-                </div>
+
+                    <div id="animal-cards" class="animal-slider__track">
+                    </div>
+
             </div>
 
             <div class="mobile-invisible">
@@ -865,10 +869,10 @@
 </div>
 
 
-<script src="src/components/popup/popupStepper.ts"></script>
-<script type="module" src="src/main.ts"></script>
+<script type="module" src="src/components/popup/popupStepper.ts"></script>
+<script type="module" src="src/pages/main.ts"></script>
 <script type="module" src="src/pages/landing/init.ts"></script>
-<script src="src/components/slider/slider.js"></script>
+<!--<script src="src/components/slider/slider.js"></script>-->
 </body>
 
 </html>

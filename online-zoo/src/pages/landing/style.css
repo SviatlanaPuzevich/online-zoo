@@ -227,9 +227,14 @@
     margin: 20px 0;
 }
 
-.animal-carousel__track {
+.animal-slider__track {
     display: flex;
     gap: 20px;
+    transition: transform 0.4s ease;
+}
+
+.animal-slider__viewport {
+    overflow: hidden;
 }
 
 .animal-slider__buttons {
@@ -305,7 +310,7 @@
         margin: 40px 0;
     }
 
-    .animal-carousel__track {
+    .animal-slider__track {
         padding: 0 20px;
     }
 
@@ -313,9 +318,6 @@
         flex: 0 0 calc(50% - 10px);
     }
 
-    .animal-card__image-wrapper {
-        aspect-ratio: 3 / 4;
-    }
 
 }
 
@@ -333,13 +335,17 @@
         margin-right: calc((100vw - 100%) / -2);
     }
 
-    .animal-carousel__track {
+    .animal-slider__track {
         display: grid;
         grid-auto-flow: column;
         grid-template-rows: repeat(2, auto);
         gap: 30px;
         overflow-x: auto;
         scrollbar-width: none;
+    }
+
+    .animal-slider__buttons--hidden {
+        display: none;
     }
 
     .animal-slider__buttons {
@@ -352,6 +358,10 @@
 
     .animal-card {
         width: 440px
+    }
+
+    .animal-card__image-wrapper {
+        height: 436px;
     }
 
     .animal-card__image-wrapper::after {

@@ -1,7 +1,10 @@
 export class Loader {
   render(): HTMLElement {
-    const el = document.createElement('div');
-    el.className = 'loader';
-    return el;
+    const container = document.createElement('div');
+    container.className = 'loader__container';
+    const loader = document.createElement('div');
+    loader.className = 'loader';
+    container.appendChild(loader);
+    return container;
   }
 }

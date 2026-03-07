@@ -4,6 +4,10 @@ import { AnimalCardList } from '../../components/animalCard/animalCardList';
 import { Loader } from '../../components/loader/loader';
 import { MenuItem } from '../../types/types';
 import { SideMenu } from '../../components/sideMenu/sideMenu';
+import { AnimalSlider } from '../../components/animalCard/animalSlider';
+
+
+// ========== side menu ===================
 
 const menuItems: MenuItem[] = [
   { label: 'About', href: 'index.html' },
@@ -16,10 +20,15 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-
 const sideMenuContainer = document.getElementById('side-menu') as HTMLElement;
 const menu = new SideMenu(sideMenuContainer, menuItems, 0);
 menu.render();
+
+
+
+// =====================animal slider==========================
+
+const animalSlider = document.querySelector('#animal-slider') as HTMLElement;
 
 async function initAnimalCards() {
   const container = document.querySelector('#animal-cards') as HTMLElement;
@@ -28,15 +37,18 @@ async function initAnimalCards() {
   try {
     const animals = await ApiService.getAnimals();
     loader.remove();
-
     const list = new AnimalCardList(container, animals);
     list.render();
+
+    new AnimalSlider(animalSlider);
+
   } catch (err) {
     loader.remove();
-    console.log('ERRRRRRRRRROr');
     alert(err);
   }
 }
+
+
 
 async function initReviewCards() {
   const container = document.querySelector('#reviews-container') as HTMLElement;
@@ -49,7 +61,6 @@ async function initReviewCards() {
     list.render();
   } catch (err) {
     loader.remove();
-    console.log("ERRRRRRRRRROr")
     alert(err);
   }
 }
