@@ -18,3 +18,24 @@ export type Animal = {
   commonName: string;
   description: string;
 };
+
+export type AnimalFact = {
+  id: number;
+  commonName: string;
+  scientificName: string;
+  type: string;
+  size: string;
+  diet: string;
+  habitat: string;
+  range: string;
+  latitude: string;
+  longitude: string;
+  description: string;
+  detailedDescription: string;
+};
+
+export type AnimalItem = {
+  id: number;
+  petId: number;
+  text: string;
+};

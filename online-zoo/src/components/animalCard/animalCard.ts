@@ -20,7 +20,7 @@ export class AnimalCard {
                                 ${this.animal.description}
                             </p>
 
-                            <a class="button--orange button" href="src/pages/zoos/index.html">VIEW LIVE CAM
+                            <a class="button--orange button" href="src/pages/zoos/index.html?id=${this.animal.id}">VIEW LIVE CAM
                                 <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"

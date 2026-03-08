@@ -4,7 +4,7 @@ import { SideMenu } from '../../components/sideMenu/sideMenu';
 const menuItems: MenuItem[] = [
   { label: 'About', href: '../../../index.html' },
   { label: 'Map', href: 'index.html' },
-  { label: 'Zoos', href: '../zoos/index.html' },
+  { label: 'Zoos', href: '../zoos/index.html?id=1' },
   { label: 'Contact Us', href: '../contacts/index.html' },
   {
     label: 'Design',

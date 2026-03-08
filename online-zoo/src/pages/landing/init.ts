@@ -14,7 +14,7 @@ import { Alert } from '../../components/alert/alert';
 const menuItems: MenuItem[] = [
   { label: 'About', href: 'index.html' },
   { label: 'Map', href: 'src/pages/map/index.html' },
-  { label: 'Zoos', href: 'src/pages/zoos/index.html' },
+  { label: 'Zoos', href: 'src/pages/zoos/index.html?id=1' },
   { label: 'Contact Us', href: 'src/pages/contacts/index.html' },
   {
     label: 'Design',
