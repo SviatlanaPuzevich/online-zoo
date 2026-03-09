@@ -285,13 +285,13 @@
         <div class="footer__bottom--desktop">
             <div class="footer__social"><a href="https://www.youtube.com/" class="social__link"><img
                     class="social__icon"
-                    src="../../../assets/icons/YouTube.svg"
+                    src="/assets/icons/YouTube.svg"
                     alt="Youtube"></a>
                 <a href="https://www.instagram.com/" class="social__link"><img class="social__icon"
-                                                                               src="../../../assets/icons/Instagram.svg"
+                                                                               src="/assets/icons/Instagram.svg"
                                                                                alt="Instagram"></a>
                 <a href="https://www.facebook.com/" class="social__link"><img class="social__icon"
-                                                                              src="../../../assets/icons/Facebook.svg"
+                                                                              src="/assets/icons/Facebook.svg"
                                                                               alt="Facebook"></a></div>
             <div class="footer__divider mobile-only"></div>
             <div class="footer__copyright">
@@ -309,7 +309,6 @@
                 <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
-
                           fill="white"/>
                 </svg>
             </button>
@@ -349,38 +348,7 @@
         </div>
     </div>
 </div>
-<script>
 
-
-    const cams = document.querySelectorAll('.live__cam');
-
-    cams.forEach(cam => {
-        cam.addEventListener('click', function () {
-            cam.forEach(el => el.classList.remove('live__cam--active'));
-            this.classList.add('live__cam--active');
-        });
-    });
-
-
-    cams.forEach(cam => {
-        cam.addEventListener('mouseenter', function () {
-            const currentActive = document.querySelector('.live__cam--active');
-            if (currentActive) {
-                currentActive.classList.remove('active');
-            }
-            this.classList.add('live__cam--active');
-        });
-    });
-
-    const container = document.querySelector('.live__cams');
-    const firstCam = cams[0];
-
-    container.addEventListener('mouseleave', () => {
-        cams.forEach(el => el.classList.remove('live__cam--active'));
-        firstCam.classList.add('live__cam--active');
-    });
-
-</script>
 <script type="module" src="init.ts"></script>
 
 </body>

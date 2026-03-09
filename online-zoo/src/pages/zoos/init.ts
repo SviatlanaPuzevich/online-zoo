@@ -50,16 +50,15 @@ if (!id) {
 
 async function initDrawer() {
   const drawerRoot = document.getElementById('drawer') as HTMLElement;
-  // const loader = new Loader().render();
-  // factContainer.appendChild(loader);
+  const loader = new Loader().render();
+  drawerRoot.appendChild(loader);
   try {
     const animalItems = await ApiService.getCameras();
-    // loader.remove();
+    loader.remove();
     const drawer = new Drawer(drawerRoot, animalItems, id);
     drawer.renderList();
   } catch (err) {
-    // loader.remove();
-    console.error(err);
+    loader.remove();
     const alert = new Alert(
       'Something went wrong. Please, refresh the page',
     ).render();
