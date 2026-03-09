@@ -4,6 +4,7 @@ import { Loader } from '../../components/loader/loader';
 import { ApiService } from '../../service/service';
 import { Alert } from '../../components/alert/alert';
 import { AnimalFactSection } from '../../components/animalFact/animalFact';
+import { Drawer } from '../../components/drawer/drawer';
 
 // =========side menu==========
 const menuItems: MenuItem[] = [
@@ -45,8 +46,33 @@ if (!id) {
   }
 })(id);
 
+// ================Drawer===========
+
+async function initDrawer() {
+  const drawerRoot = document.getElementById('drawer') as HTMLElement;
+  // const loader = new Loader().render();
+  // factContainer.appendChild(loader);
+  try {
+    const animalItems = await ApiService.getCameras();
+    // loader.remove();
+    const drawer = new Drawer(drawerRoot, animalItems, id);
+    drawer.renderList();
+  } catch (err) {
+    // loader.remove();
+    console.error(err);
+    const alert = new Alert(
+      'Something went wrong. Please, refresh the page',
+    ).render();
+    drawerRoot.prepend(alert);
+  }
+}
+
+// ================Fact section===========
+
 async function initAnimalFact() {
-  const factContainer = document.getElementById('fact-container') as HTMLElement;
+  const factContainer = document.getElementById(
+    'fact-container',
+  ) as HTMLElement;
   const loader = new Loader().render();
   factContainer.appendChild(loader);
   try {
@@ -54,7 +80,6 @@ async function initAnimalFact() {
     loader.remove();
     const animalFactSection = new AnimalFactSection(factContainer, animalFact);
     animalFactSection.render();
-
   } catch (err) {
     loader.remove();
     const alert = new Alert(
@@ -63,5 +88,7 @@ async function initAnimalFact() {
     factContainer.prepend(alert);
   }
 }
+
+initDrawer();
 
 initAnimalFact();

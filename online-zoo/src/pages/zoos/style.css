@@ -8,12 +8,19 @@
     top: 0;
     left: 0;
     z-index: 100;
+    pointer-events: none;
 }
 
 .drawer {
+    background-color: var(--navy);
+    color: var(--white);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 50px;
+    pointer-events: auto;
+}
 
-    /*height: 0;*/
-    pointer-events: none;
+.drawer--expanded {
+    width: 230px;
 }
 
 .drawer__list {
@@ -22,16 +29,8 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    background-color: var(--navy);
-    color: var(--white);
-    width: 50px;
     overflow: hidden;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: auto;
-}
 
-.drawer__list--expanded {
-    width: 230px;
 }
 
 
@@ -58,6 +57,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .drawer__text {
@@ -119,10 +119,11 @@
     align-self: flex-start;
 }
 
-.drawer__collapse {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+.drawer__collapse, .drawer__down-button {
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
 .drawer__collapse--expanded {
@@ -131,11 +132,11 @@
 
 @media (min-width: 640px) {
 
-    .drawer__list {
+    .drawer {
         width: 78px
     }
 
-    .drawer__list--expanded {
+    .drawer--expanded {
         width: 233px;
     }
 
@@ -162,11 +163,11 @@
 
 @media (min-width: 1200px) {
 
-    .drawer__list {
+    .drawer {
         width: 115px
     }
 
-    .drawer__list--expanded {
+    .drawer--expanded {
         width: 300px;
     }
 
@@ -191,11 +192,11 @@
 
 @media (min-width: 1920px) {
 
-    .drawer__list {
+    .drawer {
         width: 220px
     }
 
-    .drawer__list--expanded {
+    .drawer--expanded {
         width: 300px;
     }
 
@@ -229,6 +230,10 @@
         outline-offset: 4px;
     }
 
+}
+
+.hidden {
+    display: none;
 }
 
 
