@@ -8,7 +8,7 @@ export class AnimalFactSection {
   ) {}
 
   render() {
-    const popupId = "map-popup";
+    const popupId = 'map-popup';
     this.root.innerHTML = `
                        <div class="fact__card">
                     <h3 class="fact__title">DID YOU KNOW?</h3>
@@ -68,7 +68,9 @@ export class AnimalFactSection {
 
     `;
 
-    new BasicPopup("Animal Location", popupId, this.createPopupContent());
+    const mapPopup = new BasicPopup('Animal Location', popupId);
+    mapPopup.setContent(this.createPopupContent());
+
   }
 
   private parseCoordinate(coord: string): number {
@@ -84,15 +86,15 @@ export class AnimalFactSection {
     return value;
   }
 
-
-  private createPopupContent() {
+  private createPopupContent(): HTMLIFrameElement {
     const latitude = this.parseCoordinate(this.fact.latitude);
     const longitude = this.parseCoordinate(this.fact.longitude);
-    const src =  `https://www.google.com/maps?q=${latitude},${longitude}&z=12&output=embed`;
+    const src = `https://www.google.com/maps?q=${latitude},${longitude}&z=12&output=embed`;
+    const frame = document.createElement('iframe');
+    frame.src = src;
+    frame.className = 'map-frame';
+    frame.setAttribute('loading', 'lazy');
 
-    return `
-     <iframe src="${src}" class="map-frame"  loading="lazy" >
-     </iframe>
-    `;
+    return frame;
   }
 }

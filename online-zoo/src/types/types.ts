@@ -3,6 +3,14 @@ export interface MenuItem {
   href: string;
 }
 
+export interface PopupContent {
+  getScreen(): HTMLElement;
+  onOpen?(): void;
+  onClose?(): void;
+}
+
+export type PopupContentInput = HTMLElement | PopupContent | PopupContent[];
+
 export type Review = {
   id: number;
   city: string;

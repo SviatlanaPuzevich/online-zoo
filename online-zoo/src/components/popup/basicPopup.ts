@@ -1,20 +1,23 @@
+import { PopupContentInput } from '../../types/types';
+
 export class BasicPopup {
+  private content: PopupContentInput;
+  private popup: HTMLElement;
+
   constructor(
     private title: string,
     private popupId: string,
-    private content: string,
   ) {
     this.init();
   }
 
-  private init(): void {
+  private init() {
     const popup = document.createElement('div');
     popup.className = 'popup donation__popup';
     popup.id = this.popupId;
     popup.setAttribute('popover', '');
 
     popup.innerHTML = `
-
     <div class="popup__content">
         <div class="popup__body popup__layout text-center">
             <div class="popup-header--accent">
@@ -29,14 +32,45 @@ export class BasicPopup {
             </div>
 
                 <div class="popup__inner">
-                     ${this.content}                     
+                                         
             </div>
         </div>
     </div>
-
-
     `;
 
+    this.popup = popup;
     document.body.appendChild(popup);
+  }
+
+  private normalizeContent(content: PopupContentInput): HTMLElement[] {
+    this.content = content;
+    if (content instanceof HTMLElement) return [content];
+
+    if (Array.isArray(content)) {
+      return content.map((c) => c.getScreen());
+    }
+
+    return [content.getScreen()];
+  }
+
+  setContent(content: PopupContentInput): void {
+    const container = this.popup.querySelector('.popup__inner');
+    if (!container) return;
+
+     this.normalizeContent(content).forEach((el) => container.appendChild(el));
+  }
+
+  open() {
+    this.popup.showPopover?.();
+    if ("onOpen" in this.content) {
+      this.content?.onOpen?.();
+    }
+  }
+
+  close() {
+    this.popup.hidePopover?.();
+    if ("onClose" in this.content) {
+      this.content?.onClose?.();
+    }
   }
 }
