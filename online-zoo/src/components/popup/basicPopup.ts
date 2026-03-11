@@ -8,10 +8,11 @@ export class BasicPopup {
     private title: string,
     private popupId: string,
   ) {
+    this.render();
     this.init();
   }
 
-  private init() {
+  private render() {
     const popup = document.createElement('div');
     popup.className = 'popup donation__popup';
     popup.id = this.popupId;
@@ -33,13 +34,49 @@ export class BasicPopup {
 
                 <div class="popup__inner">
                                          
-            </div>
+                </div>
         </div>
     </div>
     `;
 
     this.popup = popup;
     document.body.appendChild(popup);
+  }
+
+  private init() {
+    this.popup.addEventListener('toggle', (e) => {
+      // if (e.newState === 'closed') {
+      //   if ('onOpen' in this.content) {
+      //     this.content?.onOpen?.();
+      //   }
+      // }
+      //
+      // if (e.newState === 'open') {
+      //   if ('onClose' in this.content) {
+      //     this.content?.onClose?.();
+      //   }
+      // }
+
+      const contents = Array.isArray(this.content)
+        ? this.content
+        : [this.content];
+
+      if (e.newState === 'open') {
+        contents.forEach((c) => {
+          if ('onOpen' in c) {
+            c?.onOpen?.();
+          }
+        });
+      }
+
+      if (e.newState === 'closed') {
+        contents.forEach((c) => {
+          if ('onClose' in c) {
+            c.onClose?.();
+          }
+        });
+      }
+    });
   }
 
   private normalizeContent(content: PopupContentInput): HTMLElement[] {
@@ -57,19 +94,19 @@ export class BasicPopup {
     const container = this.popup.querySelector('.popup__inner');
     if (!container) return;
 
-     this.normalizeContent(content).forEach((el) => container.appendChild(el));
+    this.normalizeContent(content).forEach((el) => container.appendChild(el));
   }
 
   open() {
     this.popup.showPopover?.();
-    if ("onOpen" in this.content) {
+    if ('onOpen' in this.content) {
       this.content?.onOpen?.();
     }
   }
 
   close() {
     this.popup.hidePopover?.();
-    if ("onClose" in this.content) {
+    if ('onClose' in this.content) {
       this.content?.onClose?.();
     }
   }

@@ -2,6 +2,8 @@ import { Dropdown } from '../components/dropdown/dropdown';
 import { PopupStepper } from '../components/popup/popupStepper';
 import { BasicPopup } from '../components/popup/basicPopup';
 import { LoginScreen } from '../components/popup/loginScreen';
+import { RegistrationScreen } from '../components/popup/registerScreen';
+import { LoginElement } from '../components/header/login';
 
 document
   .querySelectorAll<HTMLElement>('.dropdown')
@@ -13,14 +15,17 @@ document.addEventListener('click', () => {
     .forEach((d) => d.classList.remove('open'));
 });
 
-const loginButton = document.getElementById('login-button');
+const loginDiv = document.querySelector('.user__container') as HTMLElement;
 
-new PopupStepper('.popup__screen');
+const loginElement = new LoginElement(loginDiv);
+loginElement.render();
 
 
+new PopupStepper('.donation__screen');
 
-const loginPopup = new BasicPopup('Login/Register', 'login-popup');
-const loginContent = new LoginScreen();
-loginPopup.setContent(loginContent);
+const loginPopup = new BasicPopup('Login/Registration', 'login-popup');
+const loginScreen = new LoginScreen();
+const registrationScreen = new RegistrationScreen();
+loginPopup.setContent([loginScreen, registrationScreen]);
+new PopupStepper('.login-group__screen');
 
-loginButton?.setAttribute('popovertarget', 'login-popup');

@@ -255,6 +255,7 @@ h3 {
     padding: 0;
     width: 40px;
     height: 40px;
+    cursor: pointer;
 }
 
 @media (min-width: 1200px) {
@@ -271,14 +272,17 @@ h3 {
         gap: 30px;
     }
 
-    .header__right-panel {
-        display: none;
-    }
 
     .header__right-panel {
         display: flex;
         gap: 80px;
+        align-items: center;
     }
+}
+
+.user__container {
+    color: var(--black);
+    font-weight: 600;
 }
 
 /*--------------Header----END------------------*/
@@ -729,12 +733,7 @@ body:has([popover]:popover-open) {
     margin: auto auto 30px;
 }
 
-@media (min-width: 640px) {
-    .popup__buttons {
-        max-width: 445px;
-        grid-template-columns: repeat(3, 135px);
-    }
-}
+
 
 .popup__buttons > button {
     flex-basis: 130px;
@@ -760,10 +759,21 @@ body:has([popover]:popover-open) {
     text-align: center;
 }
 
-.popup-header--accent .popup__title {
+.popup__title {
     color: white;
     max-width: 200px;
     margin: 30px auto;
+}
+
+@media (min-width: 640px) {
+    .popup__buttons {
+        max-width: 445px;
+        grid-template-columns: repeat(3, 135px);
+    }
+
+    .popup__title {
+        max-width: unset;
+    }
 }
 
 /*============== DONATION POPUP ===============*/
@@ -1249,6 +1259,20 @@ input:focus {
 
 
 /*=============Registration popup==================*/
-.login-group__screen {
-   margin: 50px;
+.login__nav {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 16px;
 }
+
+@media (min-width: 1200px) {
+    .login-group__screen {
+        margin: 50px;
+        min-width: 500px;
+    }
+}
+
+.tab--inactive {
+    background-color: #A4A8AE;
+}
+

@@ -47,3 +47,9 @@ export type AnimalItem = {
   petId: number;
   text: string;
 };
+
+export type User = {
+  login: string;
+  name: string;
+  email?: string;
+}

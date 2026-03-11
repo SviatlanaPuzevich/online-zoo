@@ -1,103 +1,148 @@
 import { PopupContent } from '../../types/types';
 
-
-export class LoginScreen implements PopupContent {
+export class RegistrationScreen implements PopupContent {
   private screen: HTMLElement;
+
   private loginInput: HTMLInputElement;
+  private nameInput: HTMLInputElement;
+  private emailInput: HTMLInputElement;
   private passwordInput: HTMLInputElement;
+  private confirmInput: HTMLInputElement;
+
+  private nameError: HTMLElement;
   private loginError: HTMLElement;
+  private emailError: HTMLSpanElement;
   private passwordError: HTMLElement;
+  private confirmError: HTMLSpanElement;
+
   private form: HTMLFormElement;
   private submitButton: HTMLButtonElement;
-  private formSpan: HTMLElement;
+  private formSpan: HTMLSpanElement;
 
   constructor() {
-    this.setUp()
+    this.screen = this.render();
+    this.setUp();
+    this.init();
   }
 
   private setUp() {
-    this.loginInput = this.screen.querySelector('#login') as HTMLInputElement;
+    this.loginInput = this.screen.querySelector(
+      '#reg-login',
+    ) as HTMLInputElement;
     this.loginError = this.screen.querySelector(
-      '#login-error',
+      '#reg-login-error',
+    ) as HTMLSpanElement;
+
+    this.nameInput = this.screen.querySelector('#reg-name') as HTMLInputElement;
+    this.nameError = this.screen.querySelector(
+      '#reg-name-error',
+    ) as HTMLSpanElement;
+
+    this.emailInput = this.screen.querySelector(
+      '#reg-email',
+    ) as HTMLInputElement;
+    this.emailError = this.screen.querySelector(
+      '#reg-email-error',
     ) as HTMLSpanElement;
 
     this.passwordInput = this.screen.querySelector(
-      '#password',
+      '#reg-password',
     ) as HTMLInputElement;
     this.passwordError = this.screen.querySelector(
-      '#password-error',
+      '#reg-password-error',
+    ) as HTMLSpanElement;
+
+    this.confirmInput = this.screen.querySelector(
+      '#confirm-password',
+    ) as HTMLInputElement;
+    this.confirmError = this.screen.querySelector(
+      '#confirm-password-error',
     ) as HTMLSpanElement;
 
     this.submitButton = this.screen.querySelector(
-      '#login-submit',
+      '#reg-submit',
     ) as HTMLButtonElement;
 
     this.form = this.screen.querySelector('form') as HTMLFormElement;
 
-    this.formSpan = this.screen.querySelector('#form-span') as HTMLSpanElement;
+    this.formSpan = this.screen.querySelector(
+      '#registration-error',
+    ) as HTMLSpanElement;
   }
 
-  init(): HTMLElement {
+  render(): HTMLElement {
     const screen = document.createElement('div');
-    screen.classList.add('popup__screen ');
+    screen.classList.add('popup__screen');
+    screen.classList.add('login-group__screen');
 
     screen.innerHTML = `
 
                 <div class="login__nav">
-                        <button class="button  next_popup_screen">Login
-          
+                        <button class="button  prev_popup_screen tab--inactive">Login
                         </button>
 
-                        <button class="button button--secondary popup-payment__back ">Registration</button>
+                        <button class="button button--secondary prev_popup_screen">Registration</button>
 
                     </div>
                 <div class="login__content">
-                    <form class="popup-payment__form" action="#">
+                    <form class="popup-payment__form" id="reg-form">
+                    <span class="form-error" id="registration-error"></span>
+                    
                         <div class="form-group form-group--error">
                             <label for="name">
                                 <span class="required">*</span> Login
                             </label>
 
-                            <input class="form-group__input" type="text" id="name" placeholder="Enter your login"
+                            <input class="form-group__input" type="text" id="reg-login" name="login" placeholder="Enter your login"
                                    required>
 
-                            <span class="form-error"></span>
+                            <span class="form-error" id="reg-login-error"></span>
+                        </div>
+                        
+                        <div class="form-group form-group--error">
+                            <label for="name">
+                                <span class="required">*</span> Name
+                            </label>
+
+                            <input class="form-group__input" type="text" id="reg-name" name="name" placeholder="Enter your name"
+                                   required>
+
+                            <span class="form-error" id="reg-name-error"></span>
+                        </div>
+                        
+                        <div class="form-group form-group--error">
+                            <label for="email">
+                                <span class="required">*</span> Email
+                            </label>
+
+                            <input class="form-group__input" type="email" id="reg-email" name="email" placeholder="Enter email"
+                                   required>
+
+                            <span class="form-error" id="reg-email-error"></span>
                         </div>
 
                         <div class="form-group form-group--error">
                             <label for="email">
                                 <span class="required">*</span> Password
                             </label>
-                            <input class="form-group__input" type="text" id="email" placeholder="Enter Password"
+                            <input class="form-group__input" type="password" id="reg-password" name="password" placeholder="Enter Password"
                                    required>
 
-                            <span class="form-error"></span>
-
+                            <span class="form-error" id="reg-password-error"></span>
                         </div>
                         
                          <div class="form-group form-group--error">
                             <label for="email">
                                 <span class="required">*</span>Confirm Password
                             </label>
-                            <input class="form-group__input" type="text" id="email" placeholder="Confirm Password"
+                            <input class="form-group__input" type="password" id="confirm-password" placeholder="Confirm Password"
                                    required>
 
-                            <span class="form-error"></span>
+                            <span class="form-error" id="confirm-password-error"></span>
 
                         </div>
                         
-                        <div class="form-group form-group--error">
-                            <label for="email">
-                                <span class="required">*</span>Your Name
-                            </label>
-                            <input class="form-group__input" type="text" id="email" placeholder="Enter Your Name"
-                                   required>
-
-                            <span class="form-error"></span>
-
-                        </div>
-                        
-                        <button type="submit" class="button--secondary button mobile-block form__button" disabled>
+                        <button type="submit" class="button--secondary button form__button" id="reg-submit" disabled>
                             SEND
                             <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +159,246 @@ export class LoginScreen implements PopupContent {
     return screen;
   }
 
+  private init() {
+    this.bindValidation(this.loginInput, this.loginError, this.validateLogin);
+    this.bindValidation(this.nameInput, this.nameError, this.validateName);
+    this.bindValidation(this.emailInput, this.emailError, this.validateEmail);
+    this.bindValidation(
+      this.passwordInput,
+      this.passwordError,
+      this.validatePassword,
+    );
+
+    this.bindValidation(
+      this.confirmInput,
+      this.confirmError,
+      this.validateConfirmPassword,
+    );
+
+    this.form.addEventListener('input', () => {
+      this.onFormInput();
+    });
+
+    this.form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await this.submitForm();
+    });
+  }
+
+  private bindValidation(
+    input: HTMLInputElement,
+    error: HTMLElement,
+    validator: (value: string) => string | null,
+  ) {
+    input.addEventListener('blur', () =>
+      this.validateInput(input, error, validator),
+    );
+
+    input.addEventListener('focus', () =>
+      this.clearNotValidData(input, error, validator),
+    );
+  }
+
+  private validatePassword(password: string): string | null {
+    const regex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
+
+    if (!password) {
+      return 'Password is required';
+    }
+
+    if (password.length < 6) {
+      return 'Password must be at least 6 characters';
+    }
+
+    if (!regex.test(password)) {
+      return 'Password must contain at least 1 special character';
+    }
+
+    return null;
+  }
+
+  private validateConfirmPassword(confirmPassword: string): string | null {
+    if (!confirmPassword) {
+      return 'Please confirm password';
+    }
+
+    if (this.passwordInput.value !== confirmPassword) {
+      return `Password doesn't match`;
+    }
+
+    return null;
+  }
+
+  private validateEmail(email: string): string | null {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email) {
+      return 'Email is required';
+    }
+
+    if (!regex.test(email)) {
+      return 'Invalid email format';
+    }
+
+    return null;
+  }
+
+  private validateLogin(login: string): string | null {
+    const regex = /^[A-Za-z0-9]+$/;
+
+    const regex2 = /^[a-zA-Z]/;
+
+    if (!login) {
+      return 'Login is required';
+    }
+
+    if (!regex.test(login)) {
+      return 'Login must contain only latin letters and numbers';
+    }
+
+    if (!regex2.test(login)) {
+      return 'Login must starts with latin letter';
+    }
+
+    if (login.length < 3) {
+      return 'Login must be at least 3 characters';
+    }
+
+    return null;
+  }
+
+  private validateName(login: string): string | null {
+    const regex = /^[A-Za-z0-9 ]+$/;
+
+    const regex2 = /^[a-zA-Z]/;
+
+    if (!login) {
+      return 'Name is required';
+    }
+
+    if (!regex.test(login)) {
+      return 'Name must contain only latin letters and numbers';
+    }
+
+    if (!regex2.test(login)) {
+      return 'Name must starts with latin letter';
+    }
+
+    if (login.length < 3) {
+      return 'Name must be at least 3 characters';
+    }
+
+    return null;
+  }
+
+  private validateInput(
+    input: HTMLInputElement,
+    errorSpan: HTMLElement,
+    fnValidate: (arg0: string) => string | null,
+  ) {
+    const text = fnValidate(input.value);
+    if (text) {
+      errorSpan.classList.remove('hidden');
+      errorSpan.textContent = text;
+    } else {
+      errorSpan.classList.add('hidden');
+      errorSpan.textContent = '';
+    }
+  }
+
+  private clearNotValidData(
+    input: HTMLInputElement,
+    errorSpan: HTMLSpanElement,
+    validateFn: (arg0: string) => string | null,
+  ) {
+    const data = input.value;
+    if (validateFn(data)) {
+      input.value = '';
+      errorSpan.classList.add('hidden');
+    }
+  }
+
+  private onFormInput() {
+    const loginValue = this.loginInput.value;
+    const nameValue = this.nameInput.value;
+    const emailValue = this.emailInput.value;
+    const passwordValue = this.passwordInput.value;
+    const confirmValue = this.confirmInput.value;
+
+    this.formSpan.classList.add('hidden');
+    this.formSpan.textContent = '';
+
+    if (
+      !this.validateLogin(loginValue) &&
+      !this.validateName(nameValue) &&
+      !this.validatePassword(passwordValue) &&
+      !this.validateEmail(emailValue) &&
+      !this.validateConfirmPassword(confirmValue)
+    ) {
+      this.submitButton.removeAttribute('disabled');
+    } else {
+      this.submitButton.setAttribute('disabled', '');
+    }
+  }
+
+  private async submitForm() {
+    const formData = new FormData(this.form);
+    const data = Object.fromEntries(formData.entries());
+    this.submitButton.setAttribute('disabled', '');
+
+    try {
+      const response = await fetch(
+        'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/auth/register',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        },
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+
+        const { access_token, user } = data.data;
+
+        localStorage.setItem('token', access_token);
+        localStorage.setItem('user', JSON.stringify(user));
+
+        window.location.assign('index.html');
+      } else {
+        const data = await response.json();
+        this.formSpan.textContent = data.error;
+        this.formSpan.classList.remove('hidden');
+        this.submitButton.removeAttribute('disabled');
+        console.error('Server error:', response.status);
+      }
+    } catch (error) {
+      this.formSpan.textContent = 'Something went wrong. Try again';
+      this.formSpan.classList.remove('hidden');
+      console.error('x3:', error);
+    }
+  }
+
+  private resetForm() {
+    this.form.reset();
+
+    const errors = this.screen.querySelectorAll('.form-error');
+
+    errors.forEach((el) => {
+      el.textContent = '';
+      el.classList.add('hidden');
+    });
+
+    this.submitButton.setAttribute('disabled', '');
+  }
+
   getScreen() {
     return this.screen;
+  }
+
+  onOpen() {
+    this.resetForm();
   }
 }

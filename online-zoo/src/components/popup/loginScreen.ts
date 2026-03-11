@@ -25,9 +25,9 @@ export class LoginScreen implements PopupContent {
     screen.innerHTML = `
 
                 <div class="login__nav">
-                        <button class="button button--secondary next_popup_screen">Login         
+                        <button class="button button--secondary">Login         
                         </button>
-                        <button class="button popup-payment__back ">Registration</button>
+                        <button class="button button--secondary next_popup_screen tab--inactive">Registration</button>
                     </div>
                 <div class="login__content">
                     <form class="popup-payment__form" >
@@ -37,7 +37,7 @@ export class LoginScreen implements PopupContent {
                                 <span class="required">*</span>Login
                             </label>
 
-                            <input class="form-group__input" type="text" id="login" placeholder="Enter your login"
+                            <input class="form-group__input" type="text" id="login" name="login" placeholder="Enter your login"
                                    required>
 
                             <span class="form-error hidden" id="login-error"></span>
@@ -47,7 +47,7 @@ export class LoginScreen implements PopupContent {
                             <label for="email">
                                 <span class="required">*</span> Password
                             </label>
-                            <input class="form-group__input" type="password" id="password" placeholder="Enter Password"
+                            <input class="form-group__input" type="password" id="password" name="password" placeholder="Enter Password"
                                    required>
 
                             <span class="form-error hidden" id="password-error"></span>
@@ -117,19 +117,20 @@ export class LoginScreen implements PopupContent {
     );
   }
 
+
   private validatePassword(password: string): string | null {
-    const regex = /^[A-Za-z0-9]+$/;
+    const regex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
 
     if (!password) {
       return 'Password is required';
     }
 
-    if (!regex.test(password)) {
-      return 'Password must contain only latin letters and numbers';
-    }
-
     if (password.length < 6) {
       return 'Password must be at least 6 characters';
+    }
+
+    if (!regex.test(password)) {
+      return 'Password must contain at least 1 special character';
     }
 
     return null;
@@ -190,7 +191,7 @@ export class LoginScreen implements PopupContent {
     const loginValue = this.loginInput.value;
     const passwordValue = this.passwordInput.value;
 
-    this.formSpan.classList.remove('hidden');
+    this.formSpan.classList.add('hidden');
 
     if (
       !this.validateLogin(loginValue) &&
@@ -219,7 +220,12 @@ export class LoginScreen implements PopupContent {
       );
 
       if (response.ok) {
-        await response.json();
+        const data = await response.json();
+        console.log(data);
+
+        const { access_token, user } = data.data;
+        localStorage.setItem('token', access_token);
+        localStorage.setItem('user', JSON.stringify(user));
 
         window.location.assign('index.html');
       } else {
@@ -227,6 +233,7 @@ export class LoginScreen implements PopupContent {
         console.error('Server error:', response.status);
       }
     } catch (error) {
+      this.formSpan.classList.remove('hidden');
       console.error('x3:', error);
     }
   }
@@ -239,6 +246,7 @@ export class LoginScreen implements PopupContent {
 
     this.loginError.classList.add('hidden');
     this.passwordError.classList.add('hidden');
+    this.formSpan.classList.add('hidden');
 
     this.submitButton.setAttribute('disabled', '');
   }
