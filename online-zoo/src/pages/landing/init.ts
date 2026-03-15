@@ -7,6 +7,11 @@ import { SideMenu } from '../../components/sideMenu/sideMenu';
 import { AnimalSlider } from '../../components/animalCard/animalSlider';
 import { ReviewSlider } from '../../components/reviewCard/reviewSlider';
 import { Alert } from '../../components/alert/alert';
+import { PaymentController } from '../../controllers/paymentController';
+import { BillingScreen } from '../../components/popup/donation/billingScreen';
+import { InfoScreen } from '../../components/popup/donation/infoScreen';
+import { BasicPopup } from '../../components/popup/basicPopup';
+import { PopupStepper } from '../../components/popup/popupStepper';
 
 
 // ========== side menu ===================
@@ -77,6 +82,14 @@ async function initReviewCards() {
     reviewSlider.prepend(alert);
   }
 }
+
+// ============================== payment popup=============================/
+const paymentController = new PaymentController();
+const billingScreen = new BillingScreen('#billing-screen', paymentController);
+const infoScreen = new InfoScreen('#info-screen', paymentController);
+const donationPopup = new BasicPopup('Make your donation', 'donation-popup');
+donationPopup.setContent([billingScreen, infoScreen]);
+new PopupStepper('.donation__screen');
 
 initAnimalCards();
 

@@ -1,4 +1,5 @@
-import { PopupContent } from '../../types/types';
+import { PopupContent } from '../../../types/types';
+import { validateLogin, validatePassword } from '../../../utils/validator';
 
 export class LoginScreen implements PopupContent {
   private screen: HTMLElement;
@@ -86,11 +87,11 @@ export class LoginScreen implements PopupContent {
   }
 
   private init() {
-    this.bindValidation(this.loginInput, this.loginError, this.validateLogin);
+    this.bindValidation(this.loginInput, this.loginError, validateLogin);
     this.bindValidation(
       this.passwordInput,
       this.passwordError,
-      this.validatePassword,
+      validatePassword,
     );
 
     this.form.addEventListener('input', () => {
@@ -115,49 +116,6 @@ export class LoginScreen implements PopupContent {
     input.addEventListener('focus', () =>
       this.clearNotValidData(input, error, validator),
     );
-  }
-
-
-  private validatePassword(password: string): string | null {
-    const regex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
-
-    if (!password) {
-      return 'Password is required';
-    }
-
-    if (password.length < 6) {
-      return 'Password must be at least 6 characters';
-    }
-
-    if (!regex.test(password)) {
-      return 'Password must contain at least 1 special character';
-    }
-
-    return null;
-  }
-
-  private validateLogin(login: string): string | null {
-    const regex = /^[A-Za-z0-9]+$/;
-
-    const regex2 = /^[a-zA-Z]/;
-
-    if (!login) {
-      return 'Login is required';
-    }
-
-    if (!regex.test(login)) {
-      return 'Login must contain only latin letters and numbers';
-    }
-
-    if (!regex2.test(login)) {
-      return 'Login must starts with latin letter';
-    }
-
-    if (login.length < 3) {
-      return 'Login must be at least 3 characters';
-    }
-
-    return null;
   }
 
   private validateInput(
@@ -193,14 +151,7 @@ export class LoginScreen implements PopupContent {
 
     this.formSpan.classList.add('hidden');
 
-    if (
-      !this.validateLogin(loginValue) &&
-      !this.validatePassword(passwordValue)
-    ) {
-      this.submitButton.removeAttribute('disabled');
-    } else {
-      this.submitButton.setAttribute('disabled', '');
-    }
+    this.submitButton.disabled = !(validateLogin(loginValue) && validatePassword(passwordValue));
   }
 
   private async submitForm() {

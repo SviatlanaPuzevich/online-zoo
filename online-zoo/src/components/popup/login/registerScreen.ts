@@ -1,4 +1,10 @@
-import { PopupContent } from '../../types/types';
+import { PopupContent } from '../../../types/types';
+import {
+  validateEmail,
+  validateLogin,
+  validateName,
+  validatePassword,
+} from '../../../utils/validator';
 
 export class RegistrationScreen implements PopupContent {
   private screen: HTMLElement;
@@ -160,13 +166,13 @@ export class RegistrationScreen implements PopupContent {
   }
 
   private init() {
-    this.bindValidation(this.loginInput, this.loginError, this.validateLogin);
-    this.bindValidation(this.nameInput, this.nameError, this.validateName);
-    this.bindValidation(this.emailInput, this.emailError, this.validateEmail);
+    this.bindValidation(this.loginInput, this.loginError, validateLogin);
+    this.bindValidation(this.nameInput, this.nameError, validateName);
+    this.bindValidation(this.emailInput, this.emailError, validateEmail);
     this.bindValidation(
       this.passwordInput,
       this.passwordError,
-      this.validatePassword,
+      validatePassword,
     );
 
     this.bindValidation(
@@ -199,93 +205,13 @@ export class RegistrationScreen implements PopupContent {
     );
   }
 
-  private validatePassword(password: string): string | null {
-    const regex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
-
-    if (!password) {
-      return 'Password is required';
-    }
-
-    if (password.length < 6) {
-      return 'Password must be at least 6 characters';
-    }
-
-    if (!regex.test(password)) {
-      return 'Password must contain at least 1 special character';
-    }
-
-    return null;
-  }
-
-  private validateConfirmPassword(confirmPassword: string): string | null {
+  validateConfirmPassword(confirmPassword: string): string | null {
     if (!confirmPassword) {
       return 'Please confirm password';
     }
 
     if (this.passwordInput.value !== confirmPassword) {
       return `Password doesn't match`;
-    }
-
-    return null;
-  }
-
-  private validateEmail(email: string): string | null {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!email) {
-      return 'Email is required';
-    }
-
-    if (!regex.test(email)) {
-      return 'Invalid email format';
-    }
-
-    return null;
-  }
-
-  private validateLogin(login: string): string | null {
-    const regex = /^[A-Za-z0-9]+$/;
-
-    const regex2 = /^[a-zA-Z]/;
-
-    if (!login) {
-      return 'Login is required';
-    }
-
-    if (!regex.test(login)) {
-      return 'Login must contain only latin letters and numbers';
-    }
-
-    if (!regex2.test(login)) {
-      return 'Login must starts with latin letter';
-    }
-
-    if (login.length < 3) {
-      return 'Login must be at least 3 characters';
-    }
-
-    return null;
-  }
-
-  private validateName(login: string): string | null {
-    const regex = /^[A-Za-z0-9 ]+$/;
-
-    const regex2 = /^[a-zA-Z]/;
-
-    if (!login) {
-      return 'Name is required';
-    }
-
-    if (!regex.test(login)) {
-      return 'Name must contain only latin letters and numbers';
-    }
-
-    if (!regex2.test(login)) {
-      return 'Name must starts with latin letter';
-    }
-
-    if (login.length < 3) {
-      return 'Name must be at least 3 characters';
     }
 
     return null;
@@ -329,10 +255,10 @@ export class RegistrationScreen implements PopupContent {
     this.formSpan.textContent = '';
 
     if (
-      !this.validateLogin(loginValue) &&
-      !this.validateName(nameValue) &&
-      !this.validatePassword(passwordValue) &&
-      !this.validateEmail(emailValue) &&
+      !validateLogin(loginValue) &&
+      !validateName(nameValue) &&
+      !validatePassword(passwordValue) &&
+      !validateEmail(emailValue) &&
       !this.validateConfirmPassword(confirmValue)
     ) {
       this.submitButton.removeAttribute('disabled');

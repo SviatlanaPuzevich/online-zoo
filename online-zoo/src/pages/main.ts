@@ -1,8 +1,8 @@
 import { Dropdown } from '../components/dropdown/dropdown';
 import { PopupStepper } from '../components/popup/popupStepper';
 import { BasicPopup } from '../components/popup/basicPopup';
-import { LoginScreen } from '../components/popup/loginScreen';
-import { RegistrationScreen } from '../components/popup/registerScreen';
+import { LoginScreen } from '../components/popup/login/loginScreen';
+import { RegistrationScreen } from '../components/popup/login/registerScreen';
 import { LoginElement } from '../components/header/login';
 
 document
@@ -21,7 +21,7 @@ const loginElement = new LoginElement(loginDiv);
 loginElement.render();
 
 
-new PopupStepper('.donation__screen');
+
 
 const loginPopup = new BasicPopup('Login/Registration', 'login-popup');
 const loginScreen = new LoginScreen();

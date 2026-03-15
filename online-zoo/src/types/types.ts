@@ -51,5 +51,22 @@ export type AnimalItem = {
 export type User = {
   login: string;
   name: string;
-  email?: string;
+  email: string;
+};
+
+export interface PaymentState {
+  name: string;
+  email: string;
+  amount: number;
+  petId: number | undefined;
+  petName: string;
+  cardNumber: number;
+  expDate: string;
+}
+
+export interface Donation {
+  name: string;
+  email: string;
+  amount: number;
+  petId: number | undefined;
 }
