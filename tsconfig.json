@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -12,7 +12,7 @@
     "noImplicitAny" : true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist",
+    "outDir": "online-zoo/dist",
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
