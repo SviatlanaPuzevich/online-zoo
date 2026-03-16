@@ -12,7 +12,7 @@ import{v as a,b as r,a as c,c as l,d as p,e as v,S as C,B as b,P as f}from"./sid
                             <div class="reviews-item__author">${this.review.name}</div>
     `,t}}class g{constructor(t,e){this.container=t,this.animal=e}render(){const t=document.createDocumentFragment();this.animal.forEach(e=>{const n=new _(e);t.appendChild(n.render())}),this.container.appendChild(t)}}class w{constructor(t){this.animal=t}render(){const t=document.createElement("div");return t.className="animal-card",t.innerHTML=`
                         <div class="animal-card__image-wrapper">
-                            <img src="/assets/images/gallery/${this.animal.id}.png" alt="${this.animal.commonName}"
+                            <img src="/online-zoo/images/gallery/${this.animal.id}.png" alt="${this.animal.commonName}"
                                  class="animal-card__image">
                             <span class="animal-card__badge subheader">${this.animal.name}</span>
                         </div>
