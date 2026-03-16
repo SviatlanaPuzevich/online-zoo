@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/online-zoo/assets/Favicon-BaDNNYL_.svg" type="image/svg+xml">
     <link rel="icon" href="/online-zoo/assets/Favicon@2x-Co82ZJLD.png" type="image/png">
-  <script type="module" crossorigin src="/online-zoo/assets/index-DMWxTQ1b.js"></script>
-  <link rel="stylesheet" crossorigin href="/online-zoo/assets/index-D8_Xqg3x.css">
+  <script type="module" crossorigin src="/online-zoo/assets/main-DF1v-3lP.js"></script>
+  <link rel="modulepreload" crossorigin href="/online-zoo/assets/sideMenu-BbNfAaIE.js">
+  <link rel="modulepreload" crossorigin href="/online-zoo/assets/alert-rXC1ack9.js">
+  <link rel="stylesheet" crossorigin href="/online-zoo/assets/sideMenu-BV82dDJQ.css">
+  <link rel="stylesheet" crossorigin href="/online-zoo/assets/main-DVtt6e7X.css">
 </head>
 <body>
 <header class="header">
@@ -24,10 +27,10 @@
             </button>
             <div class="header__right-panel">
                 <nav class="header__nav">
-                    <div><a class="nav__link nav__link--active" href="index.html">About</a></div>
-                    <div><a class="nav__link" href="src/pages/map/index.html">Map</a></div>
-                    <div><a class="nav__link " href="src/pages/zoos/index.html?id=1">Zoos</a></div>
-                    <div><a class="nav__link" href="src/pages/contacts/index.html">Contact Us</a></div>
+                    <div><a class="nav__link nav__link--active" href="/online-zoo/">About</a></div>
+                    <div><a class="nav__link" href="/online-zoo/pages/map/">Map</a></div>
+                    <div><a class="nav__link " href="/online-zoo/pages/zoos/?id=1">Zoos</a></div>
+                    <div><a class="nav__link" href="/online-zoo/pages/contacts/">Contact Us</a></div>
                     <div><a class="nav__link"
                             href="figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">Design</a>
                     </div>
@@ -527,10 +530,10 @@
                 </div>
             </div>
             <nav class="footer__nav">
-                <div><a class="nav__link" href="index.html">About</a></div>
-                <div><a class="nav__link" href="src/pages/map/index.html">Map</a></div>
-                <div><a class="nav__link" href="src/pages/zoos/index.html?id=1">Zoos</a></div>
-                <div><a class="nav__link" href="src/pages/contacts/index.html">Contact Us</a></div>
+                <div><a class="nav__link" href="/online-zoo/">About</a></div>
+                <div><a class="nav__link" href="/online-zoo/pages/map/">Map</a></div>
+                <div><a class="nav__link" href=/online-zoo/pages/zoos/?id=1>Zoos</a></div>
+                <div><a class="nav__link" href="/online-zoo/pages/contacts/">Contact Us</a></div>
             </nav>
             <div class="footer__button">
                 <button class="button--white button mobile-block" popovertarget="feed-popup">donate for volunteers
@@ -611,278 +614,6 @@
         </div>
     </div>
 </div>
-
-<!--<div class="popup donation__popup" id="donation-popup" popover>-->
-<!--    <div class="popup__content">-->
-<!--        <div class="popup__body popup__layout text-center">-->
-<!--            <div class="popup-header&#45;&#45;accent">-->
-<!--                <h2 class="popup__title">Make your donation</h2>-->
-<!--            </div>-->
-
-<!--&lt;!&ndash;            <div class="popup__screen popup__screen&#45;&#45;active donation__screen">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="donation__divider popup__text">&ndash;&gt;-->
-<!--&lt;!&ndash;                    Donation information:&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="donation__content" id="billing-screen">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <p><span class="required">*</span> Choose your donation amount:&ndash;&gt;-->
-<!--&lt;!&ndash;                    </p>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="donation__buttons">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation-item inactive" data-amount="10">$10</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation-item inactive" data-amount="20">$20</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation-item inactive" data-amount="30">$30</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation-item inactive" data-amount="50">$50</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation-item inactive" data-amount="80">$80</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation-item inactive" data-amount="100">$100</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="donation__other">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation__buttons&#45;&#45;big inactive" id="billing-amount"><span>other</span><span&ndash;&gt;-->
-<!--&lt;!&ndash;                                class="mobile-invisible"> amount</span></button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div><label for="billing-amount-input"></label>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <input class="donation__input" type="text" id="billing-amount-input" disabled>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="donation__fav">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary donation__buttons&#45;&#45;big donation__amount-btn">&ndash;&gt;-->
-<!--&lt;!&ndash;                            for&ndash;&gt;-->
-<!--&lt;!&ndash;                            special pet&ndash;&gt;-->
-<!--&lt;!&ndash;                        </button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div class="dropdown">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <button class="dropdown__trigger">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <span class="dropdown__value">Choose your favourite</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <span class="dropdown__arrow">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <svg width="17" height="10" viewBox="0 0 17 10">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <path d="M0.359375 0.359375L8.11695 8.35938L16.3594 0.359375"&ndash;&gt;-->
-<!--&lt;!&ndash;                                      stroke="currentColor"&ndash;&gt;-->
-<!--&lt;!&ndash;                                      stroke-width="2"&ndash;&gt;-->
-<!--&lt;!&ndash;                                      fill="none"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </svg>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </span>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </button>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                            <div class="dropdown__menu">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Lukas the Panda</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Andy the Lemur</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Glen the Gorilla</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Mike the Alligator</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Sam &amp; Lora the Eagles</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Liz the Koala</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Shake the Lion</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a href="#">Senja the Tiger</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                    <div class="donation__monthly"><label class="custom-checkbox">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <span class="checkbox-text">Make this a monthly recurring gift</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input type="checkbox">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <span class="checkbox-box"></span>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </label>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="donation__nav">&ndash;&gt;-->
-
-<!--&lt;!&ndash;                        <button class="button button&#45;&#45;secondary next_popup_screen" id="#billing-next">Next&ndash;&gt;-->
-<!--&lt;!&ndash;                            <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"&ndash;&gt;-->
-<!--&lt;!&ndash;                                 xmlns="http://www.w3.org/2000/svg">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <path fill-rule="evenodd" clip-rule="evenodd"&ndash;&gt;-->
-<!--&lt;!&ndash;                                      d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"&ndash;&gt;-->
-<!--&lt;!&ndash;                                      fill="currentColor"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </svg>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </button>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                        <div class="circle__container">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="circle circle&#45;&#45;active"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="circle"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="circle"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;=======2==========&ndash;&gt;-->
-<!--            <div class="popup__screen donation__screen">-->
-<!--                <div class="donation__divider popup__text">-->
-<!--                    Billing Information:-->
-<!--                </div>-->
-<!--                <div class="donation__content" id="info-screen">-->
-<!--                    <div class="billing-info">-->
-<!--                        <div class="popup-payment__data">-->
-<!--                            <div class="form-group form-group&#45;&#45;error">-->
-<!--                                <label for="info-name">-->
-<!--                                    <span class="required">*</span> Your Name-->
-<!--                                </label>-->
-
-<!--                                <input class="form-group__input" type="text" name="name"-->
-<!--                                       placeholder="Enter your name"-->
-<!--                                       required id="info-name">-->
-
-<!--                                <span class="form-error" id="info-name-error"></span>-->
-<!--                            </div>-->
-
-<!--                            <div class="form-group form-group&#45;&#45;error">-->
-<!--                                <label for="info-email">-->
-<!--                                    <span class="required">*</span> Your Email Address-->
-<!--                                </label>-->
-<!--                                <input class="form-group__input" type="text" name="email" id="info-email"-->
-<!--                                       placeholder="Enter Email Address"-->
-<!--                                       required>-->
-
-<!--                                <span class="form-error" id="info-email-error"></span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-
-<!--                        <p>You will receive emails from the Online Zoo, including updates and news on the latest-->
-<!--                            discoveries-->
-<!--                            and-->
-<!--                            translations. You can unsubscribe at any time.</p>-->
-
-<!--                        <div class="donation__nav">-->
-<!--                            <button class="button button&#45;&#45;secondary next_popup_screen" id="info-next">Next-->
-<!--                                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"-->
-<!--                                     xmlns="http://www.w3.org/2000/svg">-->
-<!--                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"-->
-<!--                                          fill="currentColor"/>-->
-<!--                                </svg>-->
-<!--                            </button>-->
-
-<!--                            <a class="popup-payment__back prev_popup_screen" id="info-back">Back</a>-->
-
-<!--                            <div class="circle__container">-->
-<!--                                <div class="circle circle&#45;&#45;active"></div>-->
-<!--                                <div class="circle circle&#45;&#45;active"></div>-->
-<!--                                <div class="circle"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;=====================3============================&ndash;&gt;-->
-<!--            <div class="popup__screen donation__screen">-->
-<!--                <div class="donation__divider popup__text">-->
-<!--                    Payment Information:-->
-<!--                </div>-->
-<!--                <div class="donation__content">-->
-<!--                    <form class="popup-payment__form">-->
-
-<!--                        <div class="form-group__credit">-->
-<!--                            <div class="form-group form-group&#45;&#45;error">-->
-<!--                                <label for="payment-credit-card">-->
-<!--                                    <span class="required">*</span> Credit Card Number-->
-<!--                                </label>-->
-
-<!--                                <input class="form-group__input" type="number" id="payment-credit-card"-->
-<!--                                       required>-->
-
-<!--                                <span class="form-error" id="payment-credit-card-error"></span>-->
-<!--                            </div>-->
-
-<!--                            <div class="form-group form-group&#45;&#45;error">-->
-<!--                                <label for="payment-cvv">-->
-<!--                                    <span class="required">*</span> CVV Number-->
-<!--                                </label>-->
-
-<!--                                <input class="form-group__input" type="number" id="payment-cvv"-->
-<!--                                       required>-->
-<!--                                <span class="form-error" id="payment-cvv-error"></span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-
-<!--                        <div class="form-group">-->
-<!--                            <div>-->
-<!--                                <span class="required">*</span> Expiration Date-->
-<!--                            </div>-->
-<!--                            <div class="donation__date">-->
-<!--                                <div class="dropdown">-->
-<!--                                    <input type="hidden" name="">-->
-<!--                                    <button class="dropdown__trigger">-->
-<!--                                        <span class="dropdown__value">Month</span>-->
-<!--                                        <span class="dropdown__arrow">-->
-<!--                            <svg width="17" height="10" viewBox="0 0 17 10">-->
-<!--                                <path d="M0.359375 0.359375L8.11695 8.35938L16.3594 0.359375"-->
-<!--                                      stroke="currentColor"-->
-<!--                                      stroke-width="2"-->
-<!--                                      fill="none"/>-->
-<!--                            </svg>-->
-<!--                                </span>-->
-<!--                                    </button>-->
-
-<!--                                    <div class="dropdown__menu">-->
-<!--                                        <a href="#">January</a>-->
-<!--                                        <a href="#">February</a>-->
-<!--                                        <a href="#">March</a>-->
-<!--                                        <a href="#">April</a>-->
-<!--                                        <a href="#">May</a>-->
-<!--                                        <a href="#">June</a>-->
-<!--                                        <a href="#">July</a>-->
-<!--                                        <a href="#">August</a>-->
-<!--                                        <a href="#">September</a>-->
-<!--                                        <a href="#">October</a>-->
-<!--                                        <a href="#">November</a>-->
-<!--                                        <a href="#">December</a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="dropdown">-->
-<!--                                    <button class="dropdown__trigger">-->
-<!--                                        <span class="dropdown__value">Year</span>-->
-<!--                                        <span class="dropdown__arrow">-->
-<!--                            <svg width="17" height="10" viewBox="0 0 17 10">-->
-<!--                                <path d="M0.359375 0.359375L8.11695 8.35938L16.3594 0.359375"-->
-<!--                                      stroke="currentColor"-->
-<!--                                      stroke-width="2"-->
-<!--                                      fill="none"/>-->
-<!--                            </svg>-->
-<!--                                </span>-->
-<!--                                    </button>-->
-
-<!--                                    <div class="dropdown__menu">-->
-<!--                                        <a href="#">2026</a>-->
-<!--                                        <a href="#">2027</a>-->
-<!--                                        <a href="#">2028</a>-->
-<!--                                        <a href="#">2029</a>-->
-<!--                                        <a href="#">2030</a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="donation__monthly"><label class="custom-checkbox">-->
-<!--                            <span class="checkbox-text">Save card info for future donations</span>-->
-<!--                            <input type="checkbox">-->
-<!--                            <span class="checkbox-box"></span>-->
-<!--                        </label>-->
-<!--                        </div>-->
-
-<!--                    </form>-->
-
-<!--                    <div class="donation__nav">-->
-
-<!--                        <a class="popup-payment__back prev_popup_screen" id="payment-back">Back</a>-->
-
-<!--                        <div class="circle__container">-->
-<!--                            <div class="circle circle&#45;&#45;active"></div>-->
-<!--                            <div class="circle circle&#45;&#45;active"></div>-->
-<!--                            <div class="circle circle&#45;&#45;active"></div>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                    <button class="button button&#45;&#45;primary">complete donation-->
-<!--                        <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"-->
-<!--                             xmlns="http://www.w3.org/2000/svg">-->
-<!--                            <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                                  d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"-->
-<!--                                  fill="currentColor"/>-->
-<!--                        </svg>-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 
 </body>
 
