@@ -12,6 +12,7 @@ import { BillingScreen } from '../../components/popup/donation/billingScreen';
 import { InfoScreen } from '../../components/popup/donation/infoScreen';
 import { BasicPopup } from '../../components/popup/basicPopup';
 import { PopupStepper } from '../../components/popup/popupStepper';
+import { PaymentScreen } from '../../components/popup/donation/paymentScreen';
 
 
 // ========== side menu ===================
@@ -85,11 +86,22 @@ async function initReviewCards() {
 
 // ============================== payment popup=============================/
 const paymentController = new PaymentController();
-const billingScreen = new BillingScreen('#billing-screen', paymentController);
-const infoScreen = new InfoScreen('#info-screen', paymentController);
-const donationPopup = new BasicPopup('Make your donation', 'donation-popup');
-donationPopup.setContent([billingScreen, infoScreen]);
+const billingScreen = new BillingScreen(paymentController);
+const infoScreen = new InfoScreen(paymentController);
+const paymentScreen = new PaymentScreen(paymentController);
+const donationPopup = new BasicPopup('Make your donation', 'donation-popup', paymentController);
+donationPopup.setContent([billingScreen, infoScreen, paymentScreen]);
 new PopupStepper('.donation__screen');
+
+
+
+//======================donation buttons============================/
+const donateButtons = document.querySelectorAll<HTMLButtonElement>(
+  '.donate-card__button',
+);
+donateButtons.forEach((button) => {
+  button.setAttribute('popovertarget', 'donation-popup');
+});
 
 initAnimalCards();
 

@@ -924,4 +924,9 @@ section {
     }
 }
 
+.error-input {
+    border: 2px solid var(--orange);
+    background-color: rgb(from var(--orange) r g b / 0.5);
+}
+
 

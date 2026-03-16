@@ -1,13 +1,25 @@
-import { PaymentState, User } from '../types/types';
+import { PaymentState, StateController, User } from '../types/types';
 
-export class PaymentController {
-  private state: PaymentState = {};
+export class PaymentController implements StateController<PaymentState> {
+  private state: PaymentState = this.initialize();
 
   reset() {
+    this.state = this.initialize();
+  }
+
+  update(partial: Partial<PaymentState>) {
+    Object.assign(this.state, partial);
+  }
+
+  getState(): PaymentState {
+    return this.state;
+  }
+
+  private initialize() {
     const user: User = JSON.parse(localStorage.getItem('user') || 'null');
     const card = JSON.parse(localStorage.getItem('card') || 'null');
 
-    this.state = {
+    return  {
       name: user?.name ?? '',
       email: user?.email ?? '',
       amount: 10,
@@ -16,13 +28,6 @@ export class PaymentController {
       cardNumber: card?.cardNumber ?? '',
       expDate: card?.cardNumber ?? '',
     };
-  }
 
-  update(partial: Partial<PaymentState>) {
-    Object.assign(this.state, partial);
-  }
-
-  getState() : PaymentState {
-    return this.state;
   }
 }

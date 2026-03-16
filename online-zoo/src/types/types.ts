@@ -64,6 +64,12 @@ export interface PaymentState {
   expDate: string;
 }
 
+export interface StateController<T> {
+  reset(): void;
+  update(partial: Partial<T>): void;
+  getState(): PaymentState;
+}
+
 export interface Donation {
   name: string;
   email: string;

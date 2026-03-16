@@ -151,3 +151,44 @@ export function validateCVV(cvv: string): string | null {
 
   return null;
 }
+
+export function bindInputValidation(
+  input: HTMLInputElement,
+  error: HTMLElement,
+  validator: (value: string) => string | null,
+) {
+  input.addEventListener('blur', () => validateInput(input, error, validator));
+
+  input.addEventListener('focus', () =>
+    clearNotValidData(input, error, validator),
+  );
+}
+
+function validateInput(
+  input: HTMLInputElement,
+  errorSpan: HTMLElement,
+  fnValidate: (arg0: string) => string | null,
+) {
+  const text = fnValidate(input.value);
+  if (text) {
+    input.classList.add('error-input');
+    errorSpan.classList.remove('hidden');
+    errorSpan.textContent = text;
+  } else {
+    errorSpan.classList.add('hidden');
+    errorSpan.textContent = '';
+  }
+}
+
+function clearNotValidData(
+  input: HTMLInputElement,
+  errorSpan: HTMLSpanElement,
+  validateFn: (arg0: string) => string | null,
+) {
+  const data = input.value;
+  if (validateFn(data)) {
+    input.classList.remove('error-input');
+    input.value = '';
+    errorSpan.classList.add('hidden');
+  }
+}

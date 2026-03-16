@@ -1,5 +1,6 @@
 import { PopupContent } from '../../../types/types';
 import {
+  bindInputValidation,
   validateEmail,
   validateLogin,
   validateName,
@@ -166,16 +167,16 @@ export class RegistrationScreen implements PopupContent {
   }
 
   private init() {
-    this.bindValidation(this.loginInput, this.loginError, validateLogin);
-    this.bindValidation(this.nameInput, this.nameError, validateName);
-    this.bindValidation(this.emailInput, this.emailError, validateEmail);
-    this.bindValidation(
+    bindInputValidation(this.loginInput, this.loginError, validateLogin);
+    bindInputValidation(this.nameInput, this.nameError, validateName);
+    bindInputValidation(this.emailInput, this.emailError, validateEmail);
+    bindInputValidation(
       this.passwordInput,
       this.passwordError,
       validatePassword,
     );
 
-    this.bindValidation(
+    bindInputValidation(
       this.confirmInput,
       this.confirmError,
       this.validateConfirmPassword,
@@ -191,20 +192,6 @@ export class RegistrationScreen implements PopupContent {
     });
   }
 
-  private bindValidation(
-    input: HTMLInputElement,
-    error: HTMLElement,
-    validator: (value: string) => string | null,
-  ) {
-    input.addEventListener('blur', () =>
-      this.validateInput(input, error, validator),
-    );
-
-    input.addEventListener('focus', () =>
-      this.clearNotValidData(input, error, validator),
-    );
-  }
-
   validateConfirmPassword(confirmPassword: string): string | null {
     if (!confirmPassword) {
       return 'Please confirm password';
@@ -217,32 +204,6 @@ export class RegistrationScreen implements PopupContent {
     return null;
   }
 
-  private validateInput(
-    input: HTMLInputElement,
-    errorSpan: HTMLElement,
-    fnValidate: (arg0: string) => string | null,
-  ) {
-    const text = fnValidate(input.value);
-    if (text) {
-      errorSpan.classList.remove('hidden');
-      errorSpan.textContent = text;
-    } else {
-      errorSpan.classList.add('hidden');
-      errorSpan.textContent = '';
-    }
-  }
-
-  private clearNotValidData(
-    input: HTMLInputElement,
-    errorSpan: HTMLSpanElement,
-    validateFn: (arg0: string) => string | null,
-  ) {
-    const data = input.value;
-    if (validateFn(data)) {
-      input.value = '';
-      errorSpan.classList.add('hidden');
-    }
-  }
 
   private onFormInput() {
     const loginValue = this.loginInput.value;

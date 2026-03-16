@@ -26,7 +26,6 @@ export class Drawer {
     }
 
     this.collapseButton = collapseButton;
-    console.log(collapseButton);
     this.animalList = animalList;
     this.drawerBadge = root.querySelector<HTMLElement>('#drawer-badge');
     this.drawerToggleIcon =
@@ -100,7 +99,6 @@ export class Drawer {
 
   private init(): void {
     this.collapseButton.addEventListener('click', (e) =>  {
-      console.log('listener');
       e.preventDefault();
       this.toggleLeftRight();
     });

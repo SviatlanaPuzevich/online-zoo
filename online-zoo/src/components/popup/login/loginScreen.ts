@@ -1,5 +1,9 @@
 import { PopupContent } from '../../../types/types';
-import { validateLogin, validatePassword } from '../../../utils/validator';
+import {
+  bindInputValidation,
+  validateLogin,
+  validatePassword,
+} from '../../../utils/validator';
 
 export class LoginScreen implements PopupContent {
   private screen: HTMLElement;
@@ -87,8 +91,8 @@ export class LoginScreen implements PopupContent {
   }
 
   private init() {
-    this.bindValidation(this.loginInput, this.loginError, validateLogin);
-    this.bindValidation(
+    bindInputValidation(this.loginInput, this.loginError, validateLogin);
+    bindInputValidation(
       this.passwordInput,
       this.passwordError,
       validatePassword,
@@ -104,46 +108,6 @@ export class LoginScreen implements PopupContent {
     });
   }
 
-  private bindValidation(
-    input: HTMLInputElement,
-    error: HTMLElement,
-    validator: (value: string) => string | null,
-  ) {
-    input.addEventListener('blur', () =>
-      this.validateInput(input, error, validator),
-    );
-
-    input.addEventListener('focus', () =>
-      this.clearNotValidData(input, error, validator),
-    );
-  }
-
-  private validateInput(
-    input: HTMLInputElement,
-    errorSpan: HTMLElement,
-    fnValidate: (arg0: string) => string | null,
-  ) {
-    const text = fnValidate(input.value);
-    if (text) {
-      errorSpan.classList.remove('hidden');
-      errorSpan.textContent = text;
-    } else {
-      errorSpan.classList.add('hidden');
-      errorSpan.textContent = '';
-    }
-  }
-
-  private clearNotValidData(
-    input: HTMLInputElement,
-    errorSpan: HTMLSpanElement,
-    validateFn: (arg0: string) => string | null,
-  ) {
-    const data = input.value;
-    if (validateFn(data)) {
-      input.value = '';
-      errorSpan.classList.add('hidden');
-    }
-  }
 
   private onFormInput() {
     const loginValue = this.loginInput.value;
@@ -172,7 +136,6 @@ export class LoginScreen implements PopupContent {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
 
         const { access_token, user } = data.data;
         localStorage.setItem('token', access_token);

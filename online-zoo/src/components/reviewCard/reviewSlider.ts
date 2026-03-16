@@ -7,7 +7,6 @@ export class ReviewSlider {
   private currentColumn = 0;
   private cardsPerRow: number = 0;
   private columnWidth: number = 0;
-  // private visibleColumns = 0;
   private maxScroll: number = 0;
   private maxIndex = 0;
 
@@ -15,7 +14,6 @@ export class ReviewSlider {
     this.track = root.querySelector('.slider__container')!;
     this.wrapper = root.querySelector('.slider__wrapper')!;
     this.prev = root.querySelector('.slider-btn-prev')!;
-    console.log(this.prev);
     this.next = root.querySelector('.slider-btn-next')!;
 
     this.setUp();
@@ -33,7 +31,6 @@ export class ReviewSlider {
     const style = window.getComputedStyle(this.track);
     const gap = parseFloat(style.gap) || 0;
     this.columnWidth = cardWidth + gap;
-    // this.visibleColumns = Math.floor(this.track.clientWidth / this.columnWidth);
 
     this.maxIndex = this.cardsPerRow - 1;
     this.maxScroll = this.track.scrollWidth - this.track.clientWidth;

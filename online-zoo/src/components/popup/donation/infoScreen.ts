@@ -1,5 +1,9 @@
 import { PopupContent } from '../../../types/types';
-import { validateEmail, validateName } from '../../../utils/validator';
+import {
+  bindInputValidation,
+  validateEmail,
+  validateName,
+} from '../../../utils/validator';
 import { PaymentController } from '../../../controllers/paymentController';
 
 export class InfoScreen implements PopupContent {
@@ -12,23 +16,82 @@ export class InfoScreen implements PopupContent {
   private backButton: HTMLButtonElement;
   private nextButton: HTMLButtonElement;
 
-  constructor(
-    selector: string,
-    private paymentController: PaymentController,
-  ) {
-    this.screen = document.querySelector(selector) as HTMLElement;
+  constructor(private paymentController: PaymentController) {
+    this.screen = this.render();
     this.setUp();
     this.init();
   }
 
-  private setValuesFromState() {
-    const state = this.paymentController.getState();
-    this.nameInput.value = state.name;
-    this.emailInput.value = state.email;
+  private render(): HTMLElement {
+    const screen = document.createElement('div');
+    screen.classList.add('popup__screen');
+    screen.classList.add('donation__screen');
+
+    screen.innerHTML = `
+                <div class="donation__divider popup__text">
+                    Billing Information:
+                </div>
+                <div class="donation__content" id="info-screen">
+                    <div class="billing-info">
+                        <div class="popup-payment__data">
+                            <div class="form-group form-group--error">
+                                <label for="info-name-input">
+                                    <span class="required">*</span> Your Name
+                                </label>
+
+                                <input class="form-group__input" type="text" name="name"
+                                       placeholder="Enter your name"
+                                       required id="info-name-input">
+
+                                <span class="form-error" id="info-name-error"></span>
+                            </div>
+
+                            <div class="form-group form-group--error">
+                                <label for="info-email-input">
+                                    <span class="required">*</span> Your Email Address
+                                </label>
+                                <input class="form-group__input" type="text" name="email" id="info-email-input"
+                                       placeholder="Enter Email Address"
+                                       required>
+
+                                <span class="form-error" id="info-email-error"></span>
+                            </div>
+                        </div>
+
+
+                        <p>You will receive emails from the Online Zoo, including updates and news on the latest
+                            discoveries
+                            and
+                            translations. You can unsubscribe at any time.</p>
+
+                        <div class="donation__nav">
+                            <button class="button button--secondary next_popup_screen" id="info-next">Next
+                                <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M13.2098 0.119971C13.0277 0.199174 12.8622 0.315255 12.7229 0.461565C12.5833 0.607505 12.4725 0.780876 12.397 0.971748C12.3214 1.16262 12.2825 1.36724 12.2825 1.57389C12.2825 1.78055 12.3214 1.98517 12.397 2.17604C12.4725 2.36691 12.5833 2.54028 12.7229 2.68622L18.7506 9H1.6C1.17565 9 0.768688 9.21071 0.468629 9.58579C0.168571 9.96086 0 10.4696 0 11C0 11.5304 0.168571 12.0391 0.468629 12.4142C0.768688 12.7893 1.17565 13 1.6 13H18.7514L12.7229 19.3146C12.4414 19.6096 12.2833 20.0097 12.2833 20.4269C12.2833 20.8441 12.4414 21.2443 12.7229 21.5393C13.0045 21.8343 13.3863 22 13.7845 22C14.1826 22 14.5645 21.8343 14.846 21.5393L23.842 12.1127C23.9816 11.9668 24.0924 11.7934 24.168 11.6026C24.2436 11.4117 24.2825 11.2071 24.2825 11.0004C24.2825 10.7938 24.2436 10.5891 24.168 10.3983C24.0924 10.2074 23.9816 10.034 23.842 9.88808L14.846 0.461565C14.7067 0.315255 14.5413 0.199174 14.3591 0.119971C14.177 0.0407677 13.9817 0 13.7845 0C13.5873 0 13.392 0.0407677 13.2098 0.119971Z"
+                                          fill="currentColor"/>
+                                </svg>
+                            </button>
+
+                            <a class="popup-payment__back prev_popup_screen" id="info-back">Back</a>
+
+                            <div class="circle__container">
+                                <div class="circle circle--active"></div>
+                                <div class="circle circle--active"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    `;
+    return screen;
   }
 
   private setUp() {
-    this.nameInput = this.screen.querySelector('#info-name-input') as HTMLInputElement;
+    this.nameInput = this.screen.querySelector(
+      '#info-name-input',
+    ) as HTMLInputElement;
     this.nameError = this.screen.querySelector(
       '#info-name-error',
     ) as HTMLSpanElement;
@@ -49,11 +112,19 @@ export class InfoScreen implements PopupContent {
     ) as HTMLButtonElement;
   }
 
-  private init() {
-    this.setValuesFromState();
+  private setValuesFromState() {
+    const { name, email } = this.paymentController.getState();
+    this.nameInput.value = name;
+    this.emailInput.value = email;
+    if (name && email) {
+      this.nextButton.disabled = false;
+    }
+  }
 
-    this.bindValidation(this.nameInput, this.nameError, validateName);
-    this.bindValidation(this.emailInput, this.emailError, validateEmail);
+  private init() {
+
+    bindInputValidation(this.nameInput, this.nameError, validateName);
+    bindInputValidation(this.emailInput, this.emailError, validateEmail);
     this.nameInput.addEventListener('input', () => {
       this.inputHandle();
     });
@@ -65,53 +136,11 @@ export class InfoScreen implements PopupContent {
     this.nextButton.addEventListener('click', () => this.updateState());
   }
 
-  private bindValidation(
-    input: HTMLInputElement,
-    error: HTMLElement,
-    validator: (value: string) => string | null,
-  ) {
-    input.addEventListener('blur', () =>
-      this.validateInput(input, error, validator),
-    );
-
-    input.addEventListener('focus', () =>
-      this.clearNotValidData(input, error, validator),
-    );
-
-  }
-
   private updateState() {
     this.paymentController.update({
       name: this.nameInput.value,
       email: this.emailInput.value,
     });
-  }
-
-  private validateInput(
-    input: HTMLInputElement,
-    errorSpan: HTMLElement,
-    fnValidate: (arg0: string) => string | null,
-  ) {
-    const text = fnValidate(input.value);
-    if (text) {
-      errorSpan.classList.remove('hidden');
-      errorSpan.textContent = text;
-    } else {
-      errorSpan.classList.add('hidden');
-      errorSpan.textContent = '';
-    }
-  }
-
-  private clearNotValidData(
-    input: HTMLInputElement,
-    errorSpan: HTMLSpanElement,
-    validateFn: (arg0: string) => string | null,
-  ) {
-    const data = input.value;
-    if (validateFn(data)) {
-      input.value = '';
-      errorSpan.classList.add('hidden');
-    }
   }
 
   private inputHandle() {
@@ -138,5 +167,6 @@ export class InfoScreen implements PopupContent {
 
   onOpen() {
     this.resetForm();
+    this.setValuesFromState();
   }
 }

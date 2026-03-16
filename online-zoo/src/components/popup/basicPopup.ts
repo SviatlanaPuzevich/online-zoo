@@ -1,4 +1,4 @@
-import { PopupContentInput } from '../../types/types';
+import { PopupContentInput, StateController } from '../../types/types';
 
 export class BasicPopup {
   private content: PopupContentInput;
@@ -7,6 +7,7 @@ export class BasicPopup {
   constructor(
     private title: string,
     private popupId: string,
+    private stateController?: StateController<unknown>,
   ) {
     this.render();
     this.init();
@@ -45,17 +46,6 @@ export class BasicPopup {
 
   private init() {
     this.popup.addEventListener('toggle', (e) => {
-      // if (e.newState === 'closed') {
-      //   if ('onOpen' in this.content) {
-      //     this.content?.onOpen?.();
-      //   }
-      // }
-      //
-      // if (e.newState === 'open') {
-      //   if ('onClose' in this.content) {
-      //     this.content?.onClose?.();
-      //   }
-      // }
 
       const contents = Array.isArray(this.content)
         ? this.content
@@ -67,6 +57,7 @@ export class BasicPopup {
             c?.onOpen?.();
           }
         });
+        this.stateController?.reset();
       }
 
       if (e.newState === 'closed') {
@@ -101,6 +92,7 @@ export class BasicPopup {
     this.popup.showPopover?.();
     if ('onOpen' in this.content) {
       this.content?.onOpen?.();
+
     }
   }
 
