@@ -15,6 +15,8 @@ export class PaymentScreen implements PopupContent {
   private cvvInput: HTMLInputElement;
   private cvvError: HTMLElement;
 
+  private saveCardCheckbox!: HTMLInputElement;
+
   private completeButton: HTMLButtonElement;
   private backButton: HTMLButtonElement;
 
@@ -34,7 +36,7 @@ export class PaymentScreen implements PopupContent {
                     Payment Information:
                 </div>
                 <div class="donation__content">
-                    <form class="popup-payment__form">
+                    <div class="popup-payment__data">
 
                         <div class="form-group__credit">
                             <div class="form-group form-group--error">
@@ -121,12 +123,12 @@ export class PaymentScreen implements PopupContent {
 
                         <div class="donation__monthly"><label class="custom-checkbox">
                             <span class="checkbox-text">Save card info for future donations</span>
-                            <input type="checkbox">
+                            <input type="checkbox" id="save-card-checkbox">
                             <span class="checkbox-box"></span>
                         </label>
                         </div>
 
-                    </form>
+                    </div>
 
                     <div class="donation__nav">
 
@@ -139,7 +141,7 @@ export class PaymentScreen implements PopupContent {
                         </div>
 
                     </div>
-                    <button class="button button--primary" id="payment-complete-button">complete donation
+                    <button class="button button--primary" id="payment-complete-button" disabled>complete donation
                         <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -176,10 +178,13 @@ export class PaymentScreen implements PopupContent {
     this.completeButton = this.screen.querySelector(
       '#payment-complete-button',
     ) as HTMLButtonElement;
+
+    this.saveCardCheckbox = this.screen.querySelector(
+      '#save-card-checkbox',
+    ) as HTMLInputElement;
   }
 
   private init() {
-
     bindInputValidation(
       this.creditCardInput,
       this.creditCardError,
@@ -190,7 +195,15 @@ export class PaymentScreen implements PopupContent {
     this.completeButton.addEventListener('click', () => {});
 
     this.backButton.addEventListener('click', () => this.saveState());
+
+    this.syncCheckboxFromStorage();
+    this.saveCardCheckbox.addEventListener('change', () => {
+      if (!this.saveCardCheckbox.checked) {
+        localStorage.removeItem('savedCard');
+      }
+    });
   }
+
 
   private saveState() {
     const cardNumber = Number(this.creditCardInput.value);
@@ -198,6 +211,22 @@ export class PaymentScreen implements PopupContent {
     if (cardNumber) {
       this.paymentController.update({ cardNumber });
     }
+
+    if (this.saveCardCheckbox.checked) {
+      localStorage.setItem(
+        'savedCard',
+        JSON.stringify({
+          cardNumber: this.paymentController.getState().cardNumber,
+          expiry: this.paymentController.getState().expDate,
+        }),
+      );
+    }
+
+  }
+
+  private syncCheckboxFromStorage() {
+    const savedCard = localStorage.getItem('savedCard');
+    this.saveCardCheckbox.checked = !!savedCard;
   }
 
   private resetForm() {
