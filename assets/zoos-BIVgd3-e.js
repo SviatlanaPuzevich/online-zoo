@@ -1,4 +1,4 @@
-import{B as d,S as p}from"./sideMenu-BbNfAaIE.js";import{L as o,A as l,a as c}from"./alert-rXC1ack9.js";class m{constructor(e,t){this.root=e,this.fact=t}render(){const e="map-popup";this.root.innerHTML=`
+import{B as d,S as p}from"./sideMenu-Di2GFJp8.js";import{L as o,A as l,a as c}from"./alert-rXC1ack9.js";class m{constructor(e,t){this.root=e,this.fact=t}render(){const e="map-popup";this.root.innerHTML=`
                        <div class="fact__card">
                     <h3 class="fact__title">DID YOU KNOW?</h3>
                     <p class="fact__text">
