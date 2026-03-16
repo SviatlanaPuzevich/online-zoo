@@ -14,7 +14,7 @@ export class LoginElement {
       const button = document.createElement('button');
       button.classList.add('login-button');
       button.setAttribute('popovertarget', 'login-popup');
-      button.innerText = `
+      button.innerHTML = `
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path id="Vector" stroke="#00A092" stroke-linecap="round" stroke-linejoin="round"
                                   d="M13.5 5.5c0 3.59 -2.95 8 -6.5 8S0.5 9.09 0.5 5.5 3.41 0.5 7 0.5s6.5 1.41 6.5 5Z"

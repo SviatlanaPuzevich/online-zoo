@@ -19,9 +19,9 @@ import { PaymentScreen } from '../../components/popup/donation/paymentScreen';
 
 const menuItems: MenuItem[] = [
   { label: 'About', href: 'index.html' },
-  { label: 'Map', href: 'src/pages/map/index.html' },
-  { label: 'Zoos', href: 'src/pages/zoos/index.html?id=1' },
-  { label: 'Contact Us', href: 'src/pages/contacts/index.html' },
+  { label: 'Map', href: './src/pages/map/index.html' },
+  { label: 'Zoos', href: './src/pages/zoos/index.html?id=1' },
+  { label: 'Contact Us', href: './src/pages/contacts/index.html' },
   {
     label: 'Design',
     href: 'figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1',

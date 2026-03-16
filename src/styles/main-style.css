@@ -430,6 +430,13 @@ h3 {
     }
 }
 
+.login-button {
+    border: none;
+    background: none;
+    width: 40px;
+    height: 40px;
+}
+
 /*-----------------Buttons End-----------------------*/
 
 
@@ -737,7 +744,6 @@ body:has([popover]:popover-open) {
     gap: 30px 0;
     margin: auto auto 30px;
 }
-
 
 
 .popup__buttons > button {
