@@ -18,7 +18,7 @@ export class AnimalFactSection {
                 </div>
                 <div class="animal-info__card">
                     <div class="animal-info__image">
-                        <img src="../../../assets/images/zoos/${this.fact.id}/fact.png" alt="eagles">
+                        <img src="/online-zoo/images/zoos/${this.fact.id}/fact.png" alt="eagles">
                     </div>
                     <div class="animal-info__content">
                         <ul class="animal-info__list">

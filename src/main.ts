@@ -1,9 +1,9 @@
-import { Dropdown } from '../components/dropdown/dropdown';
-import { PopupStepper } from '../components/popup/popupStepper';
-import { BasicPopup } from '../components/popup/basicPopup';
-import { LoginScreen } from '../components/popup/login/loginScreen';
-import { RegistrationScreen } from '../components/popup/login/registerScreen';
-import { LoginElement } from '../components/header/login';
+import { Dropdown } from './components/dropdown/dropdown';
+import { PopupStepper } from './components/popup/popupStepper';
+import { BasicPopup } from './components/popup/basicPopup';
+import { LoginScreen } from './components/popup/login/loginScreen';
+import { RegistrationScreen } from './components/popup/login/registerScreen';
+import { LoginElement } from './components/header/login';
 
 document
   .querySelectorAll<HTMLElement>('.dropdown')

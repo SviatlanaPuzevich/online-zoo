@@ -690,7 +690,7 @@ body:has([popover]:popover-open) {
 .donation-header {
     height: 167px;
     background-position: 100% center;
-    background-image: url("../../assets/images/popupHeader.jpg");
+    background-image: url("../../public/images/popupHeader.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }

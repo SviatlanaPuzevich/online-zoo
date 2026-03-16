@@ -61,7 +61,7 @@ export class Drawer {
                                 <div class="drawer__circle drawer__circle--collapsed">
                                     <div class="drawer__icon-wrap drawer__icon-wrap--collapsed">
                                         <svg class="drawer__icon">
-                                            <use href="/assets/icons/zoos/sprite.svg#${item.id}-d-icon"></use>
+                                            <use href="/online-zoo/icons/zoos/sprite.svg#${item.id}-d-icon"></use>
                                         </svg>
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@ export class Drawer {
                                 <div class="drawer__circle drawer__circle--collapsed">
                                     <div class="drawer__icon-wrap drawer__icon-wrap--active drawer__icon-wrap--active--collapsed">
                                         <svg class="drawer__icon">
-                                            <use href="/assets/icons/zoos/sprite.svg#${item.id}-d-icon"></use>
+                                            <use href="/online-zoo/icons/zoos/sprite.svg#${item.id}-d-icon"></use>
                                         </svg>
                                     </div>
                                 </div>

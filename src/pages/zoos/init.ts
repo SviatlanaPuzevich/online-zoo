@@ -8,9 +8,9 @@ import { Drawer } from '../../components/drawer/drawer';
 
 // =========side menu==========
 const menuItems: MenuItem[] = [
-  { label: 'About', href: '../../../index.html' },
+  { label: 'About', href: '/../../index.html' },
   { label: 'Map', href: '../map/index.html' },
-  { label: 'Zoos', href: 'index.html' },
+  { label: 'Zoos', href: '#' },
   { label: 'Contact Us', href: '../contacts/index.html' },
   {
     label: 'Design',
@@ -35,10 +35,10 @@ if (!id) {
 
 (function loadCamerasImagesById(id: number) {
   const links = [
-    `../../../assets/images/zoos/${id}/mainCam.png`,
-    `../../../assets/images/zoos/${id}/cam1.png`,
-    `../../../assets/images/zoos/${id}/cam2.png`,
-    `../../../assets/images/zoos/${id}/cam3.png`,
+    `/online-zoo/images/zoos/${id}/mainCam.png`,
+    `/online-zoo/images/zoos/${id}/cam1.png`,
+    `/online-zoo/images/zoos/${id}/cam2.png`,
+    `/online-zoo/images/zoos/${id}/cam3.png`,
   ];
   const images = Array.from(document.querySelectorAll('.video__link > img'));
   for (let i = 0; i < images.length; i++) {
