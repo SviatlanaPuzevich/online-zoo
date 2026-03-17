@@ -4,18 +4,35 @@ export class Dropdown {
   private value: HTMLElement;
   private options: NodeListOf<HTMLAnchorElement>;
 
-  constructor(root: HTMLElement) {
-    this.root = root;
-    this.trigger = root.querySelector('.dropdown__trigger')!;
-    this.value = root.querySelector('.dropdown__value')!;
-    this.options = root.querySelectorAll('.dropdown__menu a');
+  constructor(root: HTMLElement | string) {
+    if (typeof root === 'string') {
+      const el = document.querySelector(root);
+      console.log(root);
+      if (!el) throw new Error(`Dropdown: the element is not found "${root}"`);
+      this.root = el as HTMLElement;
+    } else {
+      this.root = root;
+    }
+    console.log(this.root);
+    this.trigger = this.root.querySelector('.dropdown__trigger')!;
+    this.value = this.root.querySelector('.dropdown__value')!;
+    this.options = this.root.querySelectorAll('.dropdown__menu a');
 
     this.init();
   }
 
+
+ 
+  
   private init() {
+    // this.trigger.addEventListener('click', (e) => {
+    //   e.stopPropagation();
+    //   this.toggle();
+    // });
+
     this.trigger.addEventListener('click', (e) => {
       e.stopPropagation();
+      console.log('trigger clicked'); // <- если не видим в консоли, проблема в селекторе
       this.toggle();
     });
 

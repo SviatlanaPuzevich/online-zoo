@@ -13,6 +13,7 @@ import { InfoScreen } from '../../components/popup/donation/infoScreen';
 import { BasicPopup } from '../../components/popup/basicPopup';
 import { PopupStepper } from '../../components/popup/popupStepper';
 import { PaymentScreen } from '../../components/popup/donation/paymentScreen';
+import { Dropdown } from '../../components/dropdown/dropdown';
 
 
 // ========== side menu ===================
@@ -92,6 +93,10 @@ const paymentScreen = new PaymentScreen(paymentController);
 const donationPopup = new BasicPopup('Make your donation', 'donation-popup', paymentController);
 donationPopup.setContent([billingScreen, infoScreen, paymentScreen]);
 new PopupStepper('.donation__screen');
+
+new Dropdown('#animal-dropdown');
+new Dropdown('#month-dropdown');
+new Dropdown('#year-dropdown');
 
 
 

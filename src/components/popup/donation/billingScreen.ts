@@ -57,7 +57,7 @@ export class BillingScreen implements PopupContent {
                             for
                             special pet
                         </button>
-                        <div class="dropdown">
+                        <div class="dropdown" id="animal-dropdown">
                             <button class="dropdown__trigger">
                                 <span class="dropdown__value">Choose your favourite</span>
                                 <span class="dropdown__arrow">

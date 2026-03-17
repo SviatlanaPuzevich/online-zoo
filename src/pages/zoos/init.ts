@@ -5,6 +5,7 @@ import { ApiService } from '../../service/service';
 import { Alert } from '../../components/alert/alert';
 import { AnimalFactSection } from '../../components/animalFact/animalFact';
 import { Drawer } from '../../components/drawer/drawer';
+import { DrawerAlert } from '../../components/alert/drawerAlert';
 
 // =========side menu==========
 const menuItems: MenuItem[] = [
@@ -52,8 +53,9 @@ const BASE = import.meta.env.BASE_URL || '/online-zoo/';
 
 async function initDrawer() {
   const drawerRoot = document.getElementById('drawer') as HTMLElement;
+  const drawerList = document.getElementById('drawer-list') as HTMLElement;
   const loader = new Loader().render();
-  drawerRoot.appendChild(loader);
+  drawerList.appendChild(loader);
   try {
     const animalItems = await ApiService.getCameras();
     loader.remove();
@@ -61,10 +63,10 @@ async function initDrawer() {
     drawer.renderList();
   } catch (err) {
     loader.remove();
-    const alert = new Alert(
+    const alert = new DrawerAlert(
       'Something went wrong. Please, refresh the page',
     ).render();
-    drawerRoot.prepend(alert);
+    drawerList.appendChild(alert);
   }
 }
 

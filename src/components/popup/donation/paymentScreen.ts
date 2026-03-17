@@ -67,7 +67,7 @@ export class PaymentScreen implements PopupContent {
                                 <span class="required">*</span> Expiration Date
                             </div>
                             <div class="donation__date">
-                                <div class="dropdown">
+                                <div class="dropdown" id="month-dropdown">
                                     <input type="hidden" name="">
                                     <button class="dropdown__trigger">
                                         <span class="dropdown__value">Month</span>
@@ -81,7 +81,7 @@ export class PaymentScreen implements PopupContent {
                                 </span>
                                     </button>
 
-                                    <div class="dropdown__menu">
+                                    <div class="dropdown__menu" >
                                         <a href="#">January</a>
                                         <a href="#">February</a>
                                         <a href="#">March</a>
@@ -96,7 +96,7 @@ export class PaymentScreen implements PopupContent {
                                         <a href="#">December</a>
                                     </div>
                                 </div>
-                                <div class="dropdown">
+                                <div class="dropdown" id="year-dropdown">
                                     <button class="dropdown__trigger">
                                         <span class="dropdown__value">Year</span>
                                         <span class="dropdown__arrow">
@@ -204,7 +204,6 @@ export class PaymentScreen implements PopupContent {
     });
   }
 
-
   private saveState() {
     const cardNumber = Number(this.creditCardInput.value);
 
@@ -221,7 +220,6 @@ export class PaymentScreen implements PopupContent {
         }),
       );
     }
-
   }
 
   private syncCheckboxFromStorage() {
