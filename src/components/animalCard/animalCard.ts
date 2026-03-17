@@ -1,8 +1,9 @@
 import { Animal } from '../../types/types';
 
 export class AnimalCard {
-  constructor(private animal: Animal) {
-  }
+  BASE = import.meta.env.BASE_URL || '/online-zoo/';
+
+  constructor(private animal: Animal) {}
 
   render(): HTMLElement {
     const el = document.createElement('div');
@@ -10,7 +11,7 @@ export class AnimalCard {
 
     el.innerHTML = `
                         <div class="animal-card__image-wrapper">
-                            <img src="/online-zoo/images/gallery/${this.animal.id}.png" alt="${this.animal.commonName}"
+                            <img src="${this.BASE}images/gallery/${this.animal.id}.png" alt="${this.animal.commonName}"
                                  class="animal-card__image">
                             <span class="animal-card__badge subheader">${this.animal.name}</span>
                         </div>
@@ -20,7 +21,7 @@ export class AnimalCard {
                                 ${this.animal.description}
                             </p>
 
-                            <a class="button--orange button" href="src/pages/zoos/index.html?id=${this.animal.id}">VIEW LIVE CAM
+                            <a class="button--orange button" href="./src/pages/zoos/index.html?id=${this.animal.id}">VIEW LIVE CAM
                                 <svg class="button__icon" width="25" height="22" viewBox="0 0 25 22" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"

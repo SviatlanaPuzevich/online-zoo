@@ -2,6 +2,7 @@ import { AnimalFact } from '../../types/types';
 import { BasicPopup } from '../popup/basicPopup';
 
 export class AnimalFactSection {
+  private BASE = import.meta.env.BASE_URL || '/online-zoo/';
   constructor(
     private root: HTMLElement,
     private fact: AnimalFact,
@@ -18,7 +19,7 @@ export class AnimalFactSection {
                 </div>
                 <div class="animal-info__card">
                     <div class="animal-info__image">
-                        <img src="/online-zoo/images/zoos/${this.fact.id}/fact.png" alt="eagles">
+                        <img src="${this.BASE}/images/zoos/${this.fact.id}/fact.png" alt="eagles">
                     </div>
                     <div class="animal-info__content">
                         <ul class="animal-info__list">
@@ -70,7 +71,6 @@ export class AnimalFactSection {
 
     const mapPopup = new BasicPopup('Animal Location', popupId);
     mapPopup.setContent(this.createPopupContent());
-
   }
 
   private parseCoordinate(coord: string): number {

@@ -9,7 +9,7 @@
     height: 300px;
     background-size: 150%;
     background-position: 100% center;
-    background-image: url("/images/Panda1Background.png");
+    background-image: url("../../assets/images/Panda1Background.png");
     background-repeat: no-repeat;
 }
 
@@ -46,7 +46,7 @@
         }
 
         .hero {
-            background-image: url("/images/Panda1Background.png");
+            background-image: url("../../assets/images/Panda1Background.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -743,7 +743,7 @@ section {
     .reviews {
         text-align: left;
         padding-bottom: 135px;
-        background-image: url('../../../public/images/panda Background 2.png');
+        background-image: url('../../assets/images/panda Background 2.png');
         background-size: cover;
         background-repeat: no-repeat;
     }

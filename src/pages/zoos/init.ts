@@ -33,12 +33,14 @@ if (!id) {
 
 // ================load cameras images===========
 
+const BASE = import.meta.env.BASE_URL || '/online-zoo/';
+
 (function loadCamerasImagesById(id: number) {
   const links = [
-    `/online-zoo/images/zoos/${id}/mainCam.png`,
-    `/online-zoo/images/zoos/${id}/cam1.png`,
-    `/online-zoo/images/zoos/${id}/cam2.png`,
-    `/online-zoo/images/zoos/${id}/cam3.png`,
+    `${BASE}/images/zoos/${id}/mainCam.png`,
+    `${BASE}/images/zoos/${id}/cam1.png`,
+    `${BASE}/images/zoos/${id}/cam2.png`,
+    `${BASE}/images/zoos/${id}/cam3.png`,
   ];
   const images = Array.from(document.querySelectorAll('.video__link > img'));
   for (let i = 0; i < images.length; i++) {
