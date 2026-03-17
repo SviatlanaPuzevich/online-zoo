@@ -272,6 +272,8 @@ export class BillingScreen implements PopupContent {
       (btn) => !btn.classList.contains('inactive'),
     );
 
+    const petName = this.dropdownValue.textContent;
+
     let amount: number | null = null;
 
     if (activeFixed) {
@@ -279,6 +281,11 @@ export class BillingScreen implements PopupContent {
     } else if (!validateAmount(this.amountInput.value)) {
       amount = Number(this.amountInput.value);
     }
+
+    if (petName && petName !== 'Choose your favourite') {
+      this.paymentController.update({ petName });
+    }
+
 
     if (amount) {
       this.paymentController.update({ amount });

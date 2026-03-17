@@ -5,6 +5,8 @@ import {
   validateCVV,
 } from '../../../utils/validator';
 import { PaymentController } from '../../../controllers/paymentController';
+import { ApiService } from '../../../service/service';
+import { showError, showSuccess } from '../../../utils/notificationHelper';
 
 export class PaymentScreen implements PopupContent {
   private screen: HTMLElement;
@@ -19,6 +21,11 @@ export class PaymentScreen implements PopupContent {
 
   private completeButton: HTMLButtonElement;
   private backButton: HTMLButtonElement;
+
+  private monthValue: HTMLElement;
+  private yearValue: HTMLElement;
+  private monthMenu: HTMLElement;
+  private yearMenu: HTMLElement;
 
   constructor(private paymentController: PaymentController) {
     this.screen = this.render();
@@ -82,18 +89,18 @@ export class PaymentScreen implements PopupContent {
                                     </button>
 
                                     <div class="dropdown__menu" >
-                                        <a href="#">January</a>
-                                        <a href="#">February</a>
-                                        <a href="#">March</a>
-                                        <a href="#">April</a>
-                                        <a href="#">May</a>
-                                        <a href="#">June</a>
-                                        <a href="#">July</a>
-                                        <a href="#">August</a>
-                                        <a href="#">September</a>
-                                        <a href="#">October</a>
-                                        <a href="#">November</a>
-                                        <a href="#">December</a>
+                                        <a href="#">01</a>
+                                        <a href="#">02</a>
+                                        <a href="#">03</a>
+                                        <a href="#">04</a>
+                                        <a href="#">05</a>
+                                        <a href="#">06</a>
+                                        <a href="#">07</a>
+                                        <a href="#">08</a>
+                                        <a href="#">09</a>
+                                        <a href="#">10</a>
+                                        <a href="#">11</a>
+                                        <a href="#">12</a>
                                     </div>
                                 </div>
                                 <div class="dropdown" id="year-dropdown">
@@ -182,6 +189,19 @@ export class PaymentScreen implements PopupContent {
     this.saveCardCheckbox = this.screen.querySelector(
       '#save-card-checkbox',
     ) as HTMLInputElement;
+
+    this.monthValue = this.screen.querySelector(
+      '#month-dropdown .dropdown__value',
+    ) as HTMLElement;
+    this.yearValue = this.screen.querySelector(
+      '#year-dropdown .dropdown__value',
+    ) as HTMLElement;
+    this.monthMenu = this.screen.querySelector(
+      '#month-dropdown .dropdown__menu',
+    ) as HTMLElement;
+    this.yearMenu = this.screen.querySelector(
+      '#year-dropdown .dropdown__menu',
+    ) as HTMLElement;
   }
 
   private init() {
@@ -202,6 +222,47 @@ export class PaymentScreen implements PopupContent {
         localStorage.removeItem('savedCard');
       }
     });
+
+    this.creditCardInput.addEventListener('input', () => this.inputHandle());
+    this.cvvInput.addEventListener('input', () => this.inputHandle());
+
+    this.monthMenu.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'A') {
+        this.monthValue.textContent = target.textContent;
+        this.inputHandle();
+      }
+    });
+
+    this.yearMenu.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'A') {
+        this.yearValue.textContent = target.textContent;
+        this.inputHandle();
+      }
+    });
+
+    this.completeButton.addEventListener('click', async () => {
+      await this.handleComplete();
+    });
+  }
+
+  private inputHandle() {
+    const isCardValid =
+      !validateCardNumber(this.creditCardInput.value) &&
+      this.creditCardInput.value !== '';
+    const isCvvValid =
+      !validateCVV(this.cvvInput.value) && this.cvvInput.value !== '';
+
+    const isMonthSelected = this.monthValue.textContent !== 'Month';
+    const isYearSelected = this.yearValue.textContent !== 'Year';
+
+    this.completeButton.disabled = !(
+      isCardValid &&
+      isCvvValid &&
+      isMonthSelected &&
+      isYearSelected
+    );
   }
 
   private saveState() {
@@ -227,6 +288,20 @@ export class PaymentScreen implements PopupContent {
     this.saveCardCheckbox.checked = !!savedCard;
   }
 
+  private async handleComplete() {
+    const { name, email, amount, petId, petName } = this.paymentController.getState();
+    try {
+      await ApiService.sendDonation({ name, email, amount, petId });
+      console.log('success');
+      showSuccess(amount, petName || 'your favourite animal');
+      const closeEvent = new CustomEvent('close-popup', { bubbles: true });
+      this.screen.dispatchEvent(closeEvent);
+    } catch (e) {
+      console.log('Failed to save donation');
+      showError();
+    }
+  }
+
   private resetForm() {
     this.creditCardInput.value = '';
     this.creditCardError.textContent = '';
@@ -235,6 +310,9 @@ export class PaymentScreen implements PopupContent {
     this.cvvError.textContent = '';
 
     this.completeButton.disabled = true;
+
+    this.monthValue.textContent = 'Month';
+    this.yearValue.textContent = 'Year';
   }
 
   getScreen() {
@@ -244,5 +322,6 @@ export class PaymentScreen implements PopupContent {
   onOpen() {
     this.resetForm();
     this.setValuesFromState();
+    this.inputHandle();
   }
 }

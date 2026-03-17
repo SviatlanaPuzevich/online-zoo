@@ -64,15 +64,13 @@ export interface PaymentState {
   expDate: string;
 }
 
+export type Donation = Pick<
+  PaymentState,
+  'name' | 'email' | 'amount' | 'petId'
+>;
+
 export interface StateController<T> {
   reset(): void;
   update(partial: Partial<T>): void;
   getState(): PaymentState;
-}
-
-export interface Donation {
-  name: string;
-  email: string;
-  amount: number;
-  petId: number | undefined;
 }

@@ -45,6 +45,11 @@ export class BasicPopup {
   }
 
   private init() {
+
+    this.popup.addEventListener('close-popup', () => {
+      this.close();
+    });
+
     this.popup.addEventListener('toggle', (e) => {
 
       const contents = Array.isArray(this.content)
