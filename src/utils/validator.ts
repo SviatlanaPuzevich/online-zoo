@@ -188,7 +188,6 @@ function clearNotValidData(
   const data = input.value;
   if (validateFn(data)) {
     input.classList.remove('error-input');
-    input.value = '';
     errorSpan.classList.add('hidden');
   }
 }

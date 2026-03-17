@@ -11,6 +11,9 @@ export class BillingScreen implements PopupContent {
   private amountButton: HTMLButtonElement;
   private fixedAmountButtons: HTMLButtonElement[];
 
+  private dropdownValue: HTMLElement;
+  private dropdownMenu: HTMLElement;
+
   private nextButton: HTMLButtonElement;
 
   constructor(
@@ -150,6 +153,10 @@ export class BillingScreen implements PopupContent {
     this.nextButton = this.screen.querySelector(
       '#billing-next',
     ) as HTMLButtonElement;
+
+    this.dropdownValue = this.screen.querySelector('.dropdown__value') as HTMLElement;
+    this.dropdownMenu = this.screen.querySelector('.dropdown__menu') as HTMLElement;
+
   }
 
   private init() {
@@ -182,7 +189,19 @@ export class BillingScreen implements PopupContent {
     this.amountInput.addEventListener('input', () => this.handleInput());
 
     this.nextButton.addEventListener('click', () => this.updateState());
+
+    this.dropdownMenu.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'A') {
+        e.preventDefault();
+        this.dropdownValue.textContent = target.textContent;
+        this.dropdownValue.classList.add('selected');
+        this.updateNextState();
+      }
+    });
   }
+
+
 
   private handleFixedClick(button: HTMLButtonElement) {
     const value = Number(button.dataset.amount);
@@ -235,20 +254,17 @@ export class BillingScreen implements PopupContent {
     const activeFixed = this.fixedAmountButtons.find(
       (btn) => !btn.classList.contains('inactive'),
     );
-
     const customActive = !this.amountButton.classList.contains('inactive');
+    const isAmountValid =
+      !!activeFixed ||
+      (customActive &&
+        !validateAmount(this.amountInput.value) &&
+        this.amountInput.value !== '');
 
-    if (activeFixed) {
-      this.nextButton.disabled = false;
-      return;
-    }
+    const isAnimalSelected =
+      this.dropdownValue.textContent !== 'Choose your favourite';
 
-    if (customActive && !validateAmount(this.amountInput.value)) {
-      this.nextButton.disabled = false;
-      return;
-    }
-
-    this.nextButton.disabled = true;
+    this.nextButton.disabled = !(isAmountValid && isAnimalSelected);
   }
 
   private updateState() {
@@ -282,6 +298,9 @@ export class BillingScreen implements PopupContent {
     this.amountButton.classList.add('inactive');
 
     this.nextButton.disabled = true;
+
+    this.dropdownValue.textContent = 'Choose your favourite';
+    this.dropdownValue.classList.remove('selected');
   }
 
   getScreen() {
@@ -291,5 +310,6 @@ export class BillingScreen implements PopupContent {
   onOpen() {
     this.resetForm();
     this.setValuesFromState();
+    this.updateNextState();
   }
 }

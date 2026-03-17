@@ -148,12 +148,12 @@ export class InfoScreen implements PopupContent {
     const emailValue = this.emailInput.value;
 
     this.nextButton.disabled =
-      !validateName(nameValue) && !validateEmail(emailValue);
+      !!validateName(nameValue) || !!validateEmail(emailValue);
   }
 
   private resetForm() {
-    this.emailInput.textContent = '';
-    this.nameInput.textContent = '';
+    this.emailInput.value = '';
+    this.nameInput.value = '';
 
     this.emailError.classList.add('hidden');
     this.nameError.classList.add('hidden');
@@ -168,5 +168,6 @@ export class InfoScreen implements PopupContent {
   onOpen() {
     this.resetForm();
     this.setValuesFromState();
+    this.inputHandle();
   }
 }
