@@ -1,4 +1,4 @@
-import{B as d,S as m}from"./sideMenu-D3A2jiSj.js";import{L as o,A as c,a as p}from"./alert-rXC1ack9.js";class h{constructor(e,t){this.root=e,this.fact=t,this.BASE="/online-zoo/"}render(){const e="map-popup";this.root.innerHTML=`
+import{B as d,S as m}from"./sideMenu-WQuLH2c4.js";import{L as o,A as c,a as p}from"./alert-9mdM6_HT.js";class h{constructor(e,t){this.root=e,this.fact=t,this.BASE="/online-zoo/"}render(){const e="map-popup";this.root.innerHTML=`
                        <div class="fact__card">
                     <h3 class="fact__title">DID YOU KNOW?</h3>
                     <p class="fact__text">
