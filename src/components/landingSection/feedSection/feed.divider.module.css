@@ -1,0 +1,26 @@
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 25px -10px 25px 0;
+}
+
+.divider__number {
+    color: var(--white);
+}
+
+.divider__line {
+    flex: 1;
+    height: 1px;
+    width: 100%;
+    background-color: var(--white)
+}
+
+@media (min-width: 640px) {
+
+    .divider {
+        margin: 35px 0 35px 0;
+    }
+
+}

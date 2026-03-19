@@ -1,4 +1,5 @@
 import styles from './button.module.css';
+import { Link } from 'react-router-dom';
 
 
 export type ButtonStyle = 'primary' | 'secondary' | 'dark' | 'white' | 'orange';
@@ -8,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   btnStyle?: ButtonStyle;
   extraClass?: string;
   icon?: React.ReactNode;
-  href?: string;
+  to?: string;
 }
 
 const buttonStyleMap: Record<ButtonStyle, string> = {
@@ -21,7 +22,7 @@ const buttonStyleMap: Record<ButtonStyle, string> = {
 
 
 const Button: React.FC<ButtonProps> =
-  ({ text, btnStyle = 'primary', extraClass = '', icon, href }) => {
+  ({ text, btnStyle = 'primary', extraClass = '', icon, to }) => {
     const className = `${styles.button} ${buttonStyleMap[btnStyle]} ${extraClass}`.trim();
 
     const content = (
@@ -31,11 +32,11 @@ const Button: React.FC<ButtonProps> =
       </>
     );
 
-    if (href) {
+    if (to) {
       return (
-        <a href={href} className={className}>
+        <Link to={to} className={className}>
           {content}
-        </a>
+        </Link>
       );
     }
 

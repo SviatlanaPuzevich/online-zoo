@@ -1,0 +1,24 @@
+.feed {
+    background-color: var(--navy);
+    color: var(--white);
+    padding-bottom: 50px;
+}
+
+.feed__title {
+    color: var(--white);
+    text-align: center;
+}
+
+
+section {
+    display: flow-root;
+}
+
+
+@media (min-width: 1200px) {
+
+    .feed__button {
+        align-self: flex-start;
+        margin: 50px 0;
+    }
+}

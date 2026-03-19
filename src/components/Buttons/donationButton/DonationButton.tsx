@@ -1,11 +1,13 @@
 import styles from './donation.button.module.css';
+import classNames from 'classnames';
 
 export default function DonationButton() {
-  return (<button className="donateButton mobile-block">
+  return (
+    <button className={classNames(styles.donateButton, 'mobile-block')}>
                         <span className={styles.donateButton__text}>
                             $ Donation Amount
                         </span>
-    <span className={styles.donateButton__icon}>
+      <span className={styles.donateButton__icon}>
                                     <svg width="25" height="22" viewBox="0 0 25 22" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd"
@@ -13,5 +15,5 @@ export default function DonationButton() {
                               fill="currentColor" />
                         </svg>
                     </span>
-  </button>);
+    </button>);
 }
