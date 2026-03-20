@@ -15,10 +15,34 @@ section {
 }
 
 
+.button__wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+
 @media (min-width: 1200px) {
+    .button__container {
+        display: flex;
+    }
+
+    .button__wrapper, .emptyBlock {
+        flex: 1;
+    }
 
     .feed__button {
         align-self: flex-start;
         margin: 50px 0;
+    }
+
+}
+
+@media (min-width: 1920px) {
+
+    .button__wrapper {
+        text-align: left;
     }
 }

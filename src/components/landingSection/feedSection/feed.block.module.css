@@ -20,10 +20,6 @@ section {
     display: flow-root;
 }
 
-.item__wrapper {
-    align-items: center;
-}
-
 
 @media (min-width: 1200px) {
     .item {
