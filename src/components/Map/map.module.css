@@ -1,0 +1,24 @@
+
+.map__country {
+    stroke: transparent;
+    stroke-width: 2px;
+    transition: stroke 0.3s ease;
+}
+
+.map__country:hover {
+    stroke: cornflowerblue;
+    stroke-width: 2px;
+    transition: stroke 0.3s ease;
+}
+
+@media (min-width: 640px) {
+
+
+    .map__world {
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+}
+

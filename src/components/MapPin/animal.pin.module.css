@@ -1,0 +1,39 @@
+
+.pin {
+    cursor: pointer;
+    color: var(--orange);
+    position: absolute;
+    width: 35px;
+    height: 50px;
+    transform: translateX(-50%);
+}
+.pin-outline {
+    display: none;
+}
+.pin-outline--alt {
+    transform: translate(0, 0);
+}
+.pin:hover, .pin:active {
+    color: var(--white);
+}
+.pin:hover .pin-outline {
+    display: block;
+}
+
+
+@media (min-width: 640px) {
+
+    .pin {
+        width: 42px;
+        height: 60px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .pin {
+        width: 100px;
+        height: 144px;
+    }
+}
