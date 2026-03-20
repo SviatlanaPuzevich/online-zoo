@@ -3,6 +3,7 @@
     color: var(--white);
     padding: 50px 0;
     text-align: center;
+    margin-top: 80px;
 }
 
 .footer__top {
@@ -64,6 +65,9 @@
 }
 
 @media (min-width: 640px) {
+    .footer {
+        margin-top: 100px;
+    }
 
     .footer__logos {
         flex-direction: row;
@@ -103,9 +107,6 @@
 
 @media (min-width: 1200px) {
 
-    /*.hide-on-desktop {*/
-    /*    display: none;*/
-    /*}*/
 
     .footer__nav {
         gap: 20px;
