@@ -8,12 +8,13 @@ import Arrow from '../Buttons/icons/Arrow.tsx';
 import { ApiService } from '../../services/service.ts';
 import { Loader } from '../Loader/Loader.tsx';
 import { Alert } from '../Alert/Alert.tsx';
+import { useParams } from 'react-router-dom';
 
-interface Props {
-  id: string | undefined;
-}
 
-const AnimalFactSection: React.FC<Props> = ({ id }) => {
+
+const AnimalFactSection: React.FC = () => {
+
+  const { id } = useParams<{ id: string }>() ;
 
   const [fact, setFact] = useState<AnimalFact | null>(null);
   const [isLoading, setIsLoading] = useState(true);

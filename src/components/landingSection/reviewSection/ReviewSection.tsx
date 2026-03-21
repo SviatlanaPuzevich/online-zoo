@@ -55,7 +55,7 @@ const ReviewSection = () => {
           <>
             <ReviewsGrid reviews={reviews} />
             <div className={styles.button__feedback}>
-              <Button text="LEAVE FEEDBACK" icon={<Arrow />} to="/contacts" />
+              <Button text="LEAVE FEEDBACK" btnStyle='secondary' icon={<Arrow />} to="/contacts" />
             </div>
           </>
         )}
