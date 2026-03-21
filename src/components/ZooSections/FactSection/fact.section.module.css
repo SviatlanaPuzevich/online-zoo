@@ -1,0 +1,19 @@
+.fact {
+    margin: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.fact__title {
+    color: var(--turquose);
+    text-align: center;
+}
+
+.fact__text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+
+}
+
