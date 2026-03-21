@@ -74,3 +74,9 @@ export interface StateController<T> {
   update(partial: Partial<T>): void;
   getState(): PaymentState;
 }
+
+export type AnimalFeeding = {
+  id: string;
+  text: string;
+};
+

@@ -12,7 +12,7 @@ const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
   return (
     <div className={styles.card}>
       <div className={styles['card__image-wrapper']}>
-        <img src={`../../public/images/gallery/${animal.id}.png`} alt={animal.commonName}
+        <img src={`/images/gallery/${animal.id}.png`} alt={animal.commonName}
              className={styles.card__image} />
         <span className={classNames(styles.card__badge, 'subheader')}>{animal.name}</span>
       </div>

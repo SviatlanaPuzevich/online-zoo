@@ -4,6 +4,6 @@ import { useParams } from 'react-router-dom';
 export default function ZooPage() {
   const { id } = useParams<{ id: string }>();
   return (
-    <AnimalFact id={id}/>
+    <AnimalFact id={id || '1'}/>
   );
 }

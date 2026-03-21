@@ -60,7 +60,7 @@ const AnimalFactSection: React.FC<Props> = ({ id }) => {
           </div>
           <div className={styles.info__card}>
             <div className={styles.info__image}>
-              <img src={`../../../public/images/zoos/${fact.id}/fact.png`} alt={fact.commonName} />
+              <img src={`/images/zoos/${fact.id}/fact.png`} alt={fact.commonName} />
             </div>
             <div className={styles.info__content}>
               <ul className={styles.info__list}>

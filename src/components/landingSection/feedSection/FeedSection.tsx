@@ -20,14 +20,14 @@ const FeedSection = () => {
               what they might find in their natural habitats while making sure they get the right mix of
               nutrients, proteins, and vitamins to be happy and healthy. Please help us provide nutritious
               food
-              for our animals by donating." pathToImg="../../../../public/images/monkey.png" imgDesc="Monkey"
+              for our animals by donating." pathToImg="/images/monkey.png" imgDesc="Monkey"
                    icon={<FeedIcon iconType="heart" />} />
         <FeedDivider title="02" />
         <FeedBlock title="Make a donation" text="You can donate through your credit card without any fees. It is
               easy and
               safe. We do not keep donors' personal information on an online network. Choose an amount to give
               and
-              the pet's name if needed." pathToImg="../../../../public/images/bananas.png" imgDesc="bananas"
+              the pet's name if needed." pathToImg="/images/bananas.png" imgDesc="bananas"
                    icon={<FeedIcon iconType="card" />} />
 
 
@@ -38,7 +38,7 @@ const FeedSection = () => {
               your favorite animals or any animal you care about and make a real personal impact. Never doubt
               that
               your donation can make a difference even if it is small."
-                   pathToImg="../../../../public/images/monkeyEats.png" imgDesc="Monkey with banana"
+                   pathToImg="/images/monkeyEats.png" imgDesc="Monkey with banana"
                    icon={<FeedIcon iconType="vegetable" />} />
 
 

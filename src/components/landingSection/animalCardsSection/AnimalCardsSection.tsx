@@ -5,6 +5,11 @@ import { ApiService } from '../../../services/service.ts';
 import { Loader } from '../../Loader/Loader.tsx';
 import { Alert } from '../../Alert/Alert.tsx';
 import AnimalCardsGrid from '../../AnimalCard/AnimalCardsGrid.tsx';
+import FeedSection from '../feedSection/FeedSection.tsx';
+import AnimalFeeding from '../animalFeeding/AnimalFeeding.tsx';
+import Banner from '../../banner/Banner.tsx';
+import Button from '../../Buttons/Button.tsx';
+import Arrow from '../../Buttons/icons/Arrow.tsx';
 
 const AnimalCardsSection = () => {
   const [animals, setAnimals] = useState<Animal[]>([]);
@@ -50,6 +55,9 @@ const AnimalCardsSection = () => {
       {!isLoading && !error && (
         <AnimalCardsGrid animals={animals} />
       )}
+      <div className="mobile-invisible">
+        <Button text='Choose Your Favourite' btnStyle='dark' icon={<Arrow/>} extraClass='mobile-block' />
+      </div>
     </section>
   );
 };
