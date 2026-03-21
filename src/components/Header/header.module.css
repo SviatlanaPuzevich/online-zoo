@@ -82,4 +82,51 @@
     }
 }
 
+.sideMenu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.sideMenu__buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.closeBtn {
+    align-self: flex-end;
+    margin: 15px 15px 0 0;
+}
+
+.sideNav__container  {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.sideNav__container li {
+    margin-bottom: 45px;
+}
+
+.sideNav {
+    text-decoration: none;
+    display: block;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.sideNav--active {
+    color: var(--turquose);
+}
+
+.openBtn, .closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 
