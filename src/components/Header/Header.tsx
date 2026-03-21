@@ -6,6 +6,14 @@ export default function Header() {
     isActive ? `${styles.nav__link} ${styles['nav__link--active']}` : styles.nav__link;
   const setActiveSideNav = ({ isActive }: { isActive: boolean }): string =>
     isActive ? `${styles.sideNav} ${styles['sideNav--active']}` : styles.sideNav;
+
+  const closePopover = () => {
+    const popover = document.getElementById('side-menu');
+    if (popover) {
+      popover.hidePopover();
+    }
+  };
+
   return (<>
       <header className={styles.header}>
         <div className="container">
@@ -56,10 +64,10 @@ export default function Header() {
           </button>
 
           <ul className={styles.sideNav__container}>
-            <li><NavLink to="/" className={setActiveSideNav}>About</NavLink></li>
-            <li><NavLink to="/map" className={setActiveSideNav}>Map</NavLink></li>
-            <li><NavLink to="/zoo/" className={setActiveSideNav}>Zoos</NavLink></li>
-            <li><NavLink to="/contacts" className={setActiveSideNav}>Contact Us</NavLink></li>
+            <li><NavLink to="/" className={setActiveSideNav} onClick={closePopover}>About</NavLink></li>
+            <li><NavLink to="/map" className={setActiveSideNav} onClick={closePopover}>Map</NavLink></li>
+            <li><NavLink to="/zoo/" className={setActiveSideNav} onClick={closePopover}>Zoos</NavLink></li>
+            <li><NavLink to="/contacts" className={setActiveSideNav} onClick={closePopover}>Contact Us</NavLink></li>
           </ul>
         </div>
       </nav>
