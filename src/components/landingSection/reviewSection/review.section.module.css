@@ -1,0 +1,66 @@
+
+.reviews {
+    text-align: center;
+    background-color: var(--navy);
+
+}
+
+.reviews__header {
+    color: var(--white);
+}
+
+.reviews__title {
+    color: var(--white);
+    font-size: 26px;
+}
+
+@media (min-width: 1200px) {
+    .reviews {
+        text-align: left;
+        padding-bottom: 135px;
+        background-image: url('../../../../public/images/panda Background 2.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .reviews__title {
+        max-width: 440px;
+    }
+
+    .reviews__subtitle {
+        max-width: 577px;
+        margin-bottom: 60px;
+    }
+
+
+    .button__feedback {
+        margin-left: 100px;
+    }
+
+    .reviews__image {
+        display: none;
+    }
+}
+
+@media (min-width: 1920px) {
+
+    .reviews {
+        padding-bottom: 150px;
+    }
+
+    .reviews__container {
+        padding-top: 100px;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: auto 1fr;
+    }
+
+    .slider__buttons {
+        margin-bottom: 376px;
+    }
+
+    .button__feedback {
+        margin-left: 0;
+        grid-row: 3;
+    }
+}

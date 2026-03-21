@@ -1,13 +1,10 @@
-import styles from './animal.cards.section.module.css'
+import styles from './animal.cards.section.module.css';
 import { useEffect, useState } from 'react';
 import type { Animal } from '../../../types/types.ts';
 import { ApiService } from '../../../services/service.ts';
 import { Loader } from '../../Loader/Loader.tsx';
 import { Alert } from '../../Alert/Alert.tsx';
 import AnimalCardsGrid from '../../AnimalCard/AnimalCardsGrid.tsx';
-import FeedSection from '../feedSection/FeedSection.tsx';
-import AnimalFeeding from '../animalFeeding/AnimalFeeding.tsx';
-import Banner from '../../banner/Banner.tsx';
 import Button from '../../Buttons/Button.tsx';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
 

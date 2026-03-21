@@ -5,6 +5,7 @@ import FeedSection from '../../components/landingSection/feedSection/FeedSection
 import Banner from '../../components/banner/Banner.tsx';
 import AnimalCardsSection from '../../components/landingSection/animalCardsSection/AnimalCardsSection.tsx';
 import AnimalFeeding from '../../components/landingSection/animalFeeding/AnimalFeeding.tsx';
+import ReviewSection from '../../components/landingSection/reviewSection/ReviewSection.tsx';
 
 export default function LandingPage() {
   return (<>
@@ -14,6 +15,7 @@ export default function LandingPage() {
                           Tune in to watch your favourite animals — live, 24/7!" />
       <AnimalCardsSection />
       <FeedSection />
+      <ReviewSection/>
       <AnimalFeeding/>
       <Banner alt='Touch animal' src='/images/Touch_the_animal_landing.png' />
     </>
