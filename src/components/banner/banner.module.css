@@ -2,6 +2,12 @@
     margin: 0 -10px;
 }
 
+.banner img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
 @media (min-width: 640px) {
 
     .banner{
