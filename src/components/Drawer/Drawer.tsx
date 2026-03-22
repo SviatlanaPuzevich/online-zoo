@@ -24,7 +24,8 @@ const Drawer: React.FC = () => {
         const animals = await ApiService.getCameras();
         setAnimals(animals);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        console.error(err);
+        setError('Something went wrong. Please reload the page');
       } finally {
         setIsLoading(false);
       }

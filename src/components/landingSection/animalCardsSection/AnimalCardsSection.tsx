@@ -22,7 +22,8 @@ const AnimalCardsSection = () => {
         const animals = await ApiService.getAnimals();
         setAnimals(animals);
       } catch (err) {
-        setError(err);
+        console.error(err);
+        setError('Something went wrong. Please reload the page');
       } finally {
         setIsLoading(false);
       }

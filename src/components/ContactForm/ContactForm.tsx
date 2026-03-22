@@ -22,9 +22,11 @@ const ContactForm: React.FC = () => {
 
   const onSubmit = (data: ContactFormData) => {
     try {
+      console.log(data);
       alert('Submitted successfully.');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
+      console.error(err);
+      setError('Something went wrong. Please reload the page');
     }
   };
 
