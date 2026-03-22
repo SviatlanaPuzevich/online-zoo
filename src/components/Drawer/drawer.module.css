@@ -1,12 +1,4 @@
-.drawer__container {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    pointer-events: none;
-    height: fit-content;
-    margin-right: -50px;
-}
+
 
 .drawer {
     background-color: var(--navy);
@@ -126,6 +118,12 @@
 
 .drawer__collapse--expanded {
     margin-left: auto;
+    margin-right: 10px;
+}
+
+.drawer-down-button {
+    border: none;
+    background-color: transparent;
 }
 
 @media (min-width: 640px) {

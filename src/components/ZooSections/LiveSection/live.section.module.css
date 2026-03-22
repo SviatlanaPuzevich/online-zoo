@@ -2,3 +2,14 @@
     position: relative;
     display: flex;
 }
+
+
+.drawer__container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    pointer-events: none;
+    height: fit-content;
+    margin-right: -50px;
+}

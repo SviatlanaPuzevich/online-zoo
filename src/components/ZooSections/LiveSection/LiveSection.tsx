@@ -6,7 +6,9 @@ import Drawer from '../../Drawer/Drawer.tsx';
 const LiveSection = () => {
   return (
     <section className={styles.live}>
-      <Drawer/>
+      <div className={styles.drawer__container}>
+        <Drawer />
+      </div>
       <Cameras />
     </section>
   );
