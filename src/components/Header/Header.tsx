@@ -1,5 +1,7 @@
 import styles from './header.module.css';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
+import { CONSTANT } from '../../const/const.ts';
 
 export default function Header() {
   const setActive = ({ isActive }: { isActive: boolean }) =>
@@ -20,7 +22,8 @@ export default function Header() {
           <div className={styles.header__inner}>
             <img src="/icons/Logo.svg" alt="Logo" className={styles.he} />
             <h1 className={styles.header__title}>online zoo</h1>
-            <button popoverTarget="side-menu" className="open-btn hide-on-desktop">
+            <button popoverTarget={CONSTANT.POPUP_ID.sideNavMenuId}
+                    className={classNames('open-btn', 'hide-on-desktop')}>
               <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd"
                       d="M0 0H22V2.30776H0V0ZM0 13.8476H22V16.1553H0V13.8476ZM22 27.6908H0V29.9985H22V27.6908Z"
@@ -53,9 +56,10 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <nav className={styles.sideMenu} id="side-menu" popover="auto">
+      <nav className={styles.sideMenu} id={CONSTANT.POPUP_ID.sideNavMenuId} popover="auto">
         <div className={styles.sideMenu__buttons}>
-          <button className={styles.closeBtn} popoverTarget="side-menu" popoverTargetAction="hide">
+          <button className={styles.closeBtn} popoverTarget={CONSTANT.POPUP_ID.sideNavMenuId}
+                  popoverTargetAction="hide">
             <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" clipRule="evenodd"
                     d="M13.2261 14.4991L0 27.4026L1.63183 28.9946L14.8579 16.0911L28.0879 28.9984L29.7197 27.4064L16.4897 14.4991L29.7195 1.59203L28.0876 0L14.8579 12.907L1.63211 0.00380707L0.000274658 1.59584L13.2261 14.4991Z"
