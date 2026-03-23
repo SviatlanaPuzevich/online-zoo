@@ -80,3 +80,8 @@ export type AnimalFeeding = {
   text: string;
 };
 
+
+export interface DropDownOption {
+  id?: string | number;
+  value: string;
+}

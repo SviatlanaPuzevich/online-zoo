@@ -2,26 +2,26 @@ import React, { type ReactNode } from 'react';
 import styles from './popup.layout.module.css';
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
+import { CONSTANT } from '../../const/const.ts';
 
 interface PopupLayoutProps {
   title: string;
   onClose?: () => void;
   children: ReactNode;
-  id: string;
 }
 
-const PopupLayout: React.FC<PopupLayoutProps> = ({ title, onClose, children, id }) => {
+const PopupLayout: React.FC<PopupLayoutProps> = ({ title, onClose, children}) => {
   const mountNode = document.getElementById('popup-root');
 
   if (!mountNode) return null;
 
   return createPortal(
-    <div className={styles.popup} popover="auto" id={id}>
+    <div className={styles.popup} popover="auto" id={CONSTANT.POPUP_ID.basicPopupId}>
       <div className={styles.popup__content}>
         <div className={classNames(styles.popup__body, styles.popup__layout)}>
           <div className={styles['popup-header--accent']}>
             <h2 className={styles.popup__title}>{title}</h2>
-            <button className={styles.popup__close} popoverTarget={id} popoverTargetAction="hide"
+            <button className={styles.popup__close} popoverTarget={CONSTANT.POPUP_ID.basicPopupId} popoverTargetAction="hide"
                     onClick={onClose}>
               <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd"

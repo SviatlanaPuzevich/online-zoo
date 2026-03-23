@@ -34,7 +34,7 @@ export default function Header() {
               <nav className={styles.header__nav}>
                 <div><NavLink to="/" className={setActive}>About</NavLink></div>
                 <div><NavLink className={setActive} to="/map">Map</NavLink></div>
-                <div><NavLink className={setActive} to="/zoo/">Zoos</NavLink></div>
+                <div><NavLink className={setActive} to="/zoo/1">Zoos</NavLink></div>
                 <div><NavLink className={setActive} to="/contacts">Contact Us</NavLink></div>
                 <div><a className={styles.nav__link}
                         href="figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">Design</a>

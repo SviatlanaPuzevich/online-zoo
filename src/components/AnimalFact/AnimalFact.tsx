@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { AnimalFact } from '../../types/types';
 import styles from './animal.fact.module.css';
 import Button from '../Buttons/Button.tsx';
@@ -6,16 +6,43 @@ import classNames from 'classnames';
 import Arrow from '../Buttons/icons/Arrow.tsx';
 import { Loader } from '../Loader/Loader.tsx';
 import { Alert } from '../Alert/Alert.tsx';
+import { ApiService } from '../../services/service.ts';
+import { useParams } from 'react-router-dom';
+import { parseCoordinate } from '../../utils/coordinatesHelper.ts';
+import { usePopup } from '../../hooks/popupHook.ts';
+import { CONSTANT } from '../../const/const.ts';
 
-interface Props {
-  fact: AnimalFact | null;
-  isLoading: boolean;
-  error: null | Error | string;
-  onErrorClose: (p: any) => void;
-  popupId: string;
-}
+const AnimalFactSection: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
 
-const AnimalFactSection: React.FC<Props> = ({fact, isLoading, error, onErrorClose, popupId}) => {
+  const { openPopup } = usePopup();
+
+  const [fact, setFact] = useState<AnimalFact | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+
+        const fact = await ApiService.getAnimalFact(Number(id));
+        setFact(fact);
+      } catch (err) {
+        console.error(err);
+        setError('Something went wrong. Please reload the page');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  const latitude = fact && parseCoordinate(fact.latitude);
+  const longitude = fact && parseCoordinate(fact.longitude);
+  const mapSrc = `https://maps.google.com/maps?q=${latitude},${longitude}&z=12&output=embed`;
 
   return (
     <section className={styles.fact}>
@@ -24,7 +51,7 @@ const AnimalFactSection: React.FC<Props> = ({fact, isLoading, error, onErrorClos
         {isLoading && <Loader text="Loading animal fact..." />}
 
         {error && (
-          <Alert onClose={() => onErrorClose(null)} />
+          <Alert onClose={() => setError(null)} />
         )}
 
         {!isLoading && !error && fact && (<>
@@ -50,7 +77,8 @@ const AnimalFactSection: React.FC<Props> = ({fact, isLoading, error, onErrorClos
                   <span className={styles.info__label}>Range:</span>
                   <span>{fact.range}</span>
                   <Button text="VIEW MAP" icon={<Arrow />} extraClass={classNames('mobile-block', styles.mapLink)}
-                          popoverTarget={popupId} />
+                          onClick={()=>openPopup('ANIMAL_LOCATION', { src: mapSrc })}
+                          popoverTarget={CONSTANT.POPUP_ID.basicPopupId} />
                 </li>
               </ul>
             </div>

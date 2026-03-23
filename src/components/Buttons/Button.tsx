@@ -12,6 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   to?: string;
   disabled?: boolean;
   popoverTarget?: string;
+  onClick?: () => void;
 }
 
 const buttonStyleMap: Record<ButtonStyle, string> = {
@@ -24,7 +25,7 @@ const buttonStyleMap: Record<ButtonStyle, string> = {
 
 
 const Button: React.FC<ButtonProps> =
-  ({ text, btnStyle = 'primary', extraClass = '', icon, to, disabled, popoverTarget }) => {
+  ({ text, btnStyle = 'primary', extraClass = '', icon, to, disabled, popoverTarget, onClick }) => {
     const className = `${styles.button} ${buttonStyleMap[btnStyle]} ${extraClass}`.trim();
 
     const content = (
@@ -42,7 +43,7 @@ const Button: React.FC<ButtonProps> =
       );
     }
 
-    return (<button className={className} disabled={disabled} popoverTarget={popoverTarget}>
+    return (<button className={className} disabled={disabled} popoverTarget={popoverTarget} onClick={onClick}>
       {content}
     </button>);
   };

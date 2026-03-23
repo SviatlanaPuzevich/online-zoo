@@ -1,9 +1,14 @@
 import styles from './donation.button.module.css';
 import classNames from 'classnames';
 
-export default function DonationButton() {
+interface Props {
+  onClick?: () => void;
+  popoverTarget?: string;
+}
+
+const DonationButton: React.FC<Props> = ({ popoverTarget, onClick }) => {
   return (
-    <button className={classNames(styles.donateButton, 'mobile-block')}>
+    <button className={classNames(styles.donateButton, 'mobile-block')} popoverTarget={popoverTarget} onClick={onClick}>
                         <span className={styles.donateButton__text}>
                             $ Donation Amount
                         </span>
@@ -16,4 +21,6 @@ export default function DonationButton() {
                         </svg>
                     </span>
     </button>);
-}
+};
+
+export default DonationButton;
