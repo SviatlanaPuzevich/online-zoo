@@ -85,3 +85,20 @@ export interface DropDownOption {
   id?: string | number;
   value: string;
 }
+
+export type RegisterForm = {
+  login: string;
+  password: string;
+  name: string;
+  email: string;
+};
+
+export type LoginForm = {
+  login: string;
+  password: string; //must be hash
+};
+
+export type LoginResponse = {
+  access_token: string;
+  user: User;
+};

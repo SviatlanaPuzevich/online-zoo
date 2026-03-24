@@ -1,4 +1,13 @@
-import type { Animal, AnimalFact, AnimalItem, Donation, Review } from '../types/types.ts';
+import type {
+  Animal,
+  AnimalFact,
+  AnimalItem,
+  Donation,
+  LoginForm,
+  LoginResponse,
+  RegisterForm,
+  Review,
+} from '../types/types.ts';
 
 const BASE_URL: string = 'https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod';
 
@@ -57,6 +66,46 @@ export class ApiService {
     }
     const json = await res.json();
 
+    return json.data;
+  }
+
+  static  async login(data : LoginForm): Promise<LoginResponse> {
+    const res = await fetch(
+      `${BASE_URL}/auth/login`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      },
+    );
+
+    if (!res.ok) {
+      throw new Error("Login or password are not correct.");
+    }
+
+    const json = await res.json();
+    return json.data;
+  }
+
+  static  async register(data : RegisterForm): Promise<LoginResponse> {
+    const res = await fetch(
+      `${BASE_URL}/auth/register`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      },
+    );
+
+    // if (!res.ok) {
+    //   throw new Error(res.message);
+    // }
+
+    const json = await res.json();
     return json.data;
   }
 

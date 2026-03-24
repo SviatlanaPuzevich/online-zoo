@@ -29,7 +29,7 @@ const DropDown: React.FC<DropDownProps> = ({ title='', items, name, valueName, s
                             <svg width="17" height="10" viewBox="0 0 17 10">
                                 <path d="M0.359375 0.359375L8.11695 8.35938L16.3594 0.359375"
                                       stroke="currentColor"
-                                      stroke-width="2"
+                                      strokeWidth="2"
                                       fill="none" />
                             </svg>
                                 </span>

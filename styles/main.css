@@ -692,10 +692,10 @@ h3 {
 
 /*!* Label *!*/
 
-/*.required {*/
-/*    color: var(--turquose);*/
-/*    margin-right: 4px;*/
-/*}*/
+.required {
+    color: var(--turquose);
+    margin-right: 4px;
+}
 
 
 /*.form-error {*/
@@ -799,9 +799,9 @@ h3 {
 /*    }*/
 /*}*/
 
-/*.tab--inactive {*/
-/*    background-color: #A4A8AE;*/
-/*}*/
+.tab--inactive {
+    background-color: #A4A8AE;
+}
 
 /*!*=======notification============*!*/
 

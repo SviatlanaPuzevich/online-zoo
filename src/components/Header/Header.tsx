@@ -2,6 +2,7 @@ import styles from './header.module.css';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { CONSTANT } from '../../const/const.ts';
+import Login from '../Login/Login.tsx';
 
 export default function Header() {
   const setActive = ({ isActive }: { isActive: boolean }) =>
@@ -52,6 +53,7 @@ export default function Header() {
                                                                                          src="/icons/Facebook.svg"
                                                                                          alt="Facebook" /></a>
               </div>
+              <Login/>
             </div>
           </div>
         </div>
