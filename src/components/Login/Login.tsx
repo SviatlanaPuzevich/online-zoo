@@ -1,14 +1,25 @@
 import styles from './login.module.css';
 import { usePopup } from '../../hooks/popupHook.ts';
 import { CONSTANT } from '../../const/const.ts';
+import { useAuth } from '../../providers/AuthProvider.tsx';
 
 const Login = () => {
+  const { user } = useAuth();
   const { openPopup } = usePopup();
   return (<div className={styles.user__container}>
-    <button popoverTarget={CONSTANT.POPUP_ID.basicPopupId} onClick={() => openPopup('LOGIN')}
-            className={styles.btn}>
-      <Icon />
-    </button>
+    {user ? (
+      <span className={styles.user__name}>
+          {user.name}
+        </span>
+    ) : (
+      <button
+        popoverTarget={CONSTANT.POPUP_ID.basicPopupId}
+        onClick={() => openPopup('LOGIN')}
+        className={styles.btn}
+      >
+        <Icon />
+      </button>
+    )}
   </div>);
 };
 

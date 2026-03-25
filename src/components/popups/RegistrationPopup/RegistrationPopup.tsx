@@ -13,16 +13,18 @@ import { ApiService } from '../../../services/service.ts';
 import type { RegisterForm } from '../../../types/types.ts';
 import { usePopup } from '../../../hooks/popupHook.ts';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
+import { useAuth } from '../../../providers/AuthProvider.tsx';
 
 const RegistrationPopup: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
-  const { openPopup } = usePopup();
+  const { openPopup, closePopup } = usePopup();
   const {
     formState,
     handleChange,
     isFormValid,
     getFormData,
   } = useFormValidation();
+  const { login } = useAuth();
 
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -34,8 +36,8 @@ const RegistrationPopup: React.FC = () => {
     const { confirmPassword, ...payload } = data;
     try {
       const { access_token, user } = await ApiService.register(payload as RegisterForm);
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('access_token', JSON.stringify(access_token));
+      login(user, access_token);
+      closePopup();
 
     } catch (err) {
       setError('Incorrect login or password');
@@ -54,7 +56,7 @@ const RegistrationPopup: React.FC = () => {
     <div className={styles.login__content}>
       <form className={styles.form}>
 
-        {error && <span className={styles.formError}>error</span>}
+        {error && <span className={styles.formError}>{error}</span>}
 
         <ValidatedInput validate={validateLogin} label="Login" required={true} id="login" placeHolder="Enter Your Login"
                         onValueChange={handleChange('login')} type="text" />

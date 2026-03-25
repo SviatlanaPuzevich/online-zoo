@@ -7,10 +7,12 @@ import { useFormValidation } from '../../../hooks/formValidationHook.ts';
 import { ApiService } from '../../../services/service.ts';
 import type { LoginForm } from '../../../types/types.ts';
 import { usePopup } from '../../../hooks/popupHook.ts';
+import { useAuth } from '../../../providers/AuthProvider.tsx';
 
 const LoginPopup: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
-    const { openPopup } = usePopup();
+    const { openPopup, closePopup } = usePopup();
+    const { login } = useAuth();
     const {
       handleChange,
       isFormValid,
@@ -28,8 +30,8 @@ const LoginPopup: React.FC = () => {
       const data = getFormData() as LoginForm;
       try {
         const { access_token, user } = await ApiService.login(data);
-        localStorage.setItem('user', JSON.stringify(user));
-        localStorage.setItem('access_token', JSON.stringify(access_token));
+        login(user, access_token);
+        closePopup();
 
       } catch (err) {
         setError('Incorrect login or password');
@@ -65,4 +67,3 @@ const LoginPopup: React.FC = () => {
 ;
 
 export default LoginPopup;
-;

@@ -5,22 +5,26 @@ import MapPage from './pages/map/MapPage.tsx';
 import ZooPage from './pages/zoos/ZooPage.tsx';
 import { Layout } from './layouts/MainLayout.tsx';
 import NotFoundPage from './pages/notFound/NotFoundPage.tsx';
+import { AuthProvider } from './providers/AuthProvider.tsx';
 
 function App() {
 
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/map" element={<MapPage />} />
-        <Route path="/zoo/:id" element={<ZooPage />} />
-        <Route
-          path="/contacts"
-          element={<ContactPage />}
-        />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Layout>);
+    <AuthProvider>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="/zoo/:id" element={<ZooPage />} />
+          <Route
+            path="/contacts"
+            element={<ContactPage />}
+          />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Layout>
+    </AuthProvider>
+  );
 }
 
 export default App;
