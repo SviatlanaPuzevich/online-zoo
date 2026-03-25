@@ -6,7 +6,6 @@ import { Loader } from '../../Loader/Loader.tsx';
 import { Alert } from '../../Alert/Alert.tsx';
 import Button from '../../Buttons/Button.tsx';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
-import ReviewsGrid from '../../ReviewCard/ReviewsGrid.tsx';
 import classNames from 'classnames';
 import GridSlider, { ArrowIcon } from '../../GridSlider/GridSlider.tsx';
 import ReviewCard from '../../ReviewCard/ReviewCard.tsx';

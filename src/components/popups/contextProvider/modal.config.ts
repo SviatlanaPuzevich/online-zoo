@@ -5,16 +5,10 @@ import LoginPopup from '../LoginPopup/LoginPopup.tsx';
 import RegistrationPopup from '../RegistrationPopup/RegistrationPopup.tsx';
 
 
-type PopupState =
-  | { type: "NONE"}
-  | { type: "LOGIN"; }
-  | { type: "REGISTRATION";  }
-  | { type: "ANIMAL_LOCATION"; src: string }
-  | { type: "PAYMENT";  petId?: number | string };
-
 interface PopupConfig {
   title: string;
-  component: ComponentType<never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: ComponentType<any>;
 }
 
 // function PopupContent({ popup, close }) {

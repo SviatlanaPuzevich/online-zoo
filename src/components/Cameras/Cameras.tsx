@@ -35,7 +35,7 @@ const Cameras = () => {
           <LeftIcon/>
 
           {Array.from({ length: 3 }, (_, i) => (
-            <CameraItem id={id} key={i + 1} camNumber={String(i + 1)} />
+            <CameraItem id={id!} key={i + 1} camNumber={String(i + 1)} />
           ))}
 
           <RigthIcon/>
