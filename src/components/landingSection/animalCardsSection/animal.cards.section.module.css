@@ -8,13 +8,43 @@
 }
 
 
+.slider__buttons {
+    color: var(--navy);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+.cardGrid{
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+    overflow-x: hidden;
+}
+
+@media (min-width: 640px) {
+
+
+    .cardGrid{
+        padding: 0 20px;
+    }
+
+}
+
 @media (min-width: 1200px) {
 
     .gallery {
         text-align: center;
         margin: 100px 0;
     }
-
+    .cardGrid{
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(2, auto);
+        gap: 30px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
 }
 
 @media (min-width: 1920px) {

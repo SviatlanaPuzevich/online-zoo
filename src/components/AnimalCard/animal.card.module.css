@@ -62,23 +62,10 @@
     pointer-events: none;
 }
 
-.cardGrid{
-    display: flex;
-    gap: 20px;
-    transition: transform 0.4s ease;
-}
-
-
 @media (min-width: 640px) {
-
     .card {
         flex: 0 0 calc(50% - 10px);
     }
-
-    .cardGrid{
-        padding: 0 20px;
-    }
-
 }
 
 @media (min-width: 1200px) {
@@ -95,12 +82,4 @@
         display: none;
     }
 
-    .cardGrid{
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-rows: repeat(2, auto);
-        gap: 30px;
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
 }

@@ -7,7 +7,9 @@ import { Alert } from '../../Alert/Alert.tsx';
 import AnimalCardsGrid from '../../AnimalCard/AnimalCardsGrid.tsx';
 import Button from '../../Buttons/Button.tsx';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
-import GridSlider from '../../GridSlider/GridSlider.tsx';
+import GridSlider, { ArrowIcon } from '../../GridSlider/GridSlider.tsx';
+import AnimalCard from '../../AnimalCard/AnimalCard.tsx';
+import animalStyles from '../../AnimalCard/animal.card.module.css';
 
 const AnimalCardsSection = () => {
   const [animals, setAnimals] = useState<Animal[]>([]);
@@ -51,8 +53,19 @@ const AnimalCardsSection = () => {
       )}
 
       {!isLoading && !error && (
-        <GridSlider>
-          <AnimalCardsGrid animals={animals} />
+        <GridSlider>{
+          ({trackRef, next, prev}) => (<div>
+            <div className={styles.slider__buttons}>
+              <Button btnStyle="dark" icon={<ArrowIcon left={true} />} extraClass={styles['slider-btn']} onClick={prev} />
+              <Button btnStyle="dark" icon={<ArrowIcon />} extraClass={styles['slider-btn']} onClick={next} />
+            </div>
+            <div ref={trackRef} className={styles.cardGrid}>
+              {animals.map((animal) => (
+                <AnimalCard animal={animal} key={animal.id} />
+              ))}
+            </div>
+        </div>)
+          }
         </GridSlider>
 
       )}

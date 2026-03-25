@@ -8,7 +8,8 @@ import Button from '../../Buttons/Button.tsx';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
 import ReviewsGrid from '../../ReviewCard/ReviewsGrid.tsx';
 import classNames from 'classnames';
-import GridSlider from '../../GridSlider/GridSlider.tsx';
+import GridSlider, { ArrowIcon } from '../../GridSlider/GridSlider.tsx';
+import ReviewCard from '../../ReviewCard/ReviewCard.tsx';
 
 const ReviewSection = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -56,7 +57,19 @@ const ReviewSection = () => {
         {!isLoading && !error && (
           <>
             <GridSlider>
-              <ReviewsGrid reviews={reviews} />
+              {({trackRef, prev, next}) => <div>
+
+
+                <div ref={trackRef} className={styles.cardGrid}>
+                  {reviews.map((review) => (
+                    <ReviewCard review={review} key={review.id} />
+                  ))}
+                </div>
+                <div className={styles.slider__buttons}>
+                  <Button btnStyle="white" icon={<ArrowIcon left={true} />} extraClass={styles['slider-btn']} onClick={prev} />
+                  <Button btnStyle="white" icon={<ArrowIcon />} extraClass={styles['slider-btn']} onClick={next} />
+                </div>
+              </div>}
             </GridSlider>
             <div className={styles.button__feedback}>
               <Button text="LEAVE FEEDBACK" btnStyle="secondary" icon={<Arrow />} to="/contacts" />

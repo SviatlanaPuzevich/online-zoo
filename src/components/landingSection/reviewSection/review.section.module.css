@@ -13,8 +13,34 @@
     color: var(--white);
     font-size: 26px;
 }
+.slider__buttons > button {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+}
+.slider__buttons {
+    max-width: 180px;
+    display: none;
+    justify-content: space-between;
+}
+.cardGrid {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    transition: transform 0.7s;
+    max-width: 100%;
+    overflow: hidden;
+}
 
 @media (min-width: 1200px) {
+    .cardGrid {
+        display: grid;
+        grid-auto-columns: 60%;
+        grid-template-rows: repeat(2, auto);
+        grid-auto-flow: column;
+        gap: 30px;
+        margin-bottom: 100px;
+    }
     .reviews {
         text-align: left;
         padding-bottom: 135px;
@@ -39,6 +65,13 @@
 
     .reviews__image {
         display: none;
+    }
+
+    .slider__buttons {
+        display: flex;
+        margin-left: auto;
+        margin-right: 40px;
+        margin-bottom: 100px;
     }
 }
 
@@ -80,5 +113,11 @@
     .button__feedback {
         margin-left: 0;
         grid-row: 3;
+    }
+
+    .slider__buttons {
+        display: flex;
+        margin-left: 0;
+        margin-bottom: 376px;
     }
 }

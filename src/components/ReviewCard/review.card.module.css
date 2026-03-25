@@ -1,11 +1,3 @@
-.cardGrid {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-    transition: transform 0.7s;
-    max-width: 100%;
-    overflow: hidden;
-}
 
 .reviews {
     text-align: center;
@@ -67,15 +59,5 @@
         font-weight: 500;
         font-size: 26px;
         line-height: 130%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .cardGrid {
-        display: grid;
-        grid-auto-columns: 60%;
-        grid-template-rows: repeat(2, auto);
-        grid-auto-flow: column;
-        gap: 30px;
     }
 }

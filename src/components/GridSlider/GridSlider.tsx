@@ -1,11 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { type RefObject, useEffect, useRef, useState } from 'react';
 import { getRowsCount } from '../../utils/sliderHelper.ts';
 import classNames from 'classnames';
 import styles from './grid.slider.module.css';
-import Button from '../Buttons/Button.tsx';
 
+interface RenderProps {
+  trackRef: RefObject<HTMLDivElement | null>;
+  next: () => void;
+  prev: () => void;
+}
 type Props = {
-  children: React.ReactNode;
+  children: (props: RenderProps) => React.ReactNode;
 };
 
 const GridSlider: React.FC<Props> = ({ children }) => {
@@ -19,24 +23,24 @@ const GridSlider: React.FC<Props> = ({ children }) => {
     const track = trackRef.current;
     if (!track) return;
 
-    const grid = Array.from(track.children)[0] as HTMLElement;
-    if (!grid) return;
+    // const grid = Array.from(track.children)[0] as HTMLElement;
+    // if (!grid) return;
 
 
-    const items = Array.from(grid.children) as HTMLElement[];
+    const items = Array.from(track.children) as HTMLElement[];
     if (!items.length) return;
 
-    const rows = getRowsCount(grid);
+    const rows = getRowsCount(track);
     const itemsPerRow = Math.ceil(items.length / rows);
 
     const itemWidth = items[0].getBoundingClientRect().width;
 
-    const computedStyle = window.getComputedStyle(grid);
+    const computedStyle = window.getComputedStyle(track);
     const cssGap = parseFloat(computedStyle.gap) || 0;
 
 
     const colWidth = itemWidth + cssGap;
-    const visibleColumns = Math.floor(grid.clientWidth / colWidth);
+    const visibleColumns = Math.floor(track.clientWidth / colWidth);
     console.log(colWidth)
 
     setColumnWidth(colWidth);
@@ -50,42 +54,34 @@ const GridSlider: React.FC<Props> = ({ children }) => {
     return () => window.removeEventListener('resize', calculate);
   }, []);
 
+
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    const grid = Array.from(track.children)[0] as HTMLElement;
+    const grid = track;
     if (!grid) return;
-
 
 
     grid.scrollTo({
       left: currentColumn * columnWidth,
       behavior: 'smooth',
     });
-  }, [currentColumn, columnWidth]);
+  }, [trackRef, currentColumn, columnWidth]);
 
   const next = () => {
+    // calculate();
     setCurrentColumn((prev) => (prev < maxIndex ? prev + 1 : 0));
   };
 
   const prev = () => {
+    // calculate();
     setCurrentColumn((prev) => (prev > 0 ? prev - 1 : maxIndex));
   };
 
   return (
     <div className={styles.slider}>
-
-      <div className={styles.slider__buttons}>
-        <Button btnStyle="dark" icon={<ArrowIcon left={true} />} extraClass={styles['slider-btn']} onClick={prev} />
-        <Button btnStyle="dark" icon={<ArrowIcon />} extraClass={styles['slider-btn']} onClick={next} />
-      </div>
-
-
-      <div ref={trackRef}>
-        {children}
-      </div>
-
+        {children({trackRef, next, prev})}
     </div>
   );
 };
@@ -97,7 +93,7 @@ interface ArrowProps {
   left?: boolean;
 }
 
-const ArrowIcon: React.FC<ArrowProps> = ({ left = false }) => {
+export const ArrowIcon: React.FC<ArrowProps> = ({ left = false }) => {
   return <svg className={classNames(styles.button__icon, left && styles.left)} width="25" height="22"
               viewBox="0 0 25 22" fill="none"
               xmlns="http://www.w3.org/2000/svg">
