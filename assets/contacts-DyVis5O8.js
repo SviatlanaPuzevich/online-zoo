@@ -1,1 +1,0 @@
-import{S as e}from"./sideMenu-WQuLH2c4.js";const n=[{label:"About",href:"../../../index.html"},{label:"Map",href:"../map/index.html"},{label:"Zoos",href:"../zoos/index.html?id=1"},{label:"Contact Us",href:"/index.html"},{label:"Design",href:"figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1"}],o=document.getElementById("side-menu"),l=new e(o,n,3);l.render();
