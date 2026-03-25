@@ -17,7 +17,7 @@ export const useFormValidation = (initialState: FormState = {}) => {
     }));
   }, []);
 
-  const isFormValid = Object.values(formState).every((state) => state.isValid);
+  const isFormValid = Object.keys(formState).length > 0 && Object.values(formState).every((state) => state.isValid);
 
   const getFormData = () => {
     return Object.fromEntries(

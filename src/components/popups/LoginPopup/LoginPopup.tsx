@@ -17,10 +17,12 @@ const LoginPopup: React.FC = () => {
       handleChange,
       isFormValid,
       getFormData,
-    } = useFormValidation({
-      email: { value: '', isValid: false },
-      password: { value: '', isValid: false },
-    });
+    } = useFormValidation(
+    //   {
+    //   email: { value: '', isValid: false },
+    //   password: { value: '', isValid: false },
+    // }
+    );
 
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {

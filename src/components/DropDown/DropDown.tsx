@@ -10,7 +10,7 @@ interface DropDownProps {
   selectedItem?: DropDownOption;
 }
 
-const DropDown: React.FC<DropDownProps> = ({ title='', items, name, valueName, selectedItem }) => {
+const DropDown: React.FC<DropDownProps> = ({ title='', items, name, selectedItem }) => {
   const [selected, setSelected] = useState<DropDownOption | null>(selectedItem || null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +24,7 @@ const DropDown: React.FC<DropDownProps> = ({ title='', items, name, valueName, s
       <input type="hidden" name={name} value={selected?.id || ''} />
 
       <button className={styles.dropdown__trigger}>
-        <input name={valueName} className={styles.dropdown__value} disabled={true} value={selected?.value || title} />
+        <span className={styles.dropdown__value}>{selected?.value || title}</span>
         <span className={styles.dropdown__arrow}>
                             <svg width="17" height="10" viewBox="0 0 17 10">
                                 <path d="M0.359375 0.359375L8.11695 8.35938L16.3594 0.359375"

@@ -42,6 +42,23 @@
     }
 }
 
+.reviews__container {
+    max-width: 100%;
+    padding: 0 10px;
+
+}
+@media (min-width: 640px) {
+    .reviews__container {
+        padding: 0 20px;
+        padding-right: 0;
+    }
+}
+@media (min-width: 1200px) {
+    .reviews__container {
+        padding: 0 40px;
+        padding-right: 0;
+    }
+}
 @media (min-width: 1920px) {
 
     .reviews {
@@ -53,6 +70,7 @@
         display: grid;
         grid-template-rows: 1fr auto;
         grid-template-columns: auto 1fr;
+        padding-right: 0;
     }
 
     .slider__buttons {

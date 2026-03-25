@@ -8,6 +8,7 @@ import Button from '../../Buttons/Button.tsx';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
 import ReviewsGrid from '../../ReviewCard/ReviewsGrid.tsx';
 import classNames from 'classnames';
+import GridSlider from '../../GridSlider/GridSlider.tsx';
 
 const ReviewSection = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -36,7 +37,7 @@ const ReviewSection = () => {
 
   return (
     <section className={styles.reviews}>
-      <div className={classNames('container', styles.reviews__container)}>
+      <div className={styles.reviews__container}>
         <div className={styles.reviews__header}>
           <h2 className={styles.reviews__title}>what our users think</h2>
           <p className={classNames('subheader2', styles.reviews__subtitle)}>
@@ -54,9 +55,11 @@ const ReviewSection = () => {
 
         {!isLoading && !error && (
           <>
-            <ReviewsGrid reviews={reviews} />
+            <GridSlider>
+              <ReviewsGrid reviews={reviews} />
+            </GridSlider>
             <div className={styles.button__feedback}>
-              <Button text="LEAVE FEEDBACK" btnStyle='secondary' icon={<Arrow />} to="/contacts" />
+              <Button text="LEAVE FEEDBACK" btnStyle="secondary" icon={<Arrow />} to="/contacts" />
             </div>
           </>
         )}

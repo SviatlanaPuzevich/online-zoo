@@ -22,20 +22,22 @@ const GridSlider: React.FC<Props> = ({ children }) => {
     const grid = Array.from(track.children)[0] as HTMLElement;
     if (!grid) return;
 
+
     const items = Array.from(grid.children) as HTMLElement[];
     if (!items.length) return;
 
     const rows = getRowsCount(grid);
     const itemsPerRow = Math.ceil(items.length / rows);
 
-
     const itemWidth = items[0].getBoundingClientRect().width;
 
     const computedStyle = window.getComputedStyle(grid);
     const cssGap = parseFloat(computedStyle.gap) || 0;
 
+
     const colWidth = itemWidth + cssGap;
     const visibleColumns = Math.floor(grid.clientWidth / colWidth);
+    console.log(colWidth)
 
     setColumnWidth(colWidth);
     setMaxIndex(Math.max(0, itemsPerRow - visibleColumns));
@@ -54,6 +56,8 @@ const GridSlider: React.FC<Props> = ({ children }) => {
 
     const grid = Array.from(track.children)[0] as HTMLElement;
     if (!grid) return;
+
+
 
     grid.scrollTo({
       left: currentColumn * columnWidth,

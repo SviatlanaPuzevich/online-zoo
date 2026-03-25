@@ -1,6 +1,6 @@
 import { type ComponentType } from 'react';
 import MapPopup from '../MapPopup/MapPopup.tsx';
-import BillingInfoPopup from '../donation/BillingInfo/BillingInfoPopup.tsx';
+import BillingInfoPopup from '../donation/Billing/BillingInfoPopup.tsx';
 import LoginPopup from '../LoginPopup/LoginPopup.tsx';
 import RegistrationPopup from '../RegistrationPopup/RegistrationPopup.tsx';
 
