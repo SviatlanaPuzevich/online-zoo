@@ -6,9 +6,9 @@ interface AnimalCardsGridProps {
   animals: Animal[];
 }
 
-const AnimalCardsGrid: React.FC<AnimalCardsGridProps> = ({animals}) => {
+const AnimalCardsGrid: React.FC<AnimalCardsGridProps> = ({ animals }) => {
   return (
-    <div id="animal-cards" className={styles.cardGrid}>
+    <div className={styles.cardGrid}>
       {animals.map((animal) => (
         <AnimalCard animal={animal} key={animal.id} />
       ))}

@@ -7,6 +7,7 @@ import { Alert } from '../../Alert/Alert.tsx';
 import AnimalCardsGrid from '../../AnimalCard/AnimalCardsGrid.tsx';
 import Button from '../../Buttons/Button.tsx';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
+import GridSlider from '../../GridSlider/GridSlider.tsx';
 
 const AnimalCardsSection = () => {
   const [animals, setAnimals] = useState<Animal[]>([]);
@@ -33,7 +34,6 @@ const AnimalCardsSection = () => {
   }, []);
 
 
-
   return (
     <section className={styles.gallery}>
       <div className="container">
@@ -47,14 +47,17 @@ const AnimalCardsSection = () => {
       {isLoading && <Loader text="Loading pets..." />}
 
       {error && (
-          <Alert onClose={() => setError(null)} />
+        <Alert onClose={() => setError(null)} />
       )}
 
       {!isLoading && !error && (
-        <AnimalCardsGrid animals={animals} />
+        <GridSlider>
+          <AnimalCardsGrid animals={animals} />
+        </GridSlider>
+
       )}
       <div className="mobile-invisible">
-        <Button text='Choose Your Favourite' btnStyle='dark' icon={<Arrow/>} extraClass='mobile-block' />
+        <Button text="Choose Your Favourite" btnStyle="dark" icon={<Arrow />} extraClass="mobile-block" />
       </div>
     </section>
   );
