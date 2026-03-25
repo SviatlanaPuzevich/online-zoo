@@ -2,15 +2,38 @@ import styles from './login.module.css';
 import { usePopup } from '../../hooks/popupHook.ts';
 import { CONSTANT } from '../../const/const.ts';
 import { useAuth } from '../../providers/AuthProvider.tsx';
+import { useState, useRef, useEffect } from 'react';
 
 const Login = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const { openPopup } = usePopup();
-  return (<div className={styles.user__container}>
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  return (<div className={styles.user__container} ref={menuRef}>
     {user ? (
-      <span className={styles.user__name}>
+      <div className={styles.user__wrapper}>
+        <button className={styles.user__name} onClick={() => setMenuOpen(prev => !prev)}>
           {user.name}
-        </span>
+        </button>
+        {menuOpen && (
+          <div className={styles.user__menu}>
+            <button className={styles.user__menuItem} onClick={() => { logout(); setMenuOpen(false); }}>
+              Sign Out
+            </button>
+          </div>
+        )}
+      </div>
     ) : (
       <button
         popoverTarget={CONSTANT.POPUP_ID.basicPopupId}

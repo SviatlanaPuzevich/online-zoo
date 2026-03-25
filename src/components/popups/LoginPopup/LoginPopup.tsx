@@ -18,10 +18,6 @@ const LoginPopup: React.FC = () => {
       isFormValid,
       getFormData,
     } = useFormValidation(
-    //   {
-    //   email: { value: '', isValid: false },
-    //   password: { value: '', isValid: false },
-    // }
     );
 
 
@@ -52,10 +48,10 @@ const LoginPopup: React.FC = () => {
       <div className={styles.login__content}>
         <form className={styles.form}>
 
-          {error && <span className={styles.formError}>error</span>}
+          {error && <span className={styles.formError}>{error}</span>}
 
-          <ValidatedInput validate={validateLogin} label="Login" required={true} id="name" placeHolder="Enter Your Login"
-                          onValueChange={handleChange('name')} />
+          <ValidatedInput validate={validateLogin} label="Login" required={true} id="login" placeHolder="Enter Your Login"
+                          onValueChange={handleChange('login')} />
           <ValidatedInput validate={validatePassword} label="Password" required={true} id="password"
                           placeHolder="Enter Your Password"
                           type="password" onValueChange={handleChange('password')} />

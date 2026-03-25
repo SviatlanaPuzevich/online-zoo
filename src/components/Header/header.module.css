@@ -129,4 +129,34 @@
     cursor: pointer;
 }
 
+.sideNav__authItem {
+    margin-top: 20px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.sideNav__user {
+    color: var(--turquose);
+    font-weight: 600;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.sideNav__authBtn {
+    background: none;
+    border: 1px solid var(--turquose);
+    border-radius: 20px;
+    color: var(--turquose);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 8px 32px;
+}
+
 

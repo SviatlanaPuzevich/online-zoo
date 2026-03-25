@@ -4,12 +4,10 @@ import type { Animal } from '../../../types/types.ts';
 import { ApiService } from '../../../services/service.ts';
 import { Loader } from '../../Loader/Loader.tsx';
 import { Alert } from '../../Alert/Alert.tsx';
-import AnimalCardsGrid from '../../AnimalCard/AnimalCardsGrid.tsx';
 import Button from '../../Buttons/Button.tsx';
 import Arrow from '../../Buttons/icons/Arrow.tsx';
 import GridSlider, { ArrowIcon } from '../../GridSlider/GridSlider.tsx';
 import AnimalCard from '../../AnimalCard/AnimalCard.tsx';
-import animalStyles from '../../AnimalCard/animal.card.module.css';
 
 const AnimalCardsSection = () => {
   const [animals, setAnimals] = useState<Animal[]>([]);

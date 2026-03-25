@@ -3,8 +3,12 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { CONSTANT } from '../../const/const.ts';
 import Login from '../Login/Login.tsx';
+import { useAuth } from '../../providers/AuthProvider.tsx';
+import { usePopup } from '../../hooks/popupHook.ts';
 
 export default function Header() {
+  const { user, logout } = useAuth();
+  const { openPopup } = usePopup();
   const setActive = ({ isActive }: { isActive: boolean }) =>
     isActive ? `${styles.nav__link} ${styles['nav__link--active']}` : styles.nav__link;
   const setActiveSideNav = ({ isActive }: { isActive: boolean }): string =>
@@ -74,6 +78,22 @@ export default function Header() {
             <li><NavLink to="/map" className={setActiveSideNav} onClick={closePopover}>Map</NavLink></li>
             <li><NavLink to="/zoo/" className={setActiveSideNav} onClick={closePopover}>Zoos</NavLink></li>
             <li><NavLink to="/contacts" className={setActiveSideNav} onClick={closePopover}>Contact Us</NavLink></li>
+            <li className={styles.sideNav__authItem}>
+              {user ? (<>
+                <span className={styles.sideNav__user}>{user.name}</span>
+                <button className={styles.sideNav__authBtn} onClick={() => { logout(); closePopover(); }}>
+                  Sign Out
+                </button>
+              </>) : (
+                <button
+                  className={styles.sideNav__authBtn}
+                  popoverTarget={CONSTANT.POPUP_ID.basicPopupId}
+                  onClick={() => { openPopup('LOGIN'); closePopover(); }}
+                >
+                  Login
+                </button>
+              )}
+            </li>
           </ul>
         </div>
       </nav>

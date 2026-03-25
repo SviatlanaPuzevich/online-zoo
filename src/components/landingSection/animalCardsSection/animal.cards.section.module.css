@@ -15,7 +15,8 @@
     justify-content: center;
     padding: 20px;
 }
-.cardGrid{
+
+.cardGrid {
     display: flex;
     gap: 20px;
     transition: transform 0.4s ease;
@@ -25,7 +26,7 @@
 @media (min-width: 640px) {
 
 
-    .cardGrid{
+    .cardGrid {
         padding: 0 20px;
     }
 
@@ -37,7 +38,8 @@
         text-align: center;
         margin: 100px 0;
     }
-    .cardGrid{
+
+    .cardGrid {
         display: grid;
         grid-auto-flow: column;
         grid-template-rows: repeat(2, auto);
