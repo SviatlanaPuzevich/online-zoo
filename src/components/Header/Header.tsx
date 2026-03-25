@@ -5,6 +5,10 @@ import { CONSTANT } from '../../const/const.ts';
 import Login from '../Login/Login.tsx';
 import { useAuth } from '../../providers/AuthProvider.tsx';
 import { usePopup } from '../../hooks/popupHook.ts';
+import logoSvg from '../../assets/icons/Logo.svg';
+import youtubeSvg from '../../assets/icons/YouTube.svg';
+import instagramSvg from '../../assets/icons/Instagram.svg';
+import facebookSvg from '../../assets/icons/Facebook.svg';
 
 export default function Header() {
   const { user, logout } = useAuth();
@@ -25,7 +29,7 @@ export default function Header() {
       <header className={styles.header}>
         <div className="container">
           <div className={styles.header__inner}>
-            <img src="/icons/Logo.svg" alt="Logo" className={styles.he} />
+            <img src={logoSvg} alt="Logo" className={styles.he} />
             <h1 className={styles.header__title}>online zoo</h1>
             <button popoverTarget={CONSTANT.POPUP_ID.sideNavMenuId}
                     className={classNames('open-btn', 'hide-on-desktop')}>
@@ -47,14 +51,14 @@ export default function Header() {
               </nav>
               <div className={styles.header__social}><a href="https://www.youtube.com/" className={styles.social__link}><img
                 className={styles.social__icon}
-                src="/icons/YouTube.svg"
+                src={youtubeSvg}
                 alt="YouTube" /></a>
                 <a href="https://www.instagram.com/" className={styles.social__link}><img
                   className={styles.social__icon}
-                  src="/icons/Instagram.svg"
+                  src={instagramSvg}
                   alt="Instagram" /></a>
                 <a href="https://www.facebook.com/" className={styles.social__link}><img className={styles.social__icon}
-                                                                                         src="/icons/Facebook.svg"
+                                                                                         src={facebookSvg}
                                                                                          alt="Facebook" /></a>
               </div>
               <Login/>

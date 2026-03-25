@@ -2,6 +2,9 @@ import type { AnimalFeeding } from '../../types/types.ts';
 import styles from './animal.feed.card.module.css';
 import Button from '../Buttons/Button.tsx';
 import Arrow from '../Buttons/icons/Arrow.tsx';
+import koalaImg from '../../assets/images/koala.png';
+
+const animalImages = import.meta.glob<{ default: string }>('../../assets/images/*.png', { eager: true });
 
 // interface AnimalCardsGridProps {
 //   animalsData: AnimalFeeding[];
@@ -17,7 +20,7 @@ const AnimalFeedCard: React.FC<AnimalFeedCardProps> = ({ animal }) => {
 
     <div className={styles.card}>
       <div className={styles.card__image}>
-        <img className={styles.card__image} src={`/images/${animal.id}.png`}
+        <img className={styles.card__image} src={animalImages[`../../assets/images/${animal.id}.png`]?.default}
              alt={animal.id || 'animal'} />
       </div>
       <div className={styles.card__content}>
@@ -36,7 +39,7 @@ const AnimalFeedCardsGrid = () => {
     <div className={styles.donate__container}>
 
       <div className={styles.donate__featured}>
-        <img className={styles.donate__image} src="/images/koala.png" alt="Koala" />
+        <img className={styles.donate__image} src={koalaImg} alt="Koala" />
       </div>
       <AnimalFeedCard animal={{
         id: 'panda',

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './animal.pin.module.css'
-import spriteBox from '../../../public/icons/pins/map_sprite.svg'
+import spriteBox from '../../assets/icons/pins/map_sprite.svg'
 import classNames from 'classnames';
 
 export type MapPinId =

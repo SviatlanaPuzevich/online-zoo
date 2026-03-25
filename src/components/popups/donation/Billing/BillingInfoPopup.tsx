@@ -6,9 +6,11 @@ import { ANIMAL_OPTIONS } from '../../../../data/data.ts';
 import CheckBox from '../../../CheckBox/CheckBox.tsx';
 import Arrow from '../../../Buttons/icons/Arrow.tsx';
 import Circles from '../Cirles/Circles.tsx';
+import ValidatedInput from '../../../ValidatedInput/ValidatedInput.tsx';
+import { validateAmount } from '../../../../validators/inputValidator.ts';
 
 const BillingInfoPopup: React.FunctionComponent = () => {
-  return <div>
+  return <div className={styles.donation__popup}>
     <div className={styles.donation__divider}>
       Donation information:
     </div>
@@ -24,12 +26,8 @@ const BillingInfoPopup: React.FunctionComponent = () => {
       </div>
       <div className={styles.donation__other}>
         <Button text="other" btnStyle="secondary" extraClass={classNames(styles.inactive, styles['donation-item'])} />
-        <div className="form-group form-group--error">
-          <label htmlFor="billing-amount-input"></label>
-          <input className="donation__input" type="text" id="billing-amount-input" disabled />
-
-          <span className="form-error" id="billing-amount-error"></span>
-        </div>
+        <ValidatedInput validate={validateAmount} id="other" onValueChange={() => {
+        }} />
       </div>
       <div className={styles.donation__fav}>
         <Button text="for special pet" btnStyle="secondary"

@@ -1,13 +1,15 @@
 import styles from './info.section.module.css';
 import classNames from 'classnames';
 import InfoText from './InfoText.tsx';
+import welcomeZooImg from '../../../assets/images/welcomeZoo.png';
+import welcomeEaglesImg from '../../../assets/images/welcomeEagles.png';
 
 export default function InfoSection() {
   return (<section className={styles.info}>
     <div className="container info__container">
       <div className={classNames(styles.info__item, styles['info__item--reverse-large'])}>
         <div className={classNames('image-wrapper', styles['info__image-wrapper'])}>
-          <img src="../../../../public/images/welcomeZoo.png" alt="Welcome to Zoo" />
+          <img src={welcomeZooImg} alt="Welcome to Zoo" />
         </div>
         <InfoText title="Welcome to the Online Zoo!" text={`On our website, using live webcams, fans of all ages can observe various animals. Among them,
             are Giant
@@ -22,7 +24,7 @@ export default function InfoSection() {
       </div>
       <div className={classNames(styles.info__item, styles['info__item--reverse'])}>
         <div className={classNames('image-wrapper', styles['info__image-wrapper'])}>
-          <img className="" src="../../../../public/images/welcomeEagles.png" alt="Eagles" />
+          <img className="" src={welcomeEaglesImg} alt="Eagles" />
         </div>
         <InfoText title="How we work" text={`Online Zoo is a nonprofit committed to inspiring awareness and preservation of nature and wild
             animals

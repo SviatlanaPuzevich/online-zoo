@@ -9,6 +9,7 @@ import Arrow from '../../Buttons/icons/Arrow.tsx';
 import classNames from 'classnames';
 import GridSlider, { ArrowIcon } from '../../GridSlider/GridSlider.tsx';
 import ReviewCard from '../../ReviewCard/ReviewCard.tsx';
+import pandaBgImg from '../../../assets/images/panda Background 2.png';
 
 const ReviewSection = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -76,7 +77,7 @@ const ReviewSection = () => {
           </>
         )}
         <div className={classNames(styles.reviews__image, 'image-wrapper')}>
-          <img src="/images/panda%20Background%202.png" alt="Bamboo panda" />
+          <img src={pandaBgImg} alt="Bamboo panda" />
         </div>
       </div>
     </section>

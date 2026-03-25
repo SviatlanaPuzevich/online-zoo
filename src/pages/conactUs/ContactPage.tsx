@@ -1,11 +1,12 @@
 import Banner from '../../components/banner/Banner.tsx';
 import ContactForm from '../../components/ContactForm/ContactForm.tsx';
+import touchAnimalImg from '../../assets/images/Touch_animal_contacts.jpg';
 import styles from './contact.page.module.css';
 
 export default function ContactPage() {
   return (
     <section>
-      <Banner alt="Touch animal" src="/images/Touch_animal_contacts.jpg" />
+      <Banner alt="Touch animal" src={touchAnimalImg} />
       <div className="container">
         <div className={styles.wrapper}>
           <div className={styles.contact__text}>
