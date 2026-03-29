@@ -1,0 +1,34 @@
+.contact__text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+@media (min-width: 1200px) {
+    .form-container {
+        max-width: 830px;
+        margin: 0 auto;
+    }
+
+    .form__button {
+        align-self: center;
+    }
+}
+
+
+@media (min-width: 1920px) {
+    .wrapper {
+        display: flex;
+        gap: 100px;
+        margin: 100px 0;
+    }
+    .form-container {
+        flex: 1;
+    }
+
+    .contact__text{
+        flex: 1;
+    }
+}

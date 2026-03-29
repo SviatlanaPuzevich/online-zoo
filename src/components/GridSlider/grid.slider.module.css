@@ -1,0 +1,20 @@
+.left {
+    transform: rotate(180deg);
+}
+
+.slider {
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider__buttons {
+    color: var(--navy);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+

@@ -1,0 +1,44 @@
+
+.item__img {
+    margin-bottom: 25px;
+}
+
+.item__content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.item__description {
+    font-weight: 400;
+}
+
+
+section {
+    display: flow-root;
+}
+
+
+@media (min-width: 1200px) {
+    .item {
+        display: flex;
+    }
+
+    .item__content {
+        flex: 1;
+    }
+
+    .item__img {
+        flex: 1;
+    }
+
+}
+
+@media (min-width: 1920px) {
+
+    .item__content {
+        text-align: left;
+    }
+}

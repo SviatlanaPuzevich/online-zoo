@@ -1,0 +1,53 @@
+.donateButton {
+    min-width: 300px;
+    display: flex;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.donateButton__text {
+    flex: 1;
+    font-size: 16px;
+    align-self: center;
+    text-align: center;
+}
+
+
+.donateButton__icon {
+    min-height: 45px;
+    min-width: 45px;
+    border-radius: 5px;
+    background: var(--orange);
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.donateButton:hover .donateButton__icon,
+.donateButton:active .donateButton__icon {
+    background: var(--dark-orange);
+}
+
+@media (min-width: 640px) {
+    .donateButton__text {
+        padding: 20px;
+    }
+
+    .donateButton__icon {
+        min-height: 74px;
+        min-width: 74px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .donateButton {
+        min-width: 320px;
+    }
+}

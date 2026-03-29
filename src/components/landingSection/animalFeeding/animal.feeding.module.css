@@ -1,0 +1,17 @@
+.feeding {
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+@media (min-width: 640px) {
+  .feeding {
+      margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+    .feeding {
+        margin-bottom: 70px;
+    }
+}

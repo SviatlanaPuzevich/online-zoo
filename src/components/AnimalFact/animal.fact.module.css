@@ -1,0 +1,165 @@
+.fact {
+    margin: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.fact__title {
+    color: var(--turquose);
+    text-align: center;
+}
+
+.fact__text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+
+}
+
+.fact__card {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 10px 30px 10px rgb(0 0 0 / 16%);
+    margin-bottom: 60px;
+}
+
+@media (min-width: 640px) {
+
+    .fact {
+        margin: 80px 0;
+    }
+
+    .fact__text {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 130%;
+    }
+
+    .fact__card {
+        margin-bottom: 80px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .fact {
+        margin: 100px 0;
+    }
+
+    .fact__card {
+        margin: 0 135px 100px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .fact__card {
+        justify-content: flex-end;
+    }
+}
+
+/* ================= ANIMAL INFO ================= */
+
+.info {
+    padding: 40px 0;
+}
+
+.info__image {
+    margin: 0 -10px;
+}
+
+.info__image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+.info__list {
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+
+.info__item {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.info__label {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 130%;
+    vertical-align: middle;
+
+}
+
+.info__map {
+    align-self: center;
+    text-align: center;
+}
+
+
+.mapLink {
+    margin:  30px 0;
+}
+
+.info__description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    vertical-align: middle;
+    text-transform: none;
+}
+
+
+@media (min-width: 640px) {
+
+    .info__image {
+        margin: 0;
+    }
+
+
+    .info__item {
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-end;
+        margin-bottom: 25px;
+    }
+
+    .info__map {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(50%, 50%);
+    }
+
+    .info__description {
+        margin: 50px 0;
+    }
+
+    .info__item--last {
+        align-items: baseline;
+    }
+
+    .info__item--last  > * {
+        flex-shrink: 0;
+    }
+
+    .mapLink {
+        margin:  0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .info__card {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 185px;
+    }
+
+    .info__image img {
+        width: auto;
+    }
+
+}

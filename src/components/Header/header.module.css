@@ -1,0 +1,162 @@
+.header {
+    background-color: var(--orange);
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.header__rightPanel {
+    display: none;
+}
+
+.header__title {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-transform: uppercase;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 600;
+}
+
+.nav__link--active {
+    color: var(--turquose);
+}
+
+.social {
+    display: flex;
+    gap: 20px;
+}
+
+.social__icon {
+    width: 40px;
+    height: 40px;
+}
+
+.header__user {
+    border: none;
+    background: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+
+    .header__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 60px;
+    }
+
+    .header__social {
+        display: flex;
+        gap: 30px;
+    }
+
+
+    .header__rightPanel {
+        display: flex;
+        gap: 80px;
+        align-items: center;
+    }
+}
+
+.sideMenu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.sideMenu__buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.closeBtn {
+    align-self: flex-end;
+    margin: 15px 15px 0 0;
+}
+
+.sideNav__container  {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.sideNav__container li {
+    margin-bottom: 45px;
+}
+
+.sideNav {
+    text-decoration: none;
+    display: block;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.sideNav--active {
+    color: var(--turquose);
+}
+
+.openBtn, .closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sideNav__authItem {
+    margin-top: 20px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.sideNav__user {
+    color: var(--turquose);
+    font-weight: 600;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.sideNav__authBtn {
+    background: none;
+    border: 1px solid var(--turquose);
+    border-radius: 20px;
+    color: var(--turquose);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 8px 32px;
+}
+
+

@@ -1,0 +1,62 @@
+.map__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: lowercase;
+    color: var(--navy);
+}
+
+.map__container {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    margin: 30px 0 50px;
+}
+
+
+.title__break {
+    display: none;
+}
+
+
+@media (min-width: 640px) {
+
+    .map__title {
+        font-size: 42px;
+        line-height: 100%;
+        text-transform: uppercase;
+    }
+
+    .map__container {
+        overflow-x: visible;
+        margin: 50px 0 100px;
+    }
+
+
+}
+
+@media (min-width: 1200px) {
+
+    .map__title {
+        font-weight: 600;
+        font-size: 54px;
+    }
+
+    .map__container {
+        margin-top: 0;
+    }
+
+    .title__break {
+        display: block;
+    }
+}
+
+@media (min-width: 1920px) {
+
+    .map__container {
+        max-width: 1406px;
+        margin: 0 auto 100px;
+    }
+
+}

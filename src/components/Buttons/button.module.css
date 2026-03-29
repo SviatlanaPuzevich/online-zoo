@@ -1,0 +1,88 @@
+.button {
+    display: inline-flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    border: none;
+    text-transform: uppercase;
+    padding: 25px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 320px) {
+    .button {
+        padding: 10px 10px;
+        text-transform: capitalize;
+    }
+}
+
+
+.button--primary {
+    background-color: var(--orange);
+    text-transform: uppercase;
+}
+
+.button--primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.button--secondary {
+    background-color: var(--turquose);
+    text-transform: uppercase;
+}
+
+.button--dark {
+    background-color: transparent;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+}
+
+.button--white {
+    background-color: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+
+.button--orange {
+    background-color: transparent;
+    color: var(--orange);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.button--primary:hover, .button--primary:active {
+    background-color: var(--dark-orange);
+}
+
+.button--secondary:hover, .button--secondary:active {
+    background-color: var(--dark-turquose);
+}
+
+.inactive, .button--secondary:disabled, .button--secondary:disabled:hover, .button--secondary:disabled:active {
+    background-color: var(--turquose-disabled)
+}
+
+.button--dark:hover, .button--dark:active {
+    border-color: var(--white);
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.button--white:hover, .button--white:active {
+    background-color: var(--turquose);
+}
+
+.button--orange:hover, .button--orange:active {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+
+
